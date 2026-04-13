@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "27fcfc3c30ab20fd",
+        "id": "30eb3a4f5a6c6793",
         "type": "tabs",
         "children": [
           {
-            "id": "cadb3b62e7e94d06",
+            "id": "6a831a329a7136f8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           }
         ]
@@ -95,12 +91,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              "title": "Outgoing links"
             }
           },
           {
@@ -156,13 +151,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "05_Weekly/Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of Untitled"
             }
           }
         ]
@@ -178,17 +173,16 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks"
             }
           }
         ]
@@ -211,10 +205,12 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "cadb3b62e7e94d06",
+  "active": "5bfcf110d8dd9ec6",
   "lastOpenFiles": [
-    "00_Home.md",
+    "Untitled.md",
+    "05_Weekly/Untitled.md",
     "README.md",
+    "00_Home.md",
     "README.md.tmp.25757.1776084961947",
     "PDE MOC.md",
     "Optimization MOC.md",
