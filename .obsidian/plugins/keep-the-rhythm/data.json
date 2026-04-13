@@ -68,6 +68,21 @@
     "highestStreakStartDate": "",
     "highestStreakEndDate": "",
     "daysWithCompletedGoal": [],
-    "dailyActivity": []
+    "dailyActivity": [
+      {
+        "date": "2026-04-13",
+        "filePath": "daily/2026-04-13.md",
+        "wordCountStart": 0,
+        "charCountStart": 0,
+        "changes": [
+          {
+            "timeKey": "14:45",
+            "w": 0,
+            "c": 0
+          }
+        ],
+        "id": 1
+      }
+    ]
   }
 }

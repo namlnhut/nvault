@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "fa882ae44d201897",
+        "id": "27fcfc3c30ab20fd",
         "type": "tabs",
         "children": [
           {
-            "id": "e5cb2488a980033a",
+            "id": "cadb3b62e7e94d06",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "daily/2026-04-13.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-04-13"
             }
           }
         ]
@@ -83,36 +87,20 @@
       {
         "id": "779680bfffb20b75",
         "type": "tabs",
+        "dimension": 32.30472516875603,
         "children": [
-          {
-            "id": "cf83c5fa696e0450",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks"
-            }
-          },
           {
             "id": "2e5e57c4c6c52d16",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "daily/2026-04-13.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from 2026-04-13"
             }
           },
           {
@@ -145,20 +133,6 @@
             }
           },
           {
-            "id": "efa91bfafd9cca76",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline"
-            }
-          },
-          {
             "id": "c687f738a4457378",
             "type": "leaf",
             "state": {
@@ -168,12 +142,60 @@
               "title": "Calendar"
             }
           }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "4118e894ece4725b",
+        "type": "tabs",
+        "dimension": 25.168756027000967,
+        "children": [
+          {
+            "id": "efa91bfafd9cca76",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "daily/2026-04-13.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 2026-04-13"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ba07589856d280c2",
+        "type": "tabs",
+        "dimension": 42.52651880424301,
+        "children": [
+          {
+            "id": "cf83c5fa696e0450",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "daily/2026-04-13.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 2026-04-13"
+            }
+          }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 416.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,11 +207,19 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "keep-the-rhythm:Word Count Stats": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "terminal:Open terminal": false
     }
   },
-  "active": "e5cb2488a980033a",
+  "active": "5bfcf110d8dd9ec6",
   "lastOpenFiles": [
+    "research/optimization",
+    "research/pdes",
+    "research/odes/pdes",
+    "research/odes",
+    "research",
+    "daily/2026-04-13.md",
+    "Untitled.base",
     "learning",
     "projects",
     "daily/projects",
