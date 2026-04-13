@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2026-04-13.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-13"
+              "title": "README"
             }
           }
         ]
@@ -95,12 +95,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "daily/2026-04-13.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2026-04-13"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily/2026-04-13.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-04-13"
+              "title": "Outline of README"
             }
           }
         ]
@@ -178,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "daily/2026-04-13.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -188,7 +188,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-04-13"
+              "title": "Backlinks for README"
             }
           }
         ]
@@ -211,18 +211,32 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "5bfcf110d8dd9ec6",
+  "active": "cadb3b62e7e94d06",
   "lastOpenFiles": [
-    "research/optimization",
-    "research/pdes",
-    "research/odes/pdes",
-    "research/odes",
-    "research",
-    "daily/2026-04-13.md",
-    "Untitled.base",
-    "learning",
-    "projects",
-    "daily/projects",
-    "daily"
+    "00_Home.md",
+    "README.md",
+    "README.md.tmp.25757.1776084961947",
+    "PDE MOC.md",
+    "Optimization MOC.md",
+    "ODE MOC.md",
+    "PDE MOC.md.tmp.25757.1776084824281",
+    "ODE MOC.md.tmp.25757.1776084814227",
+    "Optimization MOC.md.tmp.25757.1776084806462",
+    "_assets/templates/concept.md",
+    "00_Home.md.tmp.25757.1776084794232",
+    "_assets/templates/moc.md",
+    "_assets/templates/moc.md.tmp.25757.1776084787825",
+    "_assets/references",
+    "_assets/templates/lecture_note.md",
+    "_assets/templates/paper_review.md",
+    "_assets/templates/problem.md",
+    "_assets/templates/proof.md",
+    "_assets/templates/theorem.md",
+    "_assets/templates/weekly.md",
+    "_assets/templates/lecture_note.md.tmp.25757.1776084461535",
+    "_assets/templates/problem.md.tmp.25757.1776084454986",
+    "_assets/templates/proof.md.tmp.25757.1776084449259",
+    "_assets/templates/Untitled.md",
+    "daily/2026-04-13.md"
   ]
 }

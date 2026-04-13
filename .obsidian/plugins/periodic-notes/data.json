@@ -1,0 +1,32 @@
+{
+  "daily": {
+    "enabled": false,
+    "format": "YYYY-MM-DD",
+    "folder": "",
+    "templatePath": ""
+  },
+  "weekly": {
+    "enabled": true,
+    "format": "YYYY-[W]WW",
+    "folder": "05_Weekly",
+    "templatePath": "_assets/templates/weekly.md"
+  },
+  "monthly": {
+    "enabled": false,
+    "format": "YYYY-MM",
+    "folder": "",
+    "templatePath": ""
+  },
+  "quarterly": {
+    "enabled": false,
+    "format": "YYYY-[Q]Q",
+    "folder": "",
+    "templatePath": ""
+  },
+  "yearly": {
+    "enabled": false,
+    "format": "YYYY",
+    "folder": "",
+    "templatePath": ""
+  }
+}

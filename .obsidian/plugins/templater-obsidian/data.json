@@ -1,0 +1,54 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "_assets/templates",
+  "templates_pairs": [
+    [
+      "",
+      ""
+    ]
+  ],
+  "trigger_on_file_creation": false,
+  "auto_jump_to_cursor": false,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "01_Concepts",
+      "template": "_assets/templates/concept.md"
+    },
+    {
+      "folder": "02_Papers",
+      "template": "_assets/templates/paper_review.md"
+    },
+    {
+      "folder": "03_Projects",
+      "template": "_assets/templates/problem.md"
+    },
+    {
+      "folder": "04_Foundations",
+      "template": "_assets/templates/theorem.md"
+    },
+    {
+      "folder": "05_Weekly",
+      "template": "_assets/templates/weekly.md"
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [
+    {
+      "regex": ".*",
+      "template": ""
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    ""
+  ],
+  "startup_templates": [
+    ""
+  ],
+  "intellisense_render": 1
+}
