@@ -67,9 +67,7 @@
     "highestStreak": 0,
     "highestStreakStartDate": "",
     "highestStreakEndDate": "",
-    "daysWithCompletedGoal": [
-      "2026-04-14"
-    ],
+    "daysWithCompletedGoal": [],
     "dailyActivity": [
       {
         "date": "2026-04-13",
@@ -232,25 +230,6 @@
           }
         ],
         "id": 16
-      },
-      {
-        "date": "2026-04-14",
-        "filePath": "04_Foundations/Monte Carlo Method.md",
-        "wordCountStart": 81,
-        "charCountStart": 851,
-        "changes": [
-          {
-            "timeKey": "13:15",
-            "w": 2,
-            "c": 9
-          },
-          {
-            "timeKey": "13:25",
-            "w": 790,
-            "c": 5034
-          }
-        ],
-        "id": 17
       }
     ]
   }

@@ -1,0 +1,225 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{question}{Question}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\inner}[2]{\langle #1,#2\rangle}
+
+\title{Convexity and Boundary Positivity of the Hessian}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Let $C \subset \R^N$ be a closed convex set with nonempty interior, and let
+$f \colon C \to \R$ be convex and twice differentiable on $C$. It is standard
+that $\nabla^2 f(x) \succeq 0$ for every $x \in \operatorname{int}(C)$, since the
+usual open-set characterization of convexity by the positivity of the Hessian
+applies on the interior. The main issue is whether the same conclusion must
+remain true at boundary points when no continuity of the Hessian is assumed up
+to $\partial C$. This note sets up that question precisely, records the standard
+facts that are already available, and isolates the geometric distinction between
+positivity in all ambient directions and positivity only along feasible boundary
+directions.
+\end{abstract}
+
+\section{Introduction}
+
+For convex functions defined on open subsets of $\R^N$, second-order
+information is well understood: if $f$ is twice differentiable and convex on an
+open set $U$, then the Hessian satisfies
+\[
+\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in U.
+\]
+In the present note, the domain is not assumed open. Instead, we consider a
+closed convex set $C \subset \R^N$ with nonempty interior and a function
+$f \colon C \to \R$ that is convex on $C$.
+
+The interior of the problem is immediate: restricting attention to
+$\operatorname{int}(C)$ gives the standard conclusion
+\[
+\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in \operatorname{int}(C).
+\]
+The difficulty lies at boundary points. If one strengthens the regularity
+assumption and requires that $f$ be of class $C^2$ on $C$, then the boundary
+question is again straightforward, because the Hessian can be obtained as a
+limit of interior Hessians. Without continuity of $\nabla^2 f$ up to the
+boundary, however, the situation is less clear.
+
+This leads to two closely related questions. The first is whether convexity and
+twice differentiability on a closed convex set already force the Hessian to be
+positive semidefinite at every boundary point. The second is whether a twice
+differentiable convex function must automatically have continuous Hessian, which
+would reduce the first question to the familiar interior argument. The purpose
+of the present draft is not yet to settle these questions, but to formulate them
+precisely and to set up the notation and background needed for a later analysis.
+
+There is also a geometric reason to separate these issues carefully. At a point
+$x \in \partial C$, convexity only tests the behavior of $f$ along directions
+that keep one inside the set. Consequently, even if second-order information is
+available at $x$, one must distinguish between positivity of the quadratic form
+$h \mapsto \inner{\nabla^2 f(x) h}{h}$ on all of $\R^N$ and positivity only on
+the cone of feasible directions determined by $C$ at $x$. This distinction is
+one of the central themes in what follows.
+
+\section{Background and Preliminaries}
+
+We fix a closed convex set $C \subset \R^N$ with $\operatorname{int}(C)
+\neq \varnothing$ and a function $f \colon C \to \R$.
+
+\subsection{Convexity on a closed convex set}
+
+The function $f$ is said to be convex on $C$ if
+\[
+f((1-\alpha)x+\alpha y) \leq (1-\alpha)f(x)+\alpha f(y)
+\]
+for every $x,y \in C$ and every $\alpha \in [0,1]$. Since $C$ is convex, each
+segment $[x,y]$ is contained in $C$, so the restriction of $f$ to any such
+segment is a one-variable convex function.
+
+Two standard facts will be used repeatedly.
+
+\begin{proposition}
+If $f$ is convex on $C$, then $f$ is continuous on $\operatorname{int}(C)$.
+Moreover, if $f$ is differentiable on $\operatorname{int}(C)$, then
+$\nabla f$ is continuous on $\operatorname{int}(C)$.
+\end{proposition}
+
+The second statement is a standard consequence of the monotonicity of the
+subdifferential and the fact that, for a differentiable convex function, the
+subdifferential reduces to the singleton $\{\nabla f(x)\}$.
+
+\subsection{Twice differentiability on $C$}
+
+Because the domain is not open, the notion of twice differentiability at a
+boundary point must be stated explicitly. In this note, we say that $f$ is
+twice differentiable at $x \in C$ if there exist a vector $\nabla f(x) \in \R^N$
+and a symmetric matrix $\nabla^2 f(x) \in \R^{N \times N}$ such that
+\[
+f(x+h)=f(x)+\inner{\nabla f(x)}{h}
++\tfrac12 \inner{\nabla^2 f(x)h}{h}+o(\|h\|^2)
+\]
+as $h \to 0$ under the constraint that $x+h \in C$. Equivalently, the remainder
+is required to satisfy
+\[
+f(x+h)-f(x)-\inner{\nabla f(x)}{h}-\tfrac12 \inner{\nabla^2 f(x)h}{h}
+=o(\|h\|^2)
+\]
+for admissible increments $h$ with $x+h \in C$.
+
+This is a relative notion of second-order differentiability along the set $C$.
+When $x \in \operatorname{int}(C)$, it coincides with the usual definition on an
+open neighborhood of $x$. At a boundary point, it captures second-order
+expansions only along directions that remain in the domain.
+
+\subsection{Feasible directions and tangent cones}
+
+For $x \in C$, the feasible-direction cone of $C$ at $x$ is
+\[
+T_C(x):=\overline{\{t(y-x): t \geq 0,\ y \in C\}}.
+\]
+Equivalently, $v \in T_C(x)$ if there exist sequences $t_k \downarrow 0$ and
+$v_k \to v$ such that $x+t_k v_k \in C$ for all $k$. When $x \in
+\operatorname{int}(C)$, one has $T_C(x)=\R^N$; at a boundary point, this cone
+encodes the directions in which one can move while remaining in $C$.
+
+This cone is relevant because convexity of $f$ on $C$ can only be tested along
+segments contained in $C$. Thus, at $x \in \partial C$, any immediate
+second-order consequence of convexity is expected to involve the quadratic form
+$h \mapsto \inner{\nabla^2 f(x)h}{h}$ at least on $T_C(x)$, whereas positivity in
+arbitrary ambient directions is a stronger requirement.
+
+\subsection{Standard second-order criterion on the interior}
+
+The following is the classical open-set result applied to the interior of $C$.
+
+\begin{proposition}
+Suppose that $f$ is convex on $C$ and twice differentiable on
+$\operatorname{int}(C)$. Then
+\[
+\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in \operatorname{int}(C).
+\]
+\end{proposition}
+
+Indeed, each point of $\operatorname{int}(C)$ has a neighborhood contained in
+$C$, so the standard theorem for convex $C^2$ functions on open sets applies.
+
+\begin{remark}
+If one additionally assumes that $f$ is of class $C^2$ on the whole of $C$ in
+the sense that the Hessian extends continuously to boundary points, then the
+interior positivity immediately passes to every $x \in C$ by taking limits from
+$\operatorname{int}(C)$.
+\end{remark}
+
+\section{Problem Statement}
+
+We can now formulate the main issue precisely.
+
+\begin{question}[Boundary positivity of the Hessian]
+Let $C \subset \R^N$ be a closed convex set with nonempty interior, and let
+$f \colon C \to \R$ be convex and twice differentiable on $C$ in the relative
+sense above. Must one have
+\[
+\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in C?
+\]
+Equivalently, does convexity on $C$ force the Hessian at a boundary point to be
+positive semidefinite on all ambient directions of $\R^N$?
+\end{question}
+
+This question is nontrivial only on $\partial C$, since the conclusion is already
+known on $\operatorname{int}(C)$. It is also already settled under the stronger
+assumption that $f$ is $C^2$ on $C$.
+
+\begin{question}[Automatic continuity of the Hessian]
+If $f$ is convex and twice differentiable on $C$, must the mapping
+$x \mapsto \nabla^2 f(x)$ be continuous, at least on compact subsets of
+$\operatorname{int}(C)$ or up to the boundary under the relative notion of
+twice differentiability?
+\end{question}
+
+An affirmative answer to the second question would give a direct positive answer
+to the first one, but it is not clear a priori that convexity plus existence of
+pointwise second derivatives should force such continuity.
+
+There is also a weaker boundary formulation which is geometrically natural.
+
+\begin{question}[Positivity on feasible directions]
+For $x \in \partial C$, does convexity at least imply that
+\[
+\inner{\nabla^2 f(x)h}{h} \geq 0 \qquad \text{for every } h \in T_C(x)?
+\]
+If so, to what extent can this feasible-direction positivity be upgraded to full
+positive semidefiniteness on $\R^N$?
+\end{question}
+
+This reformulation isolates the geometric core of the problem. Convexity of the
+restriction of $f$ to segments in $C$ naturally gives one-dimensional
+second-order inequalities only in directions allowed by the set. The passage
+from such restricted inequalities to an ambient matrix inequality is exactly the
+point that must be clarified.
+
+\begin{remark}[Expected route for the sequel]
+A later section should examine whether the correct boundary statement is full
+positivity of $\nabla^2 f(x)$, positivity only on $T_C(x)$, or some intermediate
+condition depending on the local geometry of $\partial C$. It will also be useful
+to separate smooth boundary points from corners or other nonsmooth points of the
+set, since the tangent structure may behave differently in those cases.
+\end{remark}
+
+\section{Next Step Placeholder}
+
+The next stage of the note should provide either a proof or a counterexample for
+the boundary question, together with a separate discussion of the continuity of
+the Hessian for twice differentiable convex functions.
+
+\end{document}
