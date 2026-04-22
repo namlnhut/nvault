@@ -1,0 +1,236 @@
+{
+  "schema": "0.2",
+  "settings": {
+    "enabledLanguages": [
+      "LATIN"
+    ],
+    "dailyWritingGoal": 500,
+    "startOfTheWeek": "SUNDAY",
+    "heatmapNavigation": true,
+    "heatmapConfig": {
+      "roundCells": true,
+      "hideMonthLabels": false,
+      "hideWeekdayLabels": false,
+      "intensityMode": "gradual",
+      "intensityStops": {
+        "low": 100,
+        "medium": 500,
+        "high": 1000
+      },
+      "colors": {
+        "light": {
+          "0": "#e0e0e0",
+          "1": "#9be9a8",
+          "2": "#6ad286",
+          "3": "#2ebd54",
+          "4": "#12a53e"
+        },
+        "dark": {
+          "0": "#ebedf015",
+          "1": "#0e4429",
+          "2": "#006d32",
+          "3": "#26a641",
+          "4": "#39d353"
+        }
+      }
+    },
+    "sidebarConfig": {
+      "visibility": {
+        "showSlots": true,
+        "showEntries": true,
+        "showHeatmap": true
+      },
+      "slots": [
+        {
+          "index": 0,
+          "option": "CURRENT_DAY",
+          "unit": "WORD",
+          "calc": "TOTAL"
+        },
+        {
+          "index": 1,
+          "option": "CURRENT_WEEK",
+          "unit": "WORD",
+          "calc": "TOTAL"
+        },
+        {
+          "index": 2,
+          "option": "LAST_MONTH",
+          "unit": "WORD",
+          "calc": "AVG"
+        }
+      ]
+    }
+  },
+  "stats": {
+    "currentStreak": 0,
+    "highestStreak": 0,
+    "highestStreakStartDate": "",
+    "highestStreakEndDate": "",
+    "daysWithCompletedGoal": [],
+    "dailyActivity": [
+      {
+        "date": "2026-04-13",
+        "filePath": "daily/2026-04-13.md",
+        "wordCountStart": 0,
+        "charCountStart": 0,
+        "changes": [
+          {
+            "timeKey": "14:45",
+            "w": 0,
+            "c": 0
+          },
+          {
+            "timeKey": "19:30",
+            "w": 0,
+            "c": 0
+          },
+          {
+            "timeKey": "19:40",
+            "w": 0,
+            "c": 0
+          }
+        ],
+        "id": 1
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/Untitled.md",
+        "wordCountStart": 0,
+        "charCountStart": 0,
+        "changes": [
+          {
+            "timeKey": "19:40",
+            "w": 0,
+            "c": 0
+          }
+        ],
+        "id": 2
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/concept.md",
+        "wordCountStart": 91,
+        "charCountStart": 926,
+        "changes": [],
+        "id": 3
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/weekly.md",
+        "wordCountStart": 150,
+        "charCountStart": 1125,
+        "changes": [],
+        "id": 4
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/theorem.md",
+        "wordCountStart": 70,
+        "charCountStart": 694,
+        "changes": [],
+        "id": 5
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/proof.md",
+        "wordCountStart": 96,
+        "charCountStart": 776,
+        "changes": [],
+        "id": 6
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/problem.md",
+        "wordCountStart": 79,
+        "charCountStart": 758,
+        "changes": [],
+        "id": 7
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/paper_review.md",
+        "wordCountStart": 137,
+        "charCountStart": 1299,
+        "changes": [],
+        "id": 8
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "_assets/templates/lecture_note.md",
+        "wordCountStart": 81,
+        "charCountStart": 777,
+        "changes": [],
+        "id": 9
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "00_Home.md",
+        "wordCountStart": 155,
+        "charCountStart": 1135,
+        "changes": [],
+        "id": 10
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "Optimization MOC.md",
+        "wordCountStart": 210,
+        "charCountStart": 1734,
+        "changes": [],
+        "id": 11
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "ODE MOC.md",
+        "wordCountStart": 216,
+        "charCountStart": 1696,
+        "changes": [],
+        "id": 12
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "PDE MOC.md",
+        "wordCountStart": 250,
+        "charCountStart": 1935,
+        "changes": [],
+        "id": 13
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "README.md",
+        "wordCountStart": 612,
+        "charCountStart": 5247,
+        "changes": [],
+        "id": 14
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "Untitled.md",
+        "wordCountStart": 0,
+        "charCountStart": 0,
+        "changes": [
+          {
+            "timeKey": "20:00",
+            "w": 0,
+            "c": 0
+          }
+        ],
+        "id": 15
+      },
+      {
+        "date": "2026-04-13",
+        "filePath": "05_Weekly/Untitled.md",
+        "wordCountStart": 81,
+        "charCountStart": 851,
+        "changes": [
+          {
+            "timeKey": "20:00",
+            "w": -81,
+            "c": -851
+          }
+        ],
+        "id": 16
+      }
+    ]
+  }
+}

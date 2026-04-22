@@ -1,20 +1,42 @@
-\documentclass[11pt]{article}
+\documentclass[reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{natbib}
 
-\usepackage[a4paper,margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % False for boxes; true for colored text
+    linkcolor=blue,        % Color for internal links
+    filecolor=magenta,     % Color for file links
+    urlcolor=cyan,         % Color for external links
+    citecolor=green,       % Color for citations
+}
 
-\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
 \newtheorem{question}{Question}
-\theoremstyle{remark}
-\newtheorem{remark}{Remark}
 
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\ip}[2]{\langle #1, #2 \rangle}
+\newcommand{\ext}{\operatorname{ext}}
+\newcommand{\co}{\operatorname{co}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\inner}[2]{\langle #1,#2\rangle}
 
 \title{Convexity and Boundary Positivity of the Hessian}
-\author{}
-\date{}
+\author{Nam Le}
+\address{Department of Computer Science,
+    Faculty of Information Technology, University of Science, Vietnam National University,
+    227 Nguyen Van Cu Street, Cho Quan Ward, Ho Chi Minh City}
+\email{lnnam@hcmus.edu.vn}
+\date{\today}
 
 \begin{document}
 
@@ -38,18 +60,18 @@ directions.
 For convex functions defined on open subsets of $\R^N$, second-order
 information is well understood: if $f$ is twice differentiable and convex on an
 open set $U$, then the Hessian satisfies
-\[
-\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in U.
-\]
+\begin{equation}
+    \nabla^2 f(x) \succeq 0 \qquad \forall x \in U.
+\end{equation}
 In the present note, the domain is not assumed open. Instead, we consider a
 closed convex set $C \subset \R^N$ with nonempty interior and a function
 $f \colon C \to \R$ that is convex on $C$.
 
 The interior of the problem is immediate: restricting attention to
 $\operatorname{int}(C)$ gives the standard conclusion
-\[
-\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in \operatorname{int}(C).
-\]
+\begin{equation}
+    \nabla^2 f(x) \succeq 0 \qquad \forall x \in \operatorname{int}(C).
+\end{equation}
 The difficulty lies at boundary points. If one strengthens the regularity
 assumption and requires that $f$ be of class $C^2$ on $C$, then the boundary
 question is again straightforward, because the Hessian can be obtained as a
@@ -80,9 +102,9 @@ We fix a closed convex set $C \subset \R^N$ with $\operatorname{int}(C)
 \subsection{Convexity on a closed convex set}
 
 The function $f$ is said to be convex on $C$ if
-\[
-f((1-\alpha)x+\alpha y) \leq (1-\alpha)f(x)+\alpha f(y)
-\]
+\begin{equation}
+    f((1-\alpha)x+\alpha y) \leq (1-\alpha)f(x)+\alpha f(y)
+\end{equation}
 for every $x,y \in C$ and every $\alpha \in [0,1]$. Since $C$ is convex, each
 segment $[x,y]$ is contained in $C$, so the restriction of $f$ to any such
 segment is a one-variable convex function.
@@ -105,16 +127,14 @@ Because the domain is not open, the notion of twice differentiability at a
 boundary point must be stated explicitly. In this note, we say that $f$ is
 twice differentiable at $x \in C$ if there exist a vector $\nabla f(x) \in \R^N$
 and a symmetric matrix $\nabla^2 f(x) \in \R^{N \times N}$ such that
-\[
-f(x+h)=f(x)+\inner{\nabla f(x)}{h}
-+\tfrac12 \inner{\nabla^2 f(x)h}{h}+o(\|h\|^2)
-\]
+\begin{equation}
+    f(x+h)=f(x)+\inner{\nabla f(x)}{h}+\tfrac12 \inner{\nabla^2 f(x)h}{h}+o(\|h\|^2)
+\end{equation}
 as $h \to 0$ under the constraint that $x+h \in C$. Equivalently, the remainder
 is required to satisfy
-\[
-f(x+h)-f(x)-\inner{\nabla f(x)}{h}-\tfrac12 \inner{\nabla^2 f(x)h}{h}
-=o(\|h\|^2)
-\]
+\begin{equation}
+    f(x+h)-f(x)-\inner{\nabla f(x)}{h}-\tfrac12 \inner{\nabla^2 f(x)h}{h}=o(\|h\|^2)
+\end{equation}
 for admissible increments $h$ with $x+h \in C$.
 
 This is a relative notion of second-order differentiability along the set $C$.
@@ -125,9 +145,9 @@ expansions only along directions that remain in the domain.
 \subsection{Feasible directions and tangent cones}
 
 For $x \in C$, the feasible-direction cone of $C$ at $x$ is
-\[
-T_C(x):=\overline{\{t(y-x): t \geq 0,\ y \in C\}}.
-\]
+\begin{equation}
+    T_C(x):=\overline{\{t(y-x): t \geq 0,\ y \in C\}}.
+\end{equation}
 Equivalently, $v \in T_C(x)$ if there exist sequences $t_k \downarrow 0$ and
 $v_k \to v$ such that $x+t_k v_k \in C$ for all $k$. When $x \in
 \operatorname{int}(C)$, one has $T_C(x)=\R^N$; at a boundary point, this cone
@@ -146,9 +166,9 @@ The following is the classical open-set result applied to the interior of $C$.
 \begin{proposition}
 Suppose that $f$ is convex on $C$ and twice differentiable on
 $\operatorname{int}(C)$. Then
-\[
-\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in \operatorname{int}(C).
-\]
+\begin{equation}
+    \nabla^2 f(x) \succeq 0 \qquad \forall x \in \operatorname{int}(C).
+\end{equation}
 \end{proposition}
 
 Indeed, each point of $\operatorname{int}(C)$ has a neighborhood contained in
@@ -169,9 +189,9 @@ We can now formulate the main issue precisely.
 Let $C \subset \R^N$ be a closed convex set with nonempty interior, and let
 $f \colon C \to \R$ be convex and twice differentiable on $C$ in the relative
 sense above. Must one have
-\[
-\nabla^2 f(x) \succeq 0 \qquad \text{for every } x \in C?
-\]
+\begin{equation}
+    \nabla^2 f(x) \succeq 0 \qquad \forall x \in C?
+\end{equation}
 Equivalently, does convexity on $C$ force the Hessian at a boundary point to be
 positive semidefinite on all ambient directions of $\R^N$?
 \end{question}
@@ -195,9 +215,9 @@ There is also a weaker boundary formulation which is geometrically natural.
 
 \begin{question}[Positivity on feasible directions]
 For $x \in \partial C$, does convexity at least imply that
-\[
-\inner{\nabla^2 f(x)h}{h} \geq 0 \qquad \text{for every } h \in T_C(x)?
-\]
+\begin{equation}
+    \inner{\nabla^2 f(x)h}{h} \geq 0 \qquad \forall h \in T_C(x)?
+\end{equation}
 If so, to what extent can this feasible-direction positivity be upgraded to full
 positive semidefiniteness on $\R^N$?
 \end{question}
