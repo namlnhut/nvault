@@ -251,42 +251,6 @@
           }
         ],
         "id": 17
-      },
-      {
-        "date": "2026-04-23",
-        "filePath": "04_Foundations/Monte Carlo Method.md",
-        "wordCountStart": 873,
-        "charCountStart": 5894,
-        "changes": [],
-        "id": 18
-      },
-      {
-        "date": "2026-04-23",
-        "filePath": "00_Daily/2026-04-23.md",
-        "wordCountStart": 0,
-        "charCountStart": 0,
-        "changes": [
-          {
-            "timeKey": "10:45",
-            "w": 41,
-            "c": 273
-          }
-        ],
-        "id": 19
-      },
-      {
-        "date": "2026-04-23",
-        "filePath": "Untitled.md",
-        "wordCountStart": 0,
-        "charCountStart": 0,
-        "changes": [
-          {
-            "timeKey": "10:45",
-            "w": 0,
-            "c": 0
-          }
-        ],
-        "id": 20
       }
     ]
   }

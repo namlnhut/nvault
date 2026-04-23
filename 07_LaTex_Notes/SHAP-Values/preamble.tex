@@ -1,0 +1,540 @@
+% Input and encoding
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{lmodern}
+
+% Math packages
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{physics} % For better physics notation
+
+% Common math symbols
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+% Graphics and colors
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz,tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% TikZ libraries
+\usetikzlibrary{
+    calc,trees,positioning,arrows,chains,shapes.geometric,
+    decorations.pathreplacing,decorations.pathmorphing,shapes,
+    matrix,shapes.symbols,fit,arrows.meta,backgrounds,
+    decorations.markings,patterns,3d
+}
+
+% Tables and captions
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\setbeamertemplate{caption}[numbered]
+
+% Text formatting and algorithms
+\usepackage{ulem}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+% \usepackage{algpseudocode}
+\usepackage{listings}
+% \usepackage{enumitem}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=green
+}
+
+% =============================================================================
+% COLOR SCHEME
+% =============================================================================
+
+\definecolor{primaryblue}{HTML}{0065BD}
+\definecolor{secondaryblue}{HTML}{4A90E2}
+\definecolor{accentorange}{HTML}{FF6B35}
+\definecolor{darkgray}{HTML}{2C3E50}
+\definecolor{lightgray}{HTML}{ECF0F1}
+\definecolor{successgreen}{HTML}{27AE60}
+\definecolor{warningred}{HTML}{E74C3C}
+
+% =============================================================================
+% BEAMER THEME CONFIGURATION
+% =============================================================================
+
+\mode<presentation>{
+    \usetheme{default}
+    \useoutertheme{infolines}
+    \useinnertheme{circles}
+    \setbeamercovered{transparent}
+    \setbeamertemplate{theorems}[numbered]
+    \setbeamertemplate{navigation symbols}{}
+}
+
+% Custom color theme
+\setbeamercolor{structure}{fg=primaryblue}
+\setbeamercolor{frametitle}{bg=primaryblue,fg=white}
+\setbeamercolor{title}{fg=primaryblue}
+\setbeamercolor{subtitle}{fg=darkgray}
+\setbeamercolor{author}{fg=darkgray}
+\setbeamercolor{block title}{bg=secondaryblue,fg=white}
+\setbeamercolor{block body}{bg=lightgray,fg=darkgray}
+\setbeamercolor{block title alerted}{bg=warningred,fg=white}
+\setbeamercolor{block body alerted}{bg=warningred!10,fg=darkgray}
+\setbeamercolor{block title example}{bg=successgreen,fg=white}
+\setbeamercolor{block body example}{bg=successgreen!10,fg=darkgray}
+
+% =============================================================================
+% CUSTOM FRAME ENVIRONMENTS
+% =============================================================================
+
+\usepackage{framed}
+\pgfmathsetseed{1}
+
+% Define layers for parchment effect
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+% Parchment styles
+\tikzset{
+    normal border/.style={
+        primaryblue!40!black!10, decorate,
+        decoration={random steps, segment length=2.5cm, amplitude=.7mm}
+    },
+    torn border/.style={
+        primaryblue!40!black!5, decorate,
+        decoration={random steps, segment length=.5cm, amplitude=1.7mm}
+    }
+}
+
+% Parchment frame macros
+\def\parchmentframe#1{
+    \tikz{
+        \node[inner sep=2em] (A) {#1};
+        \begin{pgfonlayer}{background}
+            \fill[normal border] 
+                (A.south east) -- (A.south west) -- 
+                (A.north west) -- (A.north east) -- cycle;
+        \end{pgfonlayer}
+    }
+}
+
+\def\parchmentframetop#1{
+    \tikz{
+        \node[inner sep=2em] (A) {#1};
+        \begin{pgfonlayer}{background}    
+            \fill[normal border]
+                (A.south east) -- (A.south west) -- 
+                (A.north west) -- (A.north east) -- cycle;
+            \fill[torn border]
+                ($(A.south east)-(0,.2)$) -- ($(A.south west)-(0,.2)$) -- 
+                ($(A.south west)+(0,.2)$) -- ($(A.south east)+(0,.2)$) -- cycle;
+        \end{pgfonlayer}
+    }
+}
+
+\def\parchmentframebottom#1{
+    \tikz{
+        \node[inner sep=2em] (A) {#1};
+        \begin{pgfonlayer}{background}   
+            \fill[normal border]
+                (A.south east) -- (A.south west) -- 
+                (A.north west) -- (A.north east) -- cycle;
+            \fill[torn border]
+                ($(A.north east)-(0,.2)$) -- ($(A.north west)-(0,.2)$) -- 
+                ($(A.north west)+(0,.2)$) -- ($(A.north east)+(0,.2)$) -- cycle;
+        \end{pgfonlayer}
+    }
+}
+
+\def\parchmentframemiddle#1{
+    \tikz{
+        \node[inner sep=2em] (A) {#1};
+        \begin{pgfonlayer}{background}   
+            \fill[normal border]
+                (A.south east) -- (A.south west) -- 
+                (A.north west) -- (A.north east) -- cycle;
+            \fill[torn border]
+                ($(A.south east)-(0,.2)$) -- ($(A.south west)-(0,.2)$) -- 
+                ($(A.south west)+(0,.2)$) -- ($(A.south east)+(0,.2)$) -- cycle;
+            \fill[torn border]
+                ($(A.north east)-(0,.2)$) -- ($(A.north west)-(0,.2)$) -- 
+                ($(A.north west)+(0,.2)$) -- ($(A.north east)+(0,.2)$) -- cycle;
+        \end{pgfonlayer}
+    }
+}
+
+\newenvironment{parchment}[1][Example]{%
+    \def\FrameCommand{\parchmentframe}%
+    \def\FirstFrameCommand{\parchmentframetop}%
+    \def\LastFrameCommand{\parchmentframebottom}%
+    \def\MidFrameCommand{\parchmentframemiddle}%
+    \vskip\baselineskip
+    \MakeFramed{\FrameRestore}
+    \noindent\tikz\node[inner sep=1ex, draw=white, fill=primaryblue!30, 
+        anchor=west, overlay] at (0em, 2em) {\sffamily#1};\par
+}{%
+    \endMakeFramed
+}
+
+% =============================================================================
+% TITLE PAGE CUSTOMIZATION
+% =============================================================================
+
+\makeatletter
+\newcommand\titlegraphicii[1]{\def\inserttitlegraphicii{#1}}
+\titlegraphicii{}
+
+\setbeamertemplate{title page}{
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\hfill\inserttitlegraphicii\par}
+    \begin{centering}
+        \vskip1em
+        \begin{beamercolorbox}[sep=8pt,center]{title}
+            \usebeamerfont{title}\inserttitle\par%
+            \ifx\insertsubtitle\@empty%
+            \else%
+                \vskip0.5em%
+                {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+            \fi%     
+        \end{beamercolorbox}%
+        \vskip1em
+        \begin{beamercolorbox}[sep=8pt,center]{author}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+        \vskip1em
+        \begin{beamercolorbox}[sep=8pt,center]{institute}
+            \usebeamerfont{institute}\insertinstitute
+        \end{beamercolorbox}
+        \vskip1em
+        \begin{beamercolorbox}[sep=8pt,center]{date}
+            \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}
+    \end{centering}
+    \vfill
+}
+
+% =============================================================================
+% HEADER AND FOOTER
+% =============================================================================
+
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{frametitle}
+        \hspace*{1em}\insertframetitle%
+        \ifx\insertframesubtitle\@empty%
+        \else%
+            \par\hspace*{1em}{\usebeamerfont{framesubtitle}\insertframesubtitle}%
+        \fi%
+    \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertpresenter
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+            \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+
+% =============================================================================
+% SECTION PAGES
+% =============================================================================
+
+\setbeamertemplate{section page}{
+    \begin{centering}
+        \vskip2em
+        \begin{beamercolorbox}[sep=12pt,center]{part title}
+            \usebeamerfont{section title}\insertsection\par
+        \end{beamercolorbox}
+        \vskip2em
+    \end{centering}
+}
+
+% \AtBeginSection[]{
+%     \begin{frame}[plain,noframenumbering]
+%         \sectionpage
+%         \tableofcontents[currentsection,hideothersubsections]
+%     \end{frame}
+% }
+
+% =============================================================================
+% THEOREM ENVIRONMENTS
+% =============================================================================
+
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=1em}
+
+% Theorem styles
+\declaretheoremstyle[
+    headfont=\bfseries\color{successgreen!70!black},
+    bodyfont=\normalfont,
+    % mdframed={
+    %     linewidth=2pt,
+    %     rightline=false, topline=false, bottomline=false,
+    %     linecolor=successgreen, backgroundcolor=successgreen!5,
+    % }
+]{thmwhitebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{successgreen!70!black},
+    bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=successgreen, backgroundcolor=successgreen!5,
+    }
+]{thmgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{primaryblue!70!black},
+    bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=primaryblue, backgroundcolor=primaryblue!5,
+    }
+]{thmbluebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{primaryblue!70!black},
+    bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=primaryblue
+    }
+]{thmblueline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{warningred!70!black},
+    bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=warningred, backgroundcolor=warningred!5,
+    }
+]{thmredbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{accentorange!70!black},
+    bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=accentorange, backgroundcolor=accentorange!5,
+    }
+]{thmorangebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\color{warningred!70!black},
+    bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=warningred, backgroundcolor=warningred!1,
+    },
+    qed=\qedsymbol
+]{thmproofbox}
+
+% Define theorem environments
+\declaretheorem[style=thmwhitebox, name=Bài toán]{problem}
+\declaretheorem[style=thmwhitebox, name=Định nghĩa]{definition}
+\declaretheorem[style=thmwhitebox, name=Ví dụ]{example}
+\declaretheorem[style=thmwhitebox, name=Nhận xét]{remark}
+\declaretheorem[style=thmwhitebox, name=Định lý]{theorem}
+\declaretheorem[style=thmwhitebox, name=Bổ đề]{lemma}
+\declaretheorem[style=thmwhitebox, name=Mệnh đề]{proposition}
+\declaretheorem[style=thmwhitebox, name=Hệ quả]{corollary}
+\declaretheorem[style=thmwhitebox, name=Khẳng định]{claim}
+\declaretheorem[style=thmwhitebox, name=Chú ý]{mynote}
+\declaretheorem[style=thmwhitebox, name=Câu hỏi]{question}
+
+% Proof environment
+\declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+
+% =============================================================================
+% CODE LISTINGS
+% =============================================================================
+
+\lstdefinestyle{moderncode}{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{primaryblue}\bfseries,
+    commentstyle=\color{successgreen}\itshape,
+    stringstyle=\color{warningred},
+    numberstyle=\tiny\color{darkgray},
+    breaklines=true,
+    breakatwhitespace=false,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    numbers=left,
+    frame=leftline,
+    frameround=fttt,
+    framexleftmargin=2em,
+    xleftmargin=2em,
+    backgroundcolor=\color{lightgray!30},
+    rulecolor=\color{primaryblue},
+}
+
+\lstset{style=moderncode}
+
+% =============================================================================
+% FLOWCHART SETTINGS
+% =============================================================================
+
+\tikzset{
+    >=stealth',
+    punktchain/.style={
+        rectangle, 
+        rounded corners=3pt, 
+        draw=primaryblue, 
+        very thick,
+        fill=primaryblue!10,
+        text width=6em,
+        minimum height=2.5em, 
+        text centered, 
+        on chain
+    },
+    largepunktchain/.style={
+        rectangle,
+        rounded corners=3pt,
+        draw=primaryblue, 
+        very thick,
+        fill=primaryblue!10,
+        text width=10em,
+        minimum height=2.5em,
+        text centered,
+        on chain
+    },
+    decision/.style={
+        diamond,
+        draw=warningred,
+        very thick,
+        fill=warningred!10,
+        text width=4em,
+        minimum height=2em,
+        text centered,
+        on chain
+    },
+    line/.style={draw, thick, ->},
+    every join/.style={->, thick, shorten >=1pt},
+    font={\fontsize{10pt}{12}\selectfont},
+}
+
+% =============================================================================
+% UTILITY COMMANDS
+% =============================================================================
+
+% Highlighting
+\newcommand{\highlight}[1]{\colorbox{accentorange!20}{#1}}
+\renewcommand{\alert}[1]{\textcolor{warningred}{\textbf{#1}}}
+\newcommand{\emphasis}[1]{\textcolor{primaryblue}{\textbf{#1}}}
+
+% Math operators (check if already defined)
+% \providecommand{\rank}{}
+% \renewcommand{\rank}{\operatorname{rank}}
+% \providecommand{\trace}{}
+% \renewcommand{\trace}{\operatorname{tr}}
+% \DeclareMathOperator{\diag}{diag}
+% \providecommand{\span}{}
+% \renewcommand{\span}{\operatorname{span}}
+% \DeclareMathOperator{\dimension}{dim}
+% \DeclareMathOperator{\ker}{ker}
+% \DeclareMathOperator{\im}{im}
+
+
+% =============================================================================
+% CUSTOM TITLE PAGE
+% =============================================================================
+% Define custom commands for title page information
+\newcommand{\university}[1]{\def\insertuniversity{#1}}
+\newcommand{\school}[1]{\def\insertschool{#1}}
+\newcommand{\faculty}[1]{\def\insertfaculty{#1}}
+\newcommand{\department}[1]{\def\insertdepartment{#1}}
+\newcommand{\presenter}[1]{\def\insertpresenter{#1}}
+\newcommand{\president}[1]{\def\insertpresident{#1}}
+\newcommand{\examinerone}[1]{\def\insertexaminerone{#1}}
+\newcommand{\examinertwo}[1]{\def\insertexaminertwo{#1}}
+\newcommand{\examinerthree}[1]{\def\insertexaminerthree{#1}}
+\newcommand{\examinerfour}[1]{\def\insertexaminerfour{#1}}
+\newcommand{\supervisorone}[1]{\def\insertsupervisorone{#1}}
+\newcommand{\supervisortwo}[1]{\def\insertsupervisortwo{#1}}
+
+\makeatletter
+\setbeamertemplate{title page}{
+    % \vbox{}
+    \vfill
+    \begingroup
+        \centering
+        % School name at top
+        \begin{beamercolorbox}[sep=8pt,center]{institute}
+            \usebeamerfont{institute}\large\textbf{\MakeUppercase\insertuniversity}\\
+            \usebeamerfont{institute}\normalsize\MakeUppercase\insertschool\\
+            \usebeamerfont{institute}\normalsize\MakeUppercase\insertfaculty
+            % \usebeamerfont{institute}\normalsize\MakeUppercase\insertdepartment
+        \end{beamercolorbox}\par
+        
+        \vskip1.em\par
+        
+        % Title
+        \begin{beamercolorbox}[sep=8pt,center]{title}
+            \usebeamerfont{title}\Large\textbf{\MakeUppercase\inserttitle}\par%
+            \ifx\insertsubtitle\@empty%
+            \else%
+                \vskip0.5em%
+                {\usebeamerfont{subtitle}\large\insertsubtitle\par}%
+            \fi%     
+        \end{beamercolorbox}\par
+        
+        \vskip1.em\par
+        
+        % Presenter
+        \begin{beamercolorbox}[sep=8pt,center]{author}
+            \usebeamerfont{author}
+            % \begin{tabular}{@{}p{.35\textwidth}@{\hspace{3pt}}p{.5\textwidth}@{}}
+            %     \textbf{Presenter:} \insertpresenter & \textbf{Supervisor 1:} \insertsupervisorone \\
+            %     & \textbf{Supervisor 2:} \insertsupervisortwo \\
+            % \end{tabular}
+            % \begin{center}
+            %     \textbf{Học viên cao học:} \insertpresenter \\ 
+            %     \textbf{Người hướng dẫn khoa học:} \insertsupervisorone
+            % \end{center}
+            \begin{center}
+                \textbf{}\insertpresenter \\ 
+                % \textbf{Người hướng dẫn khoa học:} \insertsupervisorone
+            \end{center}
+        \end{beamercolorbox}
+        
+        \vskip1em\par
+        
+        % Date
+        \begin{beamercolorbox}[sep=8pt,center]{date}
+            \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}\par
+        
+    \endgroup
+    \vfill
+}
+\makeatother
