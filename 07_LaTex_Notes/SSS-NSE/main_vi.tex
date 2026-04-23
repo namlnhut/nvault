@@ -1,0 +1,103 @@
+\documentclass{reportDoCS2025}
+
+\usepackage{lmodern}
+\usepackage{anyfontsize}
+
+\addbibresource{biblio.bib}
+
+%--------------------------------------
+% \university{ĐẠI HỌC QUỐC GIA TP. HỒ CHÍ MINH}
+% \school{TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN}
+\title{\MakeUppercase{Nghiệm trạng thái dừng của phương trình Naiver-Stokes}}
+\subtitle{Lý thuyết Toán về Phương trình Navier-Stokes}
+
+% \students{Lê \textsc{Nhựt-Nam} \\
+%             Nhut \textsc{Nam Le} }
+
+% \supervisors{Prof. Dr. Dumbledore \textsc{Albus} \\
+% 	Prof. Dr. Snape \textsc{Severus} \\ 
+%         Prof. Dr. McGonagall \textsc{Minerva} }
+
+%--------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bv}{\mathbf{v}}
+
+\begin{document}
+
+\cover
+\numRoman
+
+% \input{1.acknowledgements}
+
+\contents
+\listTables
+\listImages
+
+
+\pageNumber
+
+\chapter*{\MakeUppercase{Mở đầu}}
+
+Xem xét một chất lỏng nhớt (viscous fluid) có mật độ không thay đổi, hay còn gọi là \textit{viscous liquid} $\mathcal{L}$ di chuyển trong một miền cố định $\Omega \subseteq \R^3$.
+
+Giả sử rằng một chuyển động tổng quát của $\mathcal{L}$ ứng với một hệ quy chiếu quán tính (inertial frame of reference) được mô tả bằng hệ phương trình sau:
+\begin{equation}
+        \begin{aligned}
+                \rho\left(\frac{\partial \bv}{\partial t} + \bv\cdot \nabla v\right) &= \mu\Delta \bv - \nabla \pi - \rho \mathbf{f}(x, t),\\
+                \nabla \cdot v &= 0,
+        \end{aligned}
+\end{equation}
+trong đó $t$ là thời gian, $x = (x_1, x_2, x_3)$ là một điểm của $\Omega$, $\rho$ là mật độ của $\mathcal{L}$ (hằng số), $\bv = \bv(x, t) = (v_1(x, t), v_2(x,t), v_3(x, t))$ và $\pi = \pi(x, t)$ tương ứng là trường vận tốc và trường áp suất. Và hằng số dương $\mu$ đại diện cho hệ số nhớt (viscosity coefficient).
+
+Hơn nữa, thành phần đối lưu (convective term) là:
+\begin{equation}
+        \bv \cdot \nabla \bv \equiv \sum_{i=1}^3 v_i\frac{\partial \bv}{\partial x_i},
+\end{equation}
+
+Trong các phần bên dưới, ta sử dụng một số toán tử. Toán tử Laplace được định nghĩa như sau:
+\begin{equation}
+        \Delta \equiv \sum_{i=1}^3\frac{\partial^2}{\partial x_i^2},
+\end{equation}
+và toán tử gradient được định nghĩa như sau:
+\begin{equation}
+        \nabla \equiv \left(\frac{\partial}{\partial x_1}, \frac{\partial}{\partial x_2}, \frac{\partial}{\partial x_3}\right).
+\end{equation}
+
+Còn phân kỳ của $\bv$ (hay divergence), được định nghĩa:
+\begin{equation}
+        \nabla \cdot \bv \equiv = \sum_{i = 1}^3\frac{\partial v_i}{\partial x_i}
+\end{equation}
+
+Cuối cùng, $-\mathbf{f}$ là ngoại lực trên mỗi đơn vị khối lượng (body force) tác động lên $\mathcal{L}$.
+
+
+%--------------------------------------
+\chapter{\MakeUppercase{Dòng chảy trong miền bị chặn}}
+
+
+
+
+
+%--------------------------------------
+\chapter{\MakeUppercase{Dòng chảy trong miền bên ngoài}}
+
+
+\section{Dòng chảy ba chiều}
+
+
+
+\section{Dòng chảy mặt phẳng}
+
+
+
+%--------------------------------------
+\chapter{\MakeUppercase{Dòng chảy trong miền có biên không bị chặn}}
+
+
+% \textbf{Cite a source} from \texttt{biblio.bib} with \texttt{\textbackslash cite}: \cite{example_of_source}.\\
+
+% \textbf{Display a bibliography} quickly with \texttt{\textbackslash insertbibliography}.
+% \insertbibliography
+
+\end{document}
