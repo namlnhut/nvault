@@ -22,6 +22,9 @@
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\bv}{\mathbf{v}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bI}{\mathbf{I}}
 
 \begin{document}
 
@@ -42,7 +45,7 @@
 Xem xét một chất lỏng nhớt (viscous fluid) có mật độ không thay đổi, hay còn gọi là \textit{viscous liquid} $\mathcal{L}$ di chuyển trong một miền cố định $\Omega \subseteq \R^3$.
 
 Giả sử rằng một chuyển động tổng quát của $\mathcal{L}$ ứng với một hệ quy chiếu quán tính (inertial frame of reference) được mô tả bằng hệ phương trình sau:
-\begin{equation}
+\begin{equation}\label{eq:navier-stokes}
         \begin{aligned}
                 \rho\left(\frac{\partial \bv}{\partial t} + \bv\cdot \nabla v\right) &= \mu\Delta \bv - \nabla \pi - \rho \mathbf{f}(x, t),\\
                 \nabla \cdot v &= 0,
@@ -70,6 +73,30 @@ Còn phân kỳ của $\bv$ (hay divergence), được định nghĩa:
 \end{equation}
 
 Cuối cùng, $-\mathbf{f}$ là ngoại lực trên mỗi đơn vị khối lượng (body force) tác động lên $\mathcal{L}$.
+
+Trong ngôn ngữ của cơ học thuần túy hiện đại (rational mechanics), dưới giả định cấu thành đơn giản trên chất lưu $\mathcal{L}$ mà hình thành nên hệ~\eqref{eq:navier-stokes} là một thành phần động của \textit{tensor ứng suất (Cauchy stress tensor)} $\bT$ và có mối liên hệ tuyến tính với \textit{tensor kéo dãn (stretching tensor)} $\bD$:
+\begin{equation}\label{eq:cauchy-stress}
+        \bT = -\pi\bI + 2\mu\bD,
+\end{equation}
+trong đó, $\bI$ là ma trận đơn vị và $\bD = \{D_{ij}\}$ với
+\begin{equation}
+        D_{ij} = \frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right).
+\end{equation}
+Chất lỏng mà thỏa phương trình~\eqref{eq:cauchy-stress} cũng được gọi là \textit{Newtonian liquid hay chất lưu Newton}.
+
+Trong bài toán liên quan đến tính duy nhất nghiệm của phương trình\eqref{eq:navier-stokes}, nghiệm hai chiều mô tả \textit{chuyển động mặt phẳng} của $\mathcal{L}$ nhận được nhiều sự chú ý. Với loại nghiệm này, trường $\bv$ và $p$ chỉ phụ thuộc vào $x_1, x_2$, và $t$ và hơn nữa $v_3 \equiv -$. Hệ quả là miền liên quan của dòng chảy $\Omega$ trở thành một tập con của mặt phẳng $\R^2$. 
+
+Mục tiêu chính trong nghiên cứu phương trình\eqref{eq:navier-stokes} là tìm hiểu những tính chất cơ bản và có ý nghĩa của $\bv$ và $\pi$ như sự tồn tại nghiệm, tính duy nhất nghiệm, tính chính quy, và đặc tính tiệm cận trong không gian (khi mà $\Omega$ không bị chặn) và thời gian. Các tính chất này có thể khác nhau khi chúng ta xem xét $\mathcal{L}$ trong trạng thái dừng (steady state) hay không dừng (unsteady state), trường vận tốc và áp suất phụ thuộc hay không phụ thuộc vào thời gian.   
+
+Trong phần tóm tắt này, chúng ta xem xét chuyển động dừng đối với hệ\eqref{eq:navier-stokes} với $\partial \bv \setminus \partial t \equiv -$ và $\mathbf{f} = \mathbf{f}(x)$ có dạng như sau:
+\begin{equation}\label{eq:steady-navier-stokes}
+        \begin{aligned}
+                \nu\Delta\bv &= \bv \cdot \nabla \bv + \nabla p + \mathbf{f},\\
+                \nabla \cdot \bv &= 0,
+        \end{aligned}
+\end{equation}
+trong đó, $p = \pi \setminus \rho$ và $\nu = \mu \setminus \rho$ là hệ số độ nhớt động học (kinematic viscosity coefficient). Ta có thể gọi $p$ là ``áp suất'' (hay trường áp suất) lên chất lưu $\mathcal{L}$.
+
 
 
 %--------------------------------------
