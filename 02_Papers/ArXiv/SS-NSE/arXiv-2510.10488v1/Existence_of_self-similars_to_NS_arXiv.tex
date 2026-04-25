@@ -1,0 +1,2195 @@
+   \documentclass[12pt]{amsart}
+
+\usepackage{amsfonts,amsthm,amsmath,amssymb,amscd,mathrsfs}
+\usepackage{graphics}
+\usepackage{indentfirst}
+\usepackage{cite}
+\usepackage{latexsym}
+\usepackage[dvips]{epsfig}
+\usepackage{color}
+\usepackage{bookmark}
+%\usepackage{ulem}
+%\usepackage{lmodern}
+
+
+
+%% \usepackage{leqno, showkeys}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\addtolength{\voffset}{-0.25in}
+\addtolength{\hoffset}{-0.75in}
+%\setlength{\topmargin}{1in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.35in}
+\setlength{\footskip}{36pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0in}
+\setlength{\headheight}{8pt}
+\setlength{\headsep}{20pt}
+\setlength{\oddsidemargin}{0.75in}
+\setlength{\evensidemargin}{0.75in}
+
+\renewcommand{\baselinestretch}{1.20}%\normalsize
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{pro}[theorem]{Proposition}
+
+\newenvironment{pf}{{\noindent \it \bf Proof:}}{{\hfill$\Box$}\\}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\red}{\color{red}}
+
+
+\newcommand{\blue}{\color{blue}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Macros
+%%%
+\newcommand{\ti}{\tilde}
+\newcommand{\lm}{\lambda}
+\renewcommand{\div}{{\rm div \thinspace }}
+\newcommand{\tn}{\tilde{\rho}}
+\newcommand{\tp}{{P(\tn)}}
+\newcommand{\pa}{\partial}
+\newcommand{\bi}{\bibitem}
+\newcommand{\rs}{\rho_s}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\ia}{\int_0^T}
+\newcommand{\bt}{\begin{theorem}}
+	\newcommand{\bl}{\begin{lemma}}
+		\newcommand{\el}{\end{lemma}}
+	\newcommand{\et}{\end{theorem}}
+\newcommand{\ga}{\gamma}
+\newcommand{\curl}{{\rm curl} }
+\newcommand{\te}{\theta}
+\newcommand{\Te}{\Theta}
+\newcommand{\al}{\alpha}
+\newcommand{\de}{\delta}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\la}{\label}
+\newcommand{\ka}{\kappa}
+\newcommand{\aaa}{\,\,\,\,\,}
+\newcommand{\lz}{\,\,\,\,\,\,}
+\newcommand{\ol}{\overline}
+\newcommand{\bn}{\begin{eqnarray}}
+	\newcommand{\en}{\end{eqnarray}}
+\newcommand{\bnn}{\begin{eqnarray*}}
+	\newcommand{\enn}{\end{eqnarray*}}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+
+\newcommand{\ba}{\begin{aligned}}
+	\newcommand{\ea}{\end{aligned}}
+\newcommand{\be}{\begin{equation}}
+	\newcommand{\ee}{\end{equation}}
+\renewcommand{\O}{{\r^3}}
+\newcommand{\p}{\partial}
+\newcommand{\lap}{\triangle}
+\newcommand{\g}{\gamma}
+\renewcommand{\o}{\omega}
+\newcommand{\no}{\nonumber \\}
+\newcommand{\n}{\rho}
+\newcommand{\si}{\sigma}
+%% \newcommand{\norm[#1]#2}{\|#2\|_{#1}}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\la}{\label}
+\newcommand{\na}{\nabla}
+\newcommand{\on}{\bar\rho}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Bv}{{\boldsymbol{v}}}
+\newcommand{\bBV}{\boldsymbol{V}}
+\newcommand{\Bn}{{\boldsymbol{n}}}
+\newcommand{\Bt}{{\boldsymbol{\tau}}}
+\newcommand{\Bu}{{\boldsymbol{u}}}
+\newcommand{\Be}{{\boldsymbol{e}}}
+\newcommand{\BF}{{\boldsymbol{F}}}
+\newcommand{\Bf}{{\boldsymbol{f}}}
+\newcommand{\BG}{{\boldsymbol{G}}}
+\newcommand{\Bvphi}{{\boldsymbol{\varphi}}}
+\newcommand{\supp}{\text{supp}}
+\newcommand{\bBU}{\bar{\boldsymbol{U}}}
+\newcommand{\BmcF}{{\boldsymbol{\mathcal{F}}}}
+\newcommand{\BPsi}{{\boldsymbol{\Psi}}}
+\newcommand{\Btau}{{\boldsymbol{\tau}}}
+\newcommand{\Bx}{{\boldsymbol{x}}}
+\newcommand{\Bo}{{\boldsymbol{\omega}}}
+\newcommand{\Bp}{{\boldsymbol{\phi}}}
+\newcommand{\msR}{\mathscr{R}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mfu}{\mathfrak{u}}
+\newcommand{\mfv}{\mathfrak{v}}
+\newcommand{\what}{\widehat}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\BP}{{\boldsymbol{\Psi}}}
+\newcommand{\Bw}{\boldsymbol{w}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	\title
+	[Self-similar solutions with  external forces]
+	{On the existence of self-similar solutions to the steady Navier-Stokes equations  in high dimensions}
+	
+	\author{Jeaheang Bang}
+	\address{ Institute for Theoretical Sciences, Westlake University, Hangzhou, China}
+	\email{jhbang@westlake.edu.cn}
+	
+	
+	\author{Changfeng Gui}
+	\address{Department of Mathematics, Faculty of Science and Technology, University of Macau, Taipa, Macao}
+	\email{Changfenggui@um.edu.mo}
+	
+	\author{Hao Liu}
+	\address{Department of Mathematics, Faculty of Science and Technology, University of Macau, Taipa, Macao}
+	\email{haoliu@um.edu.mo}
+	
+	\author{Yun Wang}
+	\address{School of Mathematical Sciences, Center for dynamical systems and differential equations, Soochow University, Suzhou, China}
+	\email{ywang3@suda.edu.cn}
+	
+	
+	
+	
+	\author{Chunjing Xie}
+	\address{School of Mathematical Sciences, Institute of Natural Sciences,
+		Ministry of Education Key Laboratory of Scientific and Engineering Computing,
+		and CMA-Shanghai, Shanghai Jiao Tong University, 800 Dongchuan Road, Shanghai, China}
+	\email{cjxie@sjtu.edu.cn}
+	
+	
+	\begin{abstract}
+		We prove that the steady incompressible Navier-Stokes equations with any given $(-3)$-homogeneous, locally Lipschitz external force on $\mathbb{R}^n\setminus\{0\}$, $4\leq n\leq 16$, have at least one $(-1)$-homogeneous solution which is scale-invariant and regular away from the origin. The global uniqueness of the self-similar solution  is obtained as long as the external force is small.
+		The key observation is to exploit a nice relation between the radial component of the velocity and the total head pressure under the self-similarity assumption. It plays an essential role in establishing the energy estimates.  If the external force has only the nonnegative radial component, we can prove the existence of $(-1)$-homogeneous solutions for all $n\geq 4$.
+		The regularity of the solution follows from integral estimates of the positive part of the total head pressure, which is due to the maximum principle  and a ``dimension-reduction" effect arising from the self-similarity. 
+		
+		% We then consider the case where the external force is a sum of (-3)-homogeneous external force and a regular force and show the existence of the solutions and study their asymptotic behaviors.  We do not need any smallness assumption on the regular part of the force but need the smallness assumption on (-3)-homogeneous part  of the force to ensure the unique existence of the leading order term.
+		% We also prove a general small-large uniqueness result.
+		%	Previously, it is known the existence of the  large
+		%	self-similar solution in the 4 dimensional case and the non-existence of the 	self-similar solution with large (-3)-homogeneous external force in general.
+		%		This may suggest the similarity between the 3 dimensional unsteady problem and the 5 dimensional steady problem from another aspect.
+	\end{abstract}
+	
+	
+	
+	
+	
+	\keywords{Navier-Stokes equations,  Self-similar solution,  Large external force, Existence, Uniqueness}
+	\subjclass[2020]{35Q30, 35C06, 35A01, 35A02, 76D05}
+	
+	
+	
+	
+	\maketitle
+	
+	\section{Introduction and main results}
+	We consider the steady Navier-Stokes equations  in  dimension $n$ with an  external force $\Bf=(f_1, f_2,\cdots, f_n)$:
+	\begin{align} \label{NS}
+		-\Delta \Bu + (\Bu\cdot \nabla )\Bu + \nabla p=\boldsymbol {f}, \quad \div \Bu=0,
+	\end{align}
+	where  the unknowns are the velocity field $\Bu=(u_1, u_2, \cdots, u_n)$ and the  pressure $p$. The existence and uniqueness of solutions to \eqref{NS} is a fundamental problem in partial differential equations (see \cite{Galdi11}).
+	%\subsection{Existence for finite energy solutions}
+	%    We briefly review other existence results for finite energy solutions. In contrast, we remark that the solutions in the scale-invariant spaces have infinite energy.
+	%    One can also use a standard energy method to study the existence of a weak solution. 
+	
+	\subsection{Existence and uniqueness of self-similar solutions}
+	
+	
+	
+	A very important property of the  system \eqref{NS} is that it is invariant under the scaling	\begin{equation}\label{eq:sca}
+		\begin{aligned}
+			&\Bu (x) \to \Bu_{\lambda} (x) = \lambda \Bu (\lambda x),\quad 
+			p(x) \to p_{\lambda}(x)= \lambda^2p(\lambda x),\quad 
+			\boldsymbol {f}(x)\to \Bf_{\lambda}(x)= \lambda^3\boldsymbol {f}(\lambda x),
+		\end{aligned}
+	\end{equation}
+	for any $\lambda>0$. That is, if $(\Bu,p,\Bf)$ satisfies \eqref{NS}, then $(\Bu_\lambda,p_\lambda,\Bf_\lambda)$ defined in \eqref{eq:sca} also satisfies \eqref{NS}.
+	In particular, the solution $(\Bu,p)$  is called    scale-invariant or self-similar if
+	$(\Bu_{\lambda},p_{\lambda})= (\Bu,p)$   for any $\lambda > 0$. In this case, 
+	the external force $\Bf$ has also to be scale-invariant,  i.e., 
+	$\Bf_{\lambda}= \boldsymbol {f}$ for any $\lambda > 0$. 
+	This is the same as saying that  $\Bu$ is (-1)-homogeneous and $\Bf$ is (-3)-homogeneous. 
+	
+	
+	
+	
+	
+	
+	
+	% \subsection{Existence of the solution  in critical spaces}
+	The existence of solutions with given external force $\Bf$ in a scale-invariant space has been studied extensively, such as $L^{n}$, $L^{n,\infty}$, and Besov spaces $\Dot{B}_{p,q}^{-1+\frac{n}{p}}$ ($1\leq p<n, 1\leq q\leq \infty$), typically under \emph{smallness assumptions} (see \cite{Kozono95, Phan13, Kaneko19, Tsurumi19}). In particular, the     existence of self-similar solutions to \eqref{NS} follows from the results in \cite{Kozono95, Phan13}, $n\geq 3$, if the force $\Bf$ is small enough. 
+	%One may refer to \cite[Chapter 5]{Tsai18} and the reference therein for similar studies in the unsteady case. 
+	The key idea in \cite{Kozono95, Phan13} is to use the  contraction mapping argument in the corresponding space. %based on the bilinear estimates for the quadratic term $\div (\Bu\otimes \Bu)$. 
+	%Hence, in principle, this only works for small data, where the linear part is expected to prevail.
+	
+	
+	%For the large data, there seems to be no general existence theory in the critical space.
+	% First, one can use perturbative arguments with some kind of \emph{smallness assumptions}  where the linear theory is expected to prevail due to the smallness assumption. See \cite{Kozono95, Phan13, Kaneko19, Tsurumi19} for the study in the steady case in this respective. One may refer to \cite[Chapter 5]{Tsai18} and the reference therein for the study in the unsteady case. Due to the nature of perturbative arguments, one can only study small solutions for the steady case or short time existence for the unsteady case.
+	
+	Without size restrictions in a scale-invariant space, the nonlinear term may become dominant. This makes the contraction mapping argument difficult to apply to construct large solutions directly.
+	%and it is important to study it without size restrictions in order to fully understand competition between the linear term and nonlinear terms.   
+	%Indeed, it is well-known that the scaling properties are quite useful for investigating the regularity and  asymptotic behaviors of the solutions; see \cite{CKN, Lin, TianXin99, SverakTsai00, LiYang22, JiaSverak17, Sverak11} and references therein.
+	%since one can not treat the non-linear term as perturbations. 
+	%and the perturbative methods no longer work. 
+	In dimension  $n=4$,  Shi proved the existence of self-similar solutions with large external forces in \cite{Shi18}. The key observation there is that under self-similarity assumptions, for the solutions of four-dimensional steady Navier-Stokes equations, one has the identity (see also \eqref{eq:keydec-2} below)
+	$$\int_{S^{3}} |\nabla \Bu|^2 d\sigma
+	= 	\int_{S^{3}} \Bf\cdot \Bu d\sigma,$$ which gives enough energy estimates for $\Bu$. 
+	Here and in the following, we use    $S^{n-1}$ to denote the standard unit sphere in $\mathbb{R}^n$.
+	%However, 
+	%there are some essential differences compared to the unsteady  three-dimensional case
+	For dimension $n\geq 5$, it is remarked in \cite[Section 5]{Shi18} that ``The author does not know whether there are large self-similar solutions to the stationary Navier–Stokes equations with arbitrary scaling external force for dimensions $ n\geq 5$. The natural Dirichlet energy $\int |\nabla \Bu|^2$ is scaled invariant only
+	for dimension four, and thus we cannot apply the same method to establish the a priori estimates
+	for five or higher dimensions".
+	
+	
+	
+	The main goal here is to show the existence of self-similar solutions to \eqref{NS} with arbitrary scale-invariant external force $\Bf$ up to dimension 16. Before stating our main results, we recall the following standard notations. 
+	For  a  locally (H\"{o}lder or Lipschitz) continuous
+	homogeneous vector field $\Bv$ on $\mathbb{R}^n\setminus \{0\}$ and any $\alpha\in (0,1)$, we use $\|\Bv\|_{C(S^{n-1})}$,    $\|\Bv\|_{C^\alpha(S^{n-1})}$, and $\|\Bv\|_{\textrm{Lip}(S^{n-1})}=\|\Bv\|_{C^{0,1}(S^{n-1})}$ to denote the standard continuous norm, H\"{o}lder norm, and Lipschitz norm 
+	of $\Bv$ on $S^{n-1}$,
+	respectively. In particular, it follows from Rademacher theorem (see \cite[Theorem 3.2]{EvansG}) that one has
+	\begin{equation*}
+		\|\Bv\|_{\textnormal{Lip}(S^{n-1})}= \left\| \Bv\right\|_{L^\infty(S^{n-1})} + \left\|\nabla \Bv\right\|_{L^\infty(S^{n-1})}.
+	\end{equation*}
+	
+	
+	%the \emph{large} data  existence of the regular self-similar solutions to \eqref{NS}
+	%for  arbitrary given  (-3)-homogeneous external force $\Bf$ for all dimensions $5\leq n\leq 10$.
+	
+	Our main results of this paper are as follows.
+	\begin{theorem}\label{thm:main}
+		For  $n\in\mathbb{N}$,	$4 \leq n \leq 16$, let   $\Bf$ be a $(-3)$-homogeneous force  such that  $\Bf$ is locally Lipschitz on $\mathbb{R}^n \setminus\{0\}$.
+		% where $S^{n-1}$ is the standard unit sphere in $\mathbb{R}^n$.
+		Then we have the following results.
+		\begin{itemize}
+			\item[(i)]  There exists at least one self-similar solution $\Bu$  to the steady Navier-Stokes equations \eqref{NS} such that  $\Bu  \in C^{2, \alpha}_{loc} (\mathbb{R}^n\setminus\{0\})$ for any $\alpha\in (0,1)$ and
+			\begin{equation}\label{eq:C2est}
+				\|\Bu\|_{C(S^{n-1})} + 	 	\|\nabla \Bu\|_{C(S^{n-1})} + \|\nabla^2 \Bu\|_{C^{\alpha}(S^{n-1})} \leq C,
+			\end{equation}
+			where   $C > 0$ depends only on $\alpha$, $n$, and  $\|\Bf\|_{\textnormal{Lip}(S^{n-1})}$.
+			\item [(ii)]  If in addition,  the external force $\Bf$ is smooth on $\mathbb{R}^n \setminus \{0\}$, then 
+			the self-similar solution $\Bu$  we obtained is also smooth on $\mathbb{R}^n \setminus \{0\}$.
+			\item [(iii)]  There exists a universal constant $\epsilon>0$ depending only on $n$ such that if  
+			\[
+			\|\Bf\|_ {\textnormal{Lip}(S^{n-1})}\leq \epsilon,
+			\]
+			then the self-similar solution is unique in $C^2(\mathbb{R}^n \setminus \{0\})$.
+		\end{itemize}
+	\end{theorem}
+	
+	We have a few remarks in order.
+	\begin{remark}
+		As mentioned above, the existence of self-similar solutions to \eqref{NS}  with  (-3)-homogeneous forces in the four-dimensional case has been obtained in \cite{Shi18}. We mainly focus on the proof of Theorem \ref{thm:main} for the case  $n\geq 5$.
+	\end{remark}
+	\begin{remark}
+		We can  prove the existence of $(-1)$-homogeneous solutions for all $n\geq 4$
+		if the external force  has only the radial component whose value is also positive, i.e., $\Bf=r^{-3}f^r\Be_r, f^r\geq 0$, where $r=|x|$ and $ \Be_r=\frac{x}{|x|}$ is the unit vector in the radial direction. See Theorem \ref{thm:main2} below for the precise statement.
+	\end{remark}
+	
+	\begin{remark}
+		We remark that the self-similar solution 
+		%satisfying $|\Bu|\leq$ in Theorem \ref{thm:main} 
+		solves the Navier-Stokes system \eqref{NS} across the origin in the sense of distributions because both sides of \eqref{NS} are locally integrable around the origin if $n\geq 4$. In contrast, for $n=3$, the self-similar solutions solve the Navier-Stokes system \eqref{NS} across the origin with the right-hand side supplemented by multiples of the Dirac delta force.
+	\end{remark}
+	
+	\begin{remark}
+		The existence of self-similar solutions with large external forces may not always be  guaranteed. The global uniqueness is not always guaranteed, either, even for solutions with small external forces. For example, let us consider the self-similar solutions to the following one-dimensional toy model:
+		\begin{align}
+			\label{Burger}
+			-u''+uu'=f , \quad x\in \mathbb{R}\setminus \{0\}
+		\end{align}
+		where $u$ and $f$ are scalar functions.  It has the same scaling property as the steady Navier-Stokes equations. As the domain $\mathbb{R}\setminus \{0\}$ is not connected, one can consider the positive part $\{x>0\}$ only.
+		For any $(-3)$-homogeneous $f(x)=\frac{c}{x^3}$, $x>0$,   and $c$ is a constant, one can find all  $(-1)$-homogeneous solutions must be of the form $u(x)=\frac{C}{x}$, where
+		\begin{align*}
+			C=-1\pm \sqrt{1-c}.
+		\end{align*}
+		This shows that there does not exist a solution $u$ if $c>1$; on the other hand, there are exactly two solutions if $c<1$, and there is exactly one solution if $c=1$. 
+		
+		We should mention that similar existence, non-existence, and non-uniqueness results, which depend on the size of an external force for the three-dimensional steady Navier-Stokes equations in the axisymmetric setting, were proved in \cite{Shi18}.
+		
+		% {\color{blue} As illustrated above, existence may hold only for small data and uniqueness may not hold in general for a system having the same scaling property.  
+			
+			% The above simple model and the result in \cite{Shi18} illustrate several aspects of our theorem. First, our existence result holds without any size restriction; however, in general, existence may hold only for small data. 
+			%    Additionally, non-uniqueness may occur even when the source term $f$ is small. 
+			% The  uniqueness of small data obtained in Theorem \ref{thm:main} is not  very restrictive. }
+	\end{remark}
+	
+	\begin{remark}
+		The main point of uniqueness in Theorem \ref{thm:main} is the global uniqueness without size restriction on solutions. 
+		%in the class of all self-similar solutions holds when $\Bf$ is small.
+		Previously, local uniqueness has been obtained in \cite[Theorem 1.2]{Kaneko19} when the external $\Bf$ is small, i.e., the solution is unique in the class with smallness. 
+		
+		The key point in Part (iii) of Theorem \ref{thm:main} is that 
+		%we can obtain energy estimates, which give a priori bounds on all possible solutions.  This is 
+		our a priori estimates imply that all possible self-similar solutions must admit smallness if the external force is small, and then global uniqueness follows. The uniqueness here is in the same spirit as that of \cite{jia1409}, where the uniqueness is proved for small initial data in $L^{3,\infty}(\mathbb{R}^3)$.
+	\end{remark}
+	
+	\begin{remark}
+		In \cite{Jia14},  the global existence of self-similar solutions with a $(-1)$-homogeneous initial data for the unsteady three-dimensional Navier-Stokes equations was established. Our problem is  different from the problem of \cite{Jia14}.
+		% when it comes to analogy between steady and unsteady problems in a scale-invariant space, one may compare steady problems to only backward unsteady problems. 
+		At a technical level, for our problem, there are no available local energy estimates, and the solution of the  linearized Stokes equations cannot serve as the leading term. 
+		%      In \cite{Jia14}, the  global existence
+		% of smooth self-similar solutions was established for the unsteady three-dimensional Navier-Stokes equations, when the initial velocities are locally
+		%  H\"older continuous on $\mathbb{R}^3\setminus\{0\}$. However, there are some key differences compared with the higher-dimensional steady case.
+		%  First, there are no available local energy  estimates  when the spatial dimension $n\geq 5$. Roughly speaking, this is because the energy norm is weak and not enough to control the nonlinear term if  $n\geq 5$. Second, the solution of the  linearized Stokes equations cannot serve as the leading term, as the error now is also (-1)-homogeneous,
+		%  and cannot be expected to be zero. This is quite different from the unsteady case, where the error terms decay faster at infinity, as evident from the energy estimates of the Leary equation (cf. \cite{Tsai17, Tsai17CPDE}).
+	\end{remark}
+	%  In the unsteady case, we mention the important work \cite{Jia14}, where the  global existence
+	% of smooth self-similar solutions was established when the initial velocities are locally
+	%  H\"older continuous on $\mathbb{R}^3\setminus\{0\}$. 
+	% % This provides the existence of large solutions in the
+	% %critical space $L^{3,\infty}(\mathbb{R}^3)$.
+	% %The main idea in \cite{Jia14} is to first prove a so-called ``local-in-space regularity estimates near the initial time" 
+	% %using the $L^2_{loc}$-energy estimates obtained in \cite{Lemarie02}. 
+	% The key step in \cite{{Jia14}} is to show the error between the solution and the solution to the heat equation has faster decay at spatial infinity, no matter the size of the solution, based on the $L^2_{loc}$-energy estimates obtained in \cite{Lemarie02}. %This provides a prior estimate at infinity, and, together with the Leray-Schauder fixed-point theorem, establishes the existence of self-similar solutions.
+	% %In other words, the solution to the Stokes equation serves as the leading order term no matter the size of the solution. 
+	%  The same advantage, i.e., the error terms have faster decay at infinity, also plays an important role when constructing the discretely and rotated discretely self-similar solutions in \cite{Tsai17, Tsai17CPDE} by pure energy methods.
+	% % In a certain sense, we have to come up with enough estimates for the solution itself.
+	% %This reveals a key difficulty in the higher-dimensional steady case: there are no available energy estimates.
+	
+	% We are concerned about higher-dimensional cases $n\geq 5$ here, especially $n=5$. This is not only mathematically interesting, but also the five-dimensional steady flows are indeed considered good models for studying unsteady three-dimensional flows due to the similarity in scaling and the energy estimates. See \cite{Struwe95, Tsai18, Sverak11} for more explanations on this point of view.
+	
+	% Compared with the unsteady case,  there are two difficulties for the existence of self-similar solutions to System \eqref{NS} we studied here. First, there are no available energy  estimates  when the spatial dimension $n\geq 5$. Roughly speaking, this is because the energy norm is weak and not enough to control the nonlinear term if  $n\geq 5$. 
+	% %Hence, we do not have any estimate ``for free" from which to
+	% %begin the analysis.
+	% Second, for the steady problem \eqref{NS},  the solution to the corresponding  Stokes equations with the same (-3)-homogeneous force $\Bf$ will also be (-1)-homogeneous.  It follows that 
+	%  %will either be identically 0 or have exactly the decay rate  $\frac{1}{|x|}$ at infinity and the blow-up rate $\frac{1}{|x|}$  at the origin, which are at the same order as the solution to the  Stokes equations. Since the error can not be 0 
+	%  we cannot use the solution of the  linearized Stokes equations to serve as the leading term, as the error now is also (-1)-homogeneous,
+	%  and cannot be expected to be zero. 
+	%  Therefore, it seems that 
+	%  the approach developed for the unsteady flows in \cite{Jia14,Tsai17, Tsai17CPDE} cannot be used in the steady case.
+	
+	%   Indeed, these are not just technical difficulties, but they reflect some essential differences with the  unsteady case.
+	%   For example, one cannot expect a similar result to Theorem \ref{NS} to hold for the steady three-dimensional  case. It is shown in \cite{Shi18} that in the axisymmetric setting, \eqref{NS} can not have a regular axisymmetric self-similar solution corresponding to the external force $\lambda \Bf$ if $\lambda$ is large enough,
+	%   %if the external force is a large multiple of some scaling invariant axisymmetric external force 
+	% unless the force $\Bf$ is the potential of a scalar function.  We will give the main idea for overcoming these difficulties and  the outline of the proof in Subsection \ref{sec:mainidea} below.
+	
+	%{\color{blue}It will be clear from the proof of Theorem \ref{thm:main} that all possible self-similar solutions are smooth if the external force $\Bf$ is smooth away from the origin. Roughly speaking, this is because we have a priori estimates for the positive part of the total head pressure beyond the exponent $``n/2"$, which enables us to prove the regularity of the solution.
+		%\begin{remark}
+		% Let  $\Bf$ be a  (-3)-homogeneous external force and $5\leq n\leq 10$. 
+		%When $n=11,12$, we assume $\Bf=r^{-3}f^r\Be_r$ and when $n\geq 13$, we assume $\Bf=r^{-3}f^r\Be_r$ and also $f^r\geq 0$.
+		%Assume that $\Bu$ is a self-similar solution to \eqref{NS} and  $\Bu \in W^{1,2}(S^{n-1})$.    Then $\Bu$ is smooth away from the origin if the external force $\Bf$ does.
+		%\end{remark}}
+		%This is also closely related to the rigidity of Landau solutions.
+		% On the other hand, when $n=4$, the existence of large weak self-similar solutions to \eqref{NS} with any given (-3)-homogeneous force was proved  in \cite{Shi18} by a direct energy estimate.
+		%  We will give the main idea for overcoming these difficulties and  the outline of the proof in Subsection \ref{sec:mainidea} below.
+		
+		
+		
+		
+		%In view of this scaling, one can study the solution in $L^n$ or $L^{n,\infty}$. 
+		%the scaling invariant space, which is usually refer to the critical space in the literature.
+		
+		%It is natural to study the 
+		% For the unsteady case, one can also talk about the (space-time) scaling of the problem and then define the ``scale-invariant" solutions similarly.
+		
+		
+		% %It is also natural to study the Navier-Stokes equations in scale-invariant spaces 
+		% In this direction, extensive study has been devoted to both steady and unsteady problems.
+		
+		% For the unsteady problem, one may refer to \cite{Giga89, Kato92, Cannone95, Cannone1995, Cannone96, Barraza96},  for the steady problem, one may refer to. In these works, the 
+		% authors can establish the unique existence of small solutions in various scale-invariant functional spaces under the smallness assumption on the initial data in the unsteady case and the external force in the steady case.
+		
+		% smallness is needed for the initial data in the unsteady case and for the external force in the steady case to establish the existence of the solutions, uniqueness is also obtained under the smallness assumption.
+		% As a corollary, the authors established the existence of small self-similar solutions both in the steady and unsteady case. 	
+		
+		%where they show that the error term belongs to the energy space 
+		%by establishing the energy estimates for the perturbed Leray equations.
+		% We remark that this kind of fact is not true in the steady case, where for example in three dimensions, the leading order term at spatial infinity is given by the so-called Landau solution, not the solution to the Stokes equation in general \cite{Korolev11}.
+		%which are the Navier-Stokes equations expressed in the similarity variables.
+		
+		% One can also study the steady case in a scale-invariant space without size restrictions. 
+		%When $n=3$, it is shown in \cite{Shi18} that in the axisymmetric setting, \eqref{NS} cannot have a regular axisymmetric self-similar solution %if the external force is a large multiple of some scaling invariant axisymmetric external force 
+		%unless the force is a potential of a scalar function,
+		%(which is also closely related to the rigidity of Landau solutions.)
+		%On the other hand, when $n=4$, the existence of large weak self-similar solutions to \eqref{NS} with any given (-3)-homogeneous force was proved  in \cite{Shi18} by a direct energy estimate.
+		
+		%However, the study of dimensions $n\geq 5$ is left open. 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		% the error term 
+		%  is indeed at the same order as the solution.
+		% and we can not have any advantages.
+		
+		
+		% \begin{remark}
+			%    When $n=4$,  Shizuo\cite{Shi18} has proved the existence of weak self-similar solutions 
+			%   in $W^{2,4/3}_{loc}(\mathbb{R}^4\setminus\{0\})$   to \eqref{NS} with any given (-3)-homogeneous force in $L^{4/3,\infty}(\mathbb{R}^4)$. 
+			%  % Our proof is different and applicable for all $4\leq n \leq 10$.
+			%  \end{remark}
+		
+		
+		
+		%the existence results are classical in dimensions $n = 2, 3$, see e.g., \cite{Tsai18}.  In dimension $n = 4$, it follows from the work of Gerhard \cite{Gerhardt79}. 
+		
+		
+		
+		%\subsection{Uniqueness of a Solution}
+		% Besides the existence, uniquenss of solutions is a challenging problem. 
+		%     Such uniqueness is  subtle in the scale-invariant space, even when the given force $\Bf$ is small.
+		%     We consider a model equation
+		%     \begin{equation*}
+			%         -\Delta u- |\nabla u|u =\Bf \textrm{ in } \mathbb{R}^n\setminus \{0\}.
+			%     \end{equation*}
+		%     This equation has the same scaling as \eqref{NS}. Consider the special case $\Bf=0$, it has two solutions: one is 0, and the other
+		%   is a non-trivial self-similar solution $u=(n-3)/|x|$. This suggests that, in general,
+		%     one cannot prove the uniqueness in the whole class of self-similar solutions.
+		%One may also refer to \cite{Haraux82,Naito04} for a quite related study, where the Cauchy problem for the semilinear heat equation 
+		% \begin{equation}  \label{eq:semilinear heat}  
+			% \partial_t u-u^3=\Delta u,       
+			%    \end{equation}
+		%    has been studied. 
+		%   Note that \eqref{eq:semilinear heat} has
+		%     the same scaling  as the unsteady Navier-Stokes equations. They showed that for  self-similar initial data $\frac{\sigma}{|x|}$, there are two positive self-similar solutions when $\sigma$ is small.
+		% One of the solutions is small, and is given by the perturbation method; the other solution is not small and cannot be detected by perturbation methods, but by variational
+		% approach.
+		
+		% As far as the steady Navier-Stokes system \eqref{NS} is concerned, uniqueness has been obtained in \cite[Theorem 1.2]{Kaneko19} under smallness assumptions on solutions when the external $\Bf$ is small. 
+		% We here prove the uniqueness in the class of all self-similar solutions when $\Bf$ is small.
+		%     The good thing in our situation is that we can obtain energy estimates, which give a priori bounds on all possible solutions.  This implies all
+		%  solutions are small if the external force is small. By then, global uniqueness follows. Our uniqueness here is in the same spirit as that of \cite{jia1409}, where the uniqueness is proved for small initial data in $L^{3,\infty}(\mathbb{R}^3)$.
+		%\begin{theorem}[Uniqueness of solutions with small external force]\label{thm:small-large}
+		% Let the  (-3)-homogeneous external force $\Bf$ satisfy $\Bf|_{S^{n-1}} \in \textrm{Lip}(S^{n-1})$.   
+		% There exists a universal constant $\epsilon>0$ depending only on $n$ such that if  $|\Bf(x)|\leq \frac{\epsilon}{|x|^3}$ and $|\nabla \Bf(x)|\leq \frac{\epsilon}{|x|^4}$, then the solution we obtained in Theorem \ref{thm:main} is unique.
+		% \end{theorem}
+	
+	
+	
+	
+	
+	% In a certain sense, we have to come up with enough estimates for the solution itself.
+	
+	
+	
+	%\subsection{Finite energy solutions}
+	Here, we would like to recall some related results on the existence of steady solutions for the Navier-Stokes equations. The study of the existence of weak solutions of \eqref{NS} has been extensive, since the work of Leray \cite{leray1933etude}, where the existence of solutions with finite energy was established. 
+	Especially, the existence of weak solutions belonging to $H^1$ %for general a smooth domain $\Omega$
+	follows from Leray's arguments in any dimension (see \cite[Chapter 2]{Tsai18}).
+	Considering the regularity of the solution when the external force $\Bf$ is smooth, one can show that weak solutions are regular if the dimension $n\leq 4$ (see \cite{Gerhardt79}).
+	In higher dimensions, it is still an open problem whether any weak solution is smooth.
+	
+	In the 1990s,  Frehse and R{\r u}\v{z}i\v{c}ka 
+	and also  Struwe
+	initiated the study of the existence of smooth solutions in higher dimensions (\hspace{1sp}\cite{FrehseRuzicka94,FrehseRuzicka96,Frehse94,Struwe95}). The analysis in this paper was inspired by the method developed in \cite{Frehse94,Struwe95}. 
+	% The problem is classified as ``super-critical" in dimensions $n \geq 5$.  
+	Frehse and R{\r u}\v{z}i\v{c}ka \cite{Frehse94} showed that in a bounded domain in $\mathbb{R}^5$ with homogeneous Dirichlet boundary condition,  \eqref{NS} has weak solutions which are ``almost regular". Struwe \cite{Struwe95}  showed the existence of regular solutions on $\mathbb{R}^5$ and the torus $\mathbb{T}^5$ by establishing  $C^1$ a priori bounds of solutions. Frehse and R{\r u}\v{z}i\v{c}ka \cite{FrehseRuzicka94, FrehseRuzicka96} then established the existence of regular solutions of the Dirichlet problem in dimensions $n = 5,6$, and also established the existence of regular solutions on $\mathbb{T}^n$ for $5 \leq n \leq 15$. Recently, Li and Yang \cite{LiYang22} extended the existence of regular solutions on $\mathbb{R}^n$ for $n=5$ to $5 \leq n \leq 15$.
+	%We refer to and for simplified proofs and more discussions on this subject.
+	It should be noted that in the above works, when the domain is the whole space $\mathbb{R}^n$, the external force $\Bf$  is assumed to be  regular and compactly supported or  decay fast enough so that standard a priori energy estimates hold. This makes the results in \cite{Struwe95, LiYang22} cannot be applied to the case with $(-3)$-homogeneous external forces.  
+	%Therefore, the solution space is subcritical in a certain sense.
+	
+	\subsection{Main ideas and outlines for the proof}\label{sec:mainidea}
+	
+	
+	%Compared with the unsteady case in dimension 3 for the self-similar solutions (cf. \cite{Jia14} or \cite{Tsai17, Tsai17CPDE}) and the steady case for the finite energy solutions in high dimensions $n\geq 5$, essential difficulties come out if one want to prove Theorem \ref{thm:main}.
+	
+	
+	In this subsection, we give the key ideas for the proof of main results in this paper.
+	We prove  the existence of self-similar solutions by applying the Leray-Schauder degree theory. The essential part is to establish a priori estimates. 
+	We begin with the standard energy estimates for the Navier-Stokes equations. It follows from the  self-similarity that the  energy estimates can be written as
+	%However, it is anticipated that the nonlinear $\int (\Bu\cdot \nabla\Bu)\cdot \Bu$ will not vanish.
+	%derive them
+	\begin{equation*}
+		\int_{S^{n-1}} 
+		\left(
+		|\nabla \Bu|^2 +(n-4)|\Bu|^2 + (n-4)Hu^r
+		\right) 
+		d\sigma = 	\int_{S^{n-1}} \Bf\cdot \Bu \, d\sigma.
+	\end{equation*}
+	Here $H=\frac{1}{2}|\Bu|^2+p$ is the total head pressure and $u^r=\Bu\cdot x$ is the radial component of $r\Bu$, $r=|x|$.  
+	When $n=4$,  it gives the desired energy estimates, and the existence of self-similar solutions with general external forces was established in \cite{Shi18}. 
+	When $n\geq 5$, one has to estimate the non-linear term $\int_{S^{n-1}} H u^r d\sigma$. This term is of order $|u|^3$, and its sign is not clear.
+	%We note that  $|u|^3$ 
+	%cannot be controlled by the energy norm directly, 
+	%using the Sobolev embedding  when the spatial dimension $n\ge 5$, preventing the local energy estimates from being obtained directly;
+	% Under the self-similarity assumption, this says that the spatial dimension can not exceed five, 
+	%see also \cite[Remark 1.3]{Dong07} for a related discussion.
+	
+	%We note that the Sobolev embedding only gives $L^{\frac{2(n-1)}{n-3}}$ integrability
+	
+	%When $n\geq 5$, we do not obtain any useful estimate at this moment, due to the presence of the term $\int_{S^{n-1}} H u^r d\sigma$.
+	
+	To estimate $\int_{S^{n-1}} H u^r d\sigma$, our idea is to split $H u^r$ into $H u^r_+$ and $H u^r_-$. Here and below, we denote the positive part and the negative part of a function $g(x)$ by 
+	\begin{equation*}
+		g_+(x) :=\max\{0, g(x)\},~g_-(x):=-\min\{0,g(x)\}
+	\end{equation*}
+	respectively. Clearly, one has $g(x)=g_+(x) - g_-(x)$ and $|g(x)| = g_+(x)+ g_-(x)$.
+	
+	A key observation is that there is a crucial relation between $H$ and $u^r$, which is
+	\begin{equation} \label{relation}
+		-\Delta_{S^{n-1}}u^{r} + 
+		\Bu^{t} \cdot\nabla^{S^{n-1}} u^{r}  
+		= 2H+{f}^{r} \quad \text{on }S^{n-1}.
+	\end{equation}
+	Here
+	$\Bu^{t}=r\Bu-u^r \Be_r$ is the tangential component of $r\Bu$, and  
+	\begin{equation}\label{eq:sphegradi}
+		\nabla^{S^{n-1}} = r\left(\nabla -\Be_r\frac{\partial}{\partial r}\right) \,\,\text{with}\,\, \Be_r=\frac{x}{|x|}, \quad \Delta_{S^{n-1}} = r^2\left(\Delta -\frac{\partial^2}{\partial r^2}-\frac{n-1}{r}\frac{\partial}{\partial r}\right),
+	\end{equation}   
+	% \begin{equation}\label{eq:sphelapla}
+		%     \Delta_{S^{n-1}} = r^2\left(\Delta -\frac{\partial^2}{\partial r^2}-\frac{n-1}{r}\frac{\partial}{\partial r}\right).
+		% \end{equation}
+	are the spherical gradient and the spherical Laplacian, respectively.
+	% $$\nabla^{S^{n-1}} = \nabla -\Be_r\frac{x}{r}\cdot \nabla.$$
+	Using this relation \eqref{relation}, we have the following energy estimate 
+	\begin{equation*}
+		\int_{S^{n-1}} |\nabla \Bu|^2 +(n-4)|\Bu|^2 d\sigma
+		\leq 	\int_{S^{n-1}} \Bf\cdot \Bu + (n-4)H_{+} u^r_{-}\,  d\sigma + \frac{n-4}{2} \int_{S^{n-1}} f^r u^r_{+}\, d\sigma.
+	\end{equation*}
+	Hence, the key point is then to control $H_+$ and $u^r$.  One notes that $H$  solves an elliptic equation 
+	% \begin{equation*}
+		% 		-\Delta_{S^{n-1}}H +  \Bu^{t} \cdot \nabla^{S^{n-1}} H -2 u^r H+(2n-8) H = -\frac{1}{2}\sum_{i,j=1}^{n}|\partial_i u_j-\partial_j u_i|^2 +\Bf\cdot\Bu -\div \Bf 
+		%         \quad \text{on }S^{n-1},
+		% 	\end{equation*}	
+	\begin{align} \label{eqforH_0}
+		-\Delta \, H
+		+ \Bu \cdot \nabla H
+		= - \frac{1}{2} \sum_{i,j=1}^{n}|\partial_i u_j - \partial_j u_i |^2
+		+\Bf\cdot \Bu - \div \Bf  \text{ in }\mathbb{R}^n \setminus \{0\},
+	\end{align}
+	so that $H_+$ satisfies some a priori estimates inspired by the maximum principle.  
+	This indeed leads to integrability estimates of $H_+$ beyond the classical regularity criteria exponent $``n/2"$ in terms of $\Bu$ and  $\Bf$ (see Lemma \ref{lem:H+control} below), where the ``dimension-reduction” effect of the self-similarity also plays an important role. Directly integrating \eqref{relation} on $S^{n-1}$, we can estimate $\|u^r\|_{L^2(S^{n-1})}$ in terms of  $H_+$ and $\Bf$ and  consequently get the estimates of $u^r$ in terms of  $\Bu$ and $\Bf$ (see Lemma \ref{lem:urestim} below). 
+	{ With these ingredients, one can close the energy estimates with the help of the Sobolev inequality on $\Bu$, which yields a dimension restriction $n\leq 10$, see Proposition \ref{lemmaenergyestimatenleq10} and the wordings below it. To go beyond the scope of the Sobolev inequality, we instead use the equations again and obtain better integral estimates for $\Bu$, which yields a more general condition $n\leq 16$. See Lemmas \ref{lem:weighedestiforpressure} and \ref{highintegralofu}.
+	}
+	
+	
+	
+	Along with the proof of the energy estimates for $\Bu$, higher integrability of $H_+$ beyond $``n/2"$ is also obtained (see Proposition \ref{higherint2}) by using Lemma \ref{lem:H+control}. 
+	%and  the ``dimension-reduction” effect of self-similarity. 
+	With this at hand, we immediately have the well-known $L^\infty_{loc}$-regularity estimate of the velocity field away from the origin (see Proposition \ref{lem:keylemma}) and we can improve the regularity estimate up to $C^{2,\alpha}_{loc}$ by a bootstrap argument (see Proposition \ref{thm:mainest}). 
+	%, provided the external force $\Bf$ is regular enough away from the origin.
+	This regularity estimate enables us to apply the Leray-Schauder degree theory to get the existence result.
+	
+	We mention that the maximum principle for $H$ was observed and used in \cite{Serrin, GilbargWeinberger78, Amick}. Later on,  Frehse and R{\r u}\v{z}i\v{c}ka \cite{FrehseRuzicka96}, Struwe \cite{Struwe95}, and Li and Yang \cite{LiYang22} used the maximum principle    in a weak form to show the existence of regular solutions with finite energy in high dimensions. 
+	%In the following, we only consider the cases $n\geq 5$, since the case $n=4$ has been considered in \cite{Shi18}. 
+	
+	\subsection{Organization of the paper}
+	The rest of the paper is organized as follows. In Section \ref{sec:A-priori}, we give the a priori energy estimates. In Section \ref{sec:proof of main}, the $C^{2,\alpha}_{loc}$ estimates of solutions are first established by using the higher integrability of $H_+$ and a bootstrap argument. After that, the existence of solutions  is proved by the Leray-Schauder degree theory; in addition, we prove  the global uniqueness. In Section \ref{Section4}, we deal with the case that the external force $\Bf$ has only a nonnegative radial component, where it follows from \eqref{eqforH_0} that $H_+$ can be controlled by $u^r_+$ and $\Bf$. Together with some higher integrability estimate for  $u^r_+$ using \eqref{relation}, we have the desired a priori estimate for $H_+$ and the existence of solutions without restriction of the dimension.
+	In Appendix \ref{app:singularinteg}, 
+	we address two technical issues.
+	%we present a lemma concerning the singular integral estimates for homogeneous functions on the sphere.
+	%This will be the main goal of Section \ref{sec:A-priori}. In the proof, the most difficult and seemingly unavoidable part is to obtain the energy estimates, which are far from trivial due to the critical nature of the problem without any size restriction.
+	%Our approach is to establish the energy estimates on the sphere, 
+	% by establishing good estimates of the positive part of the total head pressure $H=\frac{1}{2}|\Bu|^2+p$ and the radial component of $\Bu$. 
+	%where we make a key observation that there is a nice relation between the total head pressure $H=\frac{1}{2}|\Bu|^2+p$ and the radial component $u^r$ of $\Bu$. This, together with the maximum principle for  $H$, helps to close the energy estimates.
+	% and then the higher regularity of the solutions with the help of the higher integrability of the positive part of the total head pressure $H=\frac{1}{2}|\Bu|^2+p$. 
+	% (i) the standard energy estimates on the sphere (ii) the higher integrability estimates of the positive part of $H$ (iii) the control of the negative part of $H$ through
+	% the positive part of $H$ and the external force, where
+	% the relation between the radial component of the velocity $\Bu$ and $H$ plays an essential role (iv) the estimates of the radial component of the velocity  $\Bu$ in terms of the total head pressure $H$ and the external force.
+	%Based on the estimates in Section  \ref{sec:A-priori},  we prove the main theorem \ref{thm:main} in Section \ref{sec:proof of main}. 
+	%Some technical estimates for the pressure are put in the Appendix \ref{sec:appen}.
+	
+	
+	%	In high dimension $n\geq 5$ and under the critical setting, it is highly non-trivial to obtain any initial estimates.
+	
+	
+	
+	
+	\section{A priori energy estimates}\label{sec:A-priori}
+	
+	
+	\subsection{Energy estimates}
+	\label{subsec_EE}
+	%In addition, for a homogeneous vector field $\Bv$ in $\mathbb{R}^n\setminus \{0\}$, we write $\Bv|_{S^{n-1}} \in \textrm{Lip}(S^{n-1})$ if and only if 
+	%$v_i \in L^\infty (S^{n-1})$ and $\nabla^{S^{n-1}} v_i \in L^\infty (S^{n-1})$ for all $i=1,\cdots,n,$
+	%where we use the standard Euclidean basis $\{\boldsymbol{e}_i\}_{i=1}^n$ of $\mathbb{R}^n$ and decompose $\Bv= \sum_{i=1}^n v_i \boldsymbol{e}_i$.
+	
+	We first prove a preliminary result that the homogeneity of $\Bu$ and $\Bf$  implies the homogeneity of $p$ under mild regularity assumptions.
+	\begin{lemma}\label{Lemmapressure} Assume that $n\geq 5$,  $\Bf$ is $(-3)$-homogeneous and $\Bf$ is locally Lipschitz on $\mathbb{R}^n \setminus \{0\}$. 
+		Let $\Bu$ be a $(-1)$-homogeneous solution to \eqref{NS} in $\mathbb{R}^n \setminus \{0\}$ in the sense of distribution and $\Bu \in C^2(\mathbb{R}^n \setminus \{0\})$.
+		Then the corresponding pressure $p\in C^1(\mathbb{R}^n \setminus\{0\})$ is uniquely defined up to a constant and can be chosen as $(-2)$-homogeneous.
+		%$(-2)$-homogeneous function $p$ such that $(\Bu, p)$ is a solution to \eqref{NS} in $\mathbb{R}^n \setminus \{0\}$.
+	\end{lemma}
+	\begin{proof}		
+		We note that the pressure $p$ solves
+		\begin{equation*}
+			\Delta p =- \partial_i\partial_j(u_iu_j)+ \div \Bf.
+		\end{equation*}
+		Then $p$ can be represented by 
+		\begin{equation}\label{pressure}
+			p(x) = \frac{1}{n(n-2) \omega_n} \int_{\mathbb{R}^n}\frac{1}{|x|^{n-2}} (\partial_i\partial_j(u_iu_j)- \div \Bf )(y) dy + h(x),
+		\end{equation}
+		where $\omega_n$  is the volume of the unit ball in $\mathbb{R}^n$ and $h(x)$ is a harmonic function on $\mathbb{R}^n\setminus\{0\}$.
+		According to Lemma \ref{Riesz}, the first part in the right-hand side of \eqref{pressure}  is $(-2)$-homogeneous. It follows from \eqref{NS} and the homogeneities of $\Bu$ and $\Bf$ that $\nabla p$ is $(-3)$-homogeneous. This implies that $\nabla h$ is $(-3)$-homogeneous. A Liouville-type theorem for the harmonic function implies that $h$ is a constant. Indeed, when $n= 5$, the Liouville-type theorem for harmonic functions $\partial_i h$ yields that 
+		\begin{equation*}
+			\partial_i h= \frac{c_i}{|x|^3}.
+		\end{equation*}
+		Using $\partial_i \partial_j h= \partial_j \partial_i h$, we have
+		$c_i=0$ for all $i$. This shows that $h$ is a constant and we can choose $h=0$ as this will not affect $\nabla p$. When $n\geq 6$, the Liouville-type theorem for harmonic functions $\partial_i h$ yields that 
+		\begin{equation*}
+			\partial_i h= 0.
+		\end{equation*}
+		Then $h$ is a constant, and we can also choose $h=0$ without affecting $\nabla p$.       
+		Then according to Lemma \ref{Riesz}, $p(x)$ is $(-2)$-homogeneous and it holds that $p, \nabla p \in L^\beta(S^{n-1})$, $1<\beta< \infty$.
+		
+		Following the proof in \cite{Galdi11}, one can then verify that $(\Bu, p)$ is a classical solution to \eqref{NS} in $\mathbb{R}^n \setminus \{0\}$, and $p$ belongs to $C^1(\mathbb{R}^n \setminus\{0\})$ . 
+	\end{proof}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	%Our main idea is applying the Leray-Schauder theory to get the existence of solutions.
+	We start to derive the energy estimate for the self-similar solution $\Bu$.  To utilize the equations on the sphere later in the proof, we
+	decompose 
+	$$\Bu = \frac{\Bu^{t} +u^r\Be_r}{r}, \quad \Bf = \frac{\Bf^{t}+f^r\Be_r}{r^3},\quad p=\frac{\bar{p}}{r^2}. $$ Here, 
+	$\Bu^{t}$ and  $u^r\Be_r$ are the tangential and  radial components of $r\Bu$, respectively.  
+	Similarly, $\Bf^{t}$ and 
+	$ f^r\Be_r$ are the tangential and radial components of $r^3\Bf$, respectively.  Under the self-similarity assumptions, 
+	$\Bu^{t}$, $u^r$, $\Bf^{t}$, 
+	$ f^r$ and $\bar{p}$ are all  0-homogeneous. Now we can state our first main estimate.
+	% For self-similar solutions $\Bu$, one easily see that neither $\Bu$ nor $\nabla \Bu$ belongs to $L^2(\mathbb{R}^n)$ (or $L^p(\mathbb{R}^n)$,  $p>1$), and 
+	% We consider the energy estimates on the sphere. 
+	%To do so, we derive the energy estimates on the annulus first, and then let the inner and outer radii go to 1. By then, the energy estimates on the sphere are obtained.
+	\begin{lemma}\label{halfenergyestimate}
+		Assume $n\geq 4$.  For any self-similar solution $\Bu$ of \eqref{NS} such that $\Bu \in C^2(\mathbb{R}^n \setminus\{0\})$, it holds that 
+		\begin{equation}\label{eq:keydec-2}
+			\begin{aligned}
+				&\int_{S^{n-1}} |\nabla \Bu|^2 +(n-4)|\Bu|^2 d\sigma			
+				\leq 	\int_{S^{n-1}} \Bf\cdot \Bu + (n-4)H_{+} u^r_{-}\,  d\sigma + \frac{n-4}{2} \int_{S^{n-1}} f^r u^r_{+}\, d\sigma.
+			\end{aligned}
+		\end{equation}
+	\end{lemma}
+	\begin{proof} The proof is divided into two steps.
+		
+		{\it Step 1.} Multiplying \eqref{NS} by $\Bu r^{4-n}$ ($r=|x|$) and integrating both sides on the annulus $B_{R}\setminus B_{1}$ ($R>1$) yields
+		\begin{equation*}
+			\int_{B_{R}\setminus B_{1}} 
+			\left(
+			|\nabla \Bu|^2 r^{4-n} +(n-4)|\Bu|^2 r^{3-n}   + (n-4)Hu^r r^{2-n} 
+			\right)
+			dx = 	\int_{B_{R}\setminus B_{1}} \Bf\cdot \Bu \, r^{4-n} dx,
+		\end{equation*} 
+		where integration by  parts and the self-similarity of  $\Bu$ have been used.
+		Now dividing it by $R-1$ and sending $R\to 1$ yields the following energy estimate on $S^{n-1}$,
+		\begin{equation}\label{eq:energyest}
+			\int_{S^{n-1}} |\nabla \Bu|^2 +(n-4)|\Bu|^2 + (n-4)Hu^rd\sigma = 	\int_{S^{n-1}} \Bf\cdot \Bu \, d\sigma.
+		\end{equation}
+		We remark that 
+		\begin{equation}\label{eq:Sobolev}
+			\int_{S^{n-1}} |\nabla \Bu|^2 d\sigma = \int_{S^{n-1}} \left|\nabla^{S^{n-1}} \Bu\right|^2 + |\partial_r \Bu|^2d\sigma= \int_{S^{n-1}} \left|\nabla^{S^{n-1}} \Bu\right|^2 + | \Bu|^2d\sigma,
+		\end{equation}
+		where $\nabla^{S^{n-1}}$ is the spherical gradient defined in \eqref{eq:sphegradi}, and in the last equality we  used the property $\partial_r \Bu =-\Bu$, which is a consequence of the self-similarity of $\Bu$.
+		
+		
+		
+		
+		%To handle the term 
+		%$\int_{S^{n-1}} H u^r d\sigma$, we first  decompose $u^r$ into $u^r_-$  and $u^r_+$.
+		{\it Step 2.} It follows from \eqref{eq:energyest} that we have
+		\begin{equation}\label{eq:keydec}
+			\begin{aligned}
+				\int_{S^{n-1}} |\nabla \Bu|^2 +(n-4)|\Bu|^2 d\sigma
+				& = 	\int_{S^{n-1}} \Bf\cdot \Bu -(n-4)Hu^rd\sigma \\
+				& =\int_{S^{n-1}} \Bf\cdot \Bu -(n-4) H u^r_{+} + (n-4) H u^r_{-} d\sigma\\
+				& \leq \int_{S^{n-1}} \Bf\cdot \Bu -(n-4)H u^r_{+} +(n-4)H_{+}u^r_{-} d\sigma.
+			\end{aligned}
+		\end{equation}
+		% The term $\int_{S^{n-1}}H_+u^r_{-} d\sigma $ can be controlled by utilizing higher integrability of $H_+$, which follows from the fact that $H$ satisfies certain maximum principle due to the elliptic equation \eqref{eq:headpre}; see Lemma \ref{lem:H+control} for the precise statement. 
+		To control the  term  $\int_{S^{n-1}} H u^r_+ d\sigma$, our key observation is that there is a
+		nice relation between $u^r$ and $H$ under the self-similarity assumption on  $\Bu$. 
+		To see this, we examine the equations \eqref{NS} on the sphere $S^{n-1}$ by utilizing the self-similarity, where the relationship between $u^r$ and $H$ becomes clear.
+		% Also we  write $p=\frac{\bar{p}}{r^2}$, with 0-homogeneous $\bar{p}$.
+		It follows from \eqref{NS} that $u^r$ satisfies the following equation
+		\begin{align*}
+			%\label{tangential}
+			% -\Delta_{\mathrm{H}} \Bu^{t} + \Bu^{t}\nabla^{S^{n-1}}\Bu^{t} + \nabla^{S^{n-1}} ( \bar{p}-2u^r) &=\Bf^{t},\\
+			\label{NSnorm}	
+			-\Delta_{S^{n-1}}u^{r} 
+			+\left( 
+			\Bu^{t} \cdot \nabla^{S^{n-1}} u^{r}  -(u^{r} )^2  - |\Bu^{t}|^2
+			\right)
+			-2\bar p
+			&= {f}^{r}
+			\quad \text{on }S^{n-1},
+		\end{align*} 
+		which  was also derived in \cite[Appendix 1]{Sverak11}.
+		%where $\Delta_{\mathrm{H}}$ is the Hodge Laplacian on $S^{n-1}$.
+		% Equation \eqref{tangential} and Equation \eqref{NSnorm} correspond to the tangential and radial components of the Navier-Stokes equations, respectively. 
+		The above equation  of $u^r$  can  be written as
+		\begin{equation} \label{NSnorm2}
+			-\Delta_{S^{n-1}}u^{r} + 
+			\Bu^{t} \cdot\nabla^{S^{n-1}} u^{r}  
+			= 2H+{f}^{r} \quad \text{on }S^{n-1}.
+		\end{equation}
+		Multiplying \eqref{NSnorm2} by $u^r_+$ and integrating both sides on $S^{n-1}$, we have
+		\begin{equation}\label{eq:ur_+}
+			\begin{aligned}
+				& \int_{S^{n-1}} \left|\nabla^{S^{n-1}} (u^r_+)\right|^2 d\sigma + \frac{ (n-2) }{2} \int_{S^{n-1}}  (u^r_+)^3 \, d\sigma \\
+				=& 2 \int_{S^{n-1}} H  u^r_+ \, d\sigma + \int_{S^{n-1}} f^r u_{+}^r \, d\sigma,\\
+			\end{aligned}
+		\end{equation}
+		where the integration by parts and the divergence-free condition
+		\begin{equation}
+			\label{divfree}  \div_{S^{n-1}}(\Bu^{t} ) + (n-2)u^{r} =0 \quad \text{on }S^{n-1}
+		\end{equation}
+		has been used.
+		%We also recall the total head pressure $H=\frac{1}{2}|\Bu|^2+p$.
+		Taking \eqref{eq:ur_+} into \eqref{eq:keydec} gives \eqref{eq:keydec-2}.
+	\end{proof}
+	
+	
+	Next, we derive the estimates for $H_+$. To do so, we consider the equation of the total head pressure $H$:
+	\begin{align} \label{eq:headpre2}
+		-\Delta \, H
+		+ \Bu \cdot \nabla H
+		= - \frac{1}{2} |\partial_i u_j - \partial_j u_i |^2
+		+\Bf\cdot \Bu - \div \Bf \quad \text{in }\mathbb{R}^n \setminus \{0\}.
+	\end{align}
+	
+	%    , we consider the  equation of the total head pressure  $H$ on the sphere $S^{n-1}$ : 
+	% \begin{equation} \label{eq:headpre}
+		% 	-\Delta_{S^{n-1}}H +  \Bu^{t} \cdot \nabla^{S^{n-1}} H -2 u^r H+(2n-8) H = -\frac12|\partial_i u_j -\partial_j u_i |^2 +\Bf\cdot\Bu -\div \Bf \quad \text{on }S^{n-1}.
+		% \end{equation}	
+	% We have the following key estimate for the positive part of $H$, it says that $H_+$ indeed has much better integrability that is even beyond the critical exponent $\frac{n}{2}$, this will be important for us to close the energy estimates and obtain the regularity of the solution.
+	
+	\begin{lemma}\label{lem:H+control}
+		Assume $n\geq 5$. For any self-similar solution $\Bu$ of \eqref{NS} such that $\Bu \in C^2(\mathbb{R}^n \setminus\{0\})$,
+		it holds that
+		\begin{equation}\label{eq:secestforH}
+			\|H_+\|_{L^{\theta}(S^{n-1})} \leq C(n)\left( \|\Bf\cdot \Bu\|_{L^q(S^{n-1})} + \|\div \Bf\|_{L^q(S^{n-1})} \right),
+		\end{equation}
+		where
+		\begin{equation}\label{eq:theta}
+			\theta := \frac{(n-2)(n-1)}{2(n-3)}\quad \text{and} \quad q: =\frac{(n-2)(n-1)}{4n-10}.
+		\end{equation} 
+	\end{lemma}
+	
+	\begin{proof}
+		Multiplying \eqref{eq:headpre2} with $H^{\alpha}_+, \alpha= \frac{n-4}{2},$ and integrating it by parts on $B_R\setminus B_1$ yields
+		\begin{align}
+			\label{eq:energyest775}
+			\begin{aligned}
+				\frac{4\alpha}{(\alpha+1)^2}
+				\int _{B_R\setminus B_1}
+				\left|
+				\nabla (H_+^{\frac{\alpha+1}{2}})
+				\right|^2\, dx
+				&=
+				\int _{B_R\setminus B_1}
+				\left(
+				-\frac{1}{2} |\partial_i u_j - \partial_j u_i|^2 +\Bf\cdot \Bu - \div  \Bf
+				\right) \, H_+^\alpha \, dx
+				\\
+				&\leq
+				\int _{B_R\setminus B_1}
+				\left(
+				\Bf\cdot \Bu - \div  \Bf
+				\right) \, H_+^\alpha \, dx.
+			\end{aligned}
+		\end{align}
+		Here, by using self-similarity, the boundary integrals over the boundary $\partial (B_R\setminus B_1)$ will vanish;  the choice of the special exponent $\alpha= \frac{n-4}{2}$ is made for this purpose. 
+		
+		In fact, one needs to prove \eqref{eq:energyest775} by using a weak formulation of \eqref{eq:headpre2} instead of using it in a classical sense since we only know $H$ is in $C^1 (\mathbb{R}^n \setminus \{0\})$. Rigorous justification is given in Appendix \ref{app:singularinteg}. 
+		
+		Dividing both sides of \eqref{eq:energyest775} by $R-1$ and sending $R\to 1+$, one can obtain estimates on $S^{n-1}$:
+		\begin{align}
+			\label{eq:energyest795}
+			\frac{4\alpha}{(\alpha+1)^2}
+			\int _{S^{n-1}}
+			\left|
+			\nabla (H_+^{\frac{\alpha+1}{2}})
+			\right|^2\, d\sigma 
+			\leq
+			\int _{ S^{n-1} }
+			\left(
+			\Bf\cdot \Bu - \div  \Bf
+			\right) \, H_+^\alpha \, d\sigma.
+		\end{align}
+		Using (-2)-homogeneity of $H$, one can obtain $\partial_r (H_+^{\frac{\alpha+1}{2}})=-(\alpha+1) H_+^{\frac{\alpha+1}{2}}$ on $S^{n-1}$ and re-write \eqref{eq:energyest795} as
+		% 	Multiplying  both sides of \eqref{eq:headpre} by $H_+^{\alpha}$ and   integrating on $S^{n-1}$  yield
+		% 	\begin{equation}\label{eq:energyestofH1}
+			% 		\begin{aligned}
+				% 			&	\frac{4\alpha}{(\alpha+1)^2} \int_{S^{n-1}} \left|\nabla^{S^{n-1}} H_+^{\frac{\alpha+1}{2}}\right|^2 +(2n-8) H_+^{\alpha+1} d\sigma + \left( \frac{n-2}{\alpha+1}-2\right) \int_{S^{n-1}} u^r H_+^{\alpha+1} d\sigma \\
+				% 			=& -\frac12\int_{S^{n-1}} |\partial_i u_j -\partial_j u_i |^2 H_+^{\alpha} d \sigma + \int_{S^{n-1}} \Bf\cdot \Bu H_+^{\alpha} d\sigma - \int_{S^{n-1}} \div \Bf H_+^{\alpha} d\sigma 
+				%    \\ 
+				% 			\leq& \int_{S^{n-1}} \Bf\cdot \Bu H_+^{\alpha} d\sigma - \int_{S^{n-1}} \div \Bf H_+^{\alpha} d\sigma,
+				% 		\end{aligned}
+			% 	\end{equation}
+		%        where the integration by parts has been used.
+		% We choose $\alpha=\frac{n-4}{2}$ so that $\frac{n-2}{\alpha+1}-2=0$.
+		% 	Then it follows from \eqref{eq:energyestofH1} that
+		\begin{equation}\label{eq:energyestofH}
+			\begin{aligned}
+				&\quad \frac{8(n-4)}{(n-2)^2} 
+				\int_{S^{n-1}} 
+				\left|
+				\nabla^{S^{n-1}} H_+^{\frac{n-2}{4}}
+				\right|^2 d \sigma 
+				+ (2n-8) \int_{S^{n-1}}H_+^{\frac{n-2}{2}} d \sigma \\
+				&\leq \int_{S^{n-1}} \Bf\cdot \Bu H_+^{\frac{n-4}{2}}d\sigma  - \int_{S^{n-1}} \div \Bf H_+^{\frac{n-4}{2}} d\sigma.
+			\end{aligned}			
+		\end{equation}
+		Using the Sobolev inequality (see \cite{Aubin76}) for $H_+^{\frac{n-2}{4}}$ on $S^{n-1}$ and the H\"older inequality, we obtain 
+		\begin{equation}\label{eq:firstestforH}
+			\begin{aligned}
+				\left\|H_+^{\frac{n-2}{4}}\right\|_{L^{\frac{2(n-1)}{n-3}}(S^{n-1})}^2 &\leq C\left(\left\|\nabla^{S^{n-1}} H_+^{\frac{n-2}{4}}\right\|_{L^{2}(S^{n-1})}^2 + \left\| H_+^{\frac{n-2}{4}}\right\|_{L^{2}(S^{n-1})}^2\right)\\       
+				&\leq C\left( \|\Bf\cdot \Bu\|_{L^q(S^{n-1})} + \|\div \Bf\|_{L^q(S^{n-1})} \right)\left\|H_+^{\frac{n-4}{2}}\right\|_{L^{q'}(S^{n-1})},
+			\end{aligned}
+		\end{equation}
+		where  
+		$q'=\frac{(n-2)(n-1)}{(n-3)(n-4)}$ so that $\frac{1}{q}+\frac{1}{q'}=1$. Note that $\frac{n-4}{2} q'= \frac{(n-2)(n-1)}{2(n-3)}$. Then a straightforward computation yields  \eqref{eq:secestforH}.
+	\end{proof} 
+	
+	
+	To close the energy estimates, we still need some estimates for $u^r$. For this purpose, we integrate the equation \eqref{NSnorm2}  for $u^r$ on the sphere directly, which gives estimates of $u^r$ in terms of  $H_+$ and $\Bf$, and hence, $\Bu$ and $\Bf$. 
+	\begin{lemma}\label{lem:urestim}
+		Assume  $n\geq 5$.  For any self-similar solution $\Bu$ of \eqref{NS} such that $\Bu \in C^2(\mathbb{R}^n \setminus\{0\})$, we have 
+		\begin{equation}\label{eq:L2estur1}
+			\|u^r\|_{L^2(S^{n-1})}^2 + \|H_-\|_{L^1(S^{n-1})} \leq C(n)\left( \|\Bf\cdot \Bu\|_{L^q(S^{n-1})} + \|\div \Bf\|_{L^q(S^{n-1})}  +    \|f^r\|_{L^1(S^{n-1})} \right),
+		\end{equation}
+		where $q$ is defined in \eqref{eq:theta}.
+	\end{lemma}
+	
+	\begin{proof}
+		Integrating both sides of \eqref{NSnorm2} on the sphere and using the divergence-free condition \eqref{divfree} yield 
+		\begin{equation*}
+			\int_{S^{n-1}} (n-2)|u^r|^2 d\sigma = \int_{S^{n-1}} 2H + f^{r} d\sigma.
+		\end{equation*}
+		This is equivalent to 
+		\begin{equation}\label{eq:ridalest}
+			\int_{S^{n-1}} (n-2)|u^r|^2 d\sigma + \int_{S^{n-1}} 2H_- d \sigma = \int_{S^{n-1}} 2H_+ + f^{r} d\sigma.
+		\end{equation}
+		Therefore, one has
+		\begin{equation}\label{eq:L2estur}
+			(n-2)\|u^r\|_{L^2(S^{n-1})}^2 + 2\|H_-\|_{L^1(S^{n-1})} \leq 2\|H_+\|_{L^1(S^{n-1})} + \|f^r\|_{L^1(S^{n-1})} . 
+		\end{equation}
+		Now applying  the H\"older inequality and using \eqref{eq:secestforH} yield
+		\begin{equation*}
+			\begin{aligned}
+				&\quad (n-2)\|u^r\|_{L^2(S^{n-1})}^2 + 2\|H_-\|_{L^1(S^{n-1})} \\
+				&\leq C	\|H_+\|_{L^{\theta}(S^{n-1})} +  \|f^r\|_{L^1(S^{n-1})} \\
+				&\leq C\left( \|\Bf\cdot \Bu\|_{L^q(S^{n-1})} + \|\div \Bf\|_{L^q(S^{n-1})} \right) +  \|f^r\|_{L^1(S^{n-1})},
+			\end{aligned}
+		\end{equation*}
+		where $\theta$ and $q$ are defined in \eqref{eq:theta}.
+		This completes the proof.
+	\end{proof}
+	
+	{
+		Combining Lemmas \ref{halfenergyestimate}-\ref{lem:urestim}, we have a further estimate for $\|\nabla \Bu\|_{L^2(S^{n-1})}$. 
+		\begin{pro}\label{lemmaenergyestimatenleq10}
+			Assume $n\geq 5$. For any self-similar solution $\Bu$ of \eqref{NS} such that $\Bu\in C^2(\mathbb{R}^n\setminus \{0\})$, we have 
+			\begin{equation}\label{energyestimatenew2}
+				\int_{S^{n-1}}|\nabla \Bu|^2 + | \Bu|^2d\sigma \leq C \left( \|\Bf\|_{L^\infty(S^{n-1})}^2 + \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^\frac32 + \|\Bf\|_{L^\infty(S^{n-1})}^{\frac32}\|\Bu\|_{L^q(S^{n-1})}^{\frac32} \right). 
+			\end{equation}
+		\end{pro}
+		
+		\begin{proof}
+			According to Lemma \ref{halfenergyestimate}, it holds that
+			\begin{equation*}
+				\int_{S^{n-1}}|\nabla \Bu|^2 + |\Bu|^2 d\sigma  
+				\leq C \|\Bf\|_{L^2(S^{n-1})}\|\Bu\|_{L^2(S^{n-1})} + C \|H_{+}\|_{L^\theta(S^{n-1})}\|u^r\|_{L^2(S^{n-1})}.
+			\end{equation*}
+			By Young's inequality and Lemmas \ref{lem:H+control}-\ref{lem:urestim}, one has
+			\begin{equation*}
+				\begin{aligned}    
+					& \int_{S^{n-1}}|\nabla \Bu|^2 + |\Bu|^2  d\sigma \\
+					\leq &  C \|\Bf\|_{L^\infty(S^{n-1})}^2  + C   \left( \|\Bf\cdot \Bu\|_{L^q(S^{n-1})}^{\frac32} + \|\div \Bf\|_{L^q(S^{n-1})}^{\frac32}   + \|f^r\|_{L^1(S^{n-1})}^\frac32 \right).
+					%\leq C \left( \|\Bf\|_{L^\infty(S^{n-1})}^2 + \|\Bf\|_{\textnormal{Lip}(S^{n-1}) }^\frac32 
+					%       + \|\Bf\|_{L^\infty(S^{n-1})}^\frac32 \|\Bu\|_{L^q(S^{n-1})}^\frac32. 
+					%      \right)
+				\end{aligned}  
+			\end{equation*}
+			This implies \eqref{energyestimatenew2} and completes the proof for Lemma \ref{lemmaenergyestimatenleq10}.
+		\end{proof}
+	} 
+	
+	
+	
+	
+	
+	
+	% \begin{remark}
+		%     One notes that this lemma implies that
+		%     \begin{equation*}
+			%  \begin{aligned}
+				%     \|u^r\|_{L^2(S^{n-1})} &\leq C(n) \|\Bf\cdot \Bu\|_{L^q(S^{n-1})}^{\frac{1}{2}} + C(n) \|\div \Bf\|_{L^q(S^{n-1})}^{\frac{1}{2}} +\|f^r\|_{L^1(S^{n-1})}^{\frac{1}{2}}\\
+				%     &\leq C(n) \|\Bf\|_{L^{\infty}(S^{n-1})} \| \Bu\|_{L^q(S^{n-1})}^{\frac{1}{2}} +  C(n) \|\div \Bf\|_{L^q(S^{n-1})}^{\frac{1}{2}} + \|f^r\|_{L^1(S^{n-1})}^{\frac{1}{2}},
+				%     \end{aligned}
+			% 	\end{equation*}
+		%     provided that $\Bf$ is  bounded. So we gain a $\frac{1}{2}$-exponent on $\| \Bu\|_{L^q(S^{n-1})}$ if we module the effect of $\Bf$. This gain of the exponent is due to the relation between $u^r$ and $H$ and the higher integrability of $H_+$, which 
+		%  is important for closing the energy estimates in Theorem \ref{Energy estimates}.
+		% \end{remark}
+	
+	
+	It is implied by Lemma \ref{lemmaenergyestimatenleq10} that one can close the energy estimates as long as one can estimate $\|\Bu\|_{L^q(S^{n-1})}$ in terms of $\|\nabla\Bu\|_{L^2(S^{n-1})}$ and $\Bf$.  This can be easily done when $n\leq 10$  as $\|\Bu\|_{L^q(S^{n-1})}$ can be controlled by $\|\nabla\Bu\|_{L^2(S^{n-1})}$ by a direct use of the Sobolev embedding inequality on $S^{n-1}$. To obtain the energy estimates up to dimension 16, a few more  estimates are needed. 
+	These are based on some weighted estimates for the pressure and velocity field, which follow the same strategy as \cite[Lemmas 2.10 and 2.11]{LiYang22} with necessary adaptations to the setting of self-similar solutions. We should mention that similar weighted estimates already appeared in \cite{FrehseRuzicka94, FrehseRuzicka96}.
+	
+	
+	{
+		\begin{lemma}\label{lem:weighedestiforpressure}
+			Assume $n\geq 5$. If $\Bu$ is a self-similar solution of \eqref{NS} such that $\Bu \in C^2(\mathbb{R}^n \setminus\{0\})$, 
+			for any $0<s<n-4$, $y \in B_2\setminus B_{\frac12}$, $0<R_0\leq \frac{1}{8}$, we have
+			\begin{equation}\label{weightedestiforpressure-0}
+				\begin{aligned}
+					& \int_{B_{R_0}(y)} \frac{|p(x)|}{|x-y|^{s+2}} dx \leq C\left(\|H_{+}\|_{L^{\theta}(S^{n-1})} +	 \|\nabla \Bu\|_{L^2(S^{n-1}) }^2+ \|\Bf\|_{L^{\infty}(S^{n-1})}\right),
+				\end{aligned}
+			\end{equation}
+			where $C=C( n,s, R_0) > 0$ depends only on $n$, $s$, and $R_{0}$, but does not depend on $y$,  and the value of  $\theta$  is defined in  \eqref{eq:theta}.
+		\end{lemma}
+		
+		\begin{proof}
+			In the proof, we use $C$ to denote a constant that may depend on $n,s$ and $R_0$ if we do not specify its dependence clearly.
+			Fix $y\in B_2\setminus B_{\frac12}$. Let  $\zeta(x)$ be a smooth cut-off function $\zeta(x)$ such that
+			$$ \zeta=1 \text{ in } B_{R_{0}}(y), \quad \zeta=0 \text{ in } B_{2R_{0}}^{c}(y), \quad\text{and}\,\, |\nabla\zeta|+|\nabla^{2}\zeta|\le C(R_0). $$
+			Multiplying the equation of the pressure 
+			\begin{equation}\label{eq:pressure}
+				-\Delta p=\partial_{i}u_{j}\partial_{j}u_{i}-\text{div}\Bf
+			\end{equation}
+			by $\zeta (x) |x-y|^{-s}$ and integrating over $\mathbb{R}^n$ with respect to $x$ yield
+			\begin{align}\label{eq:weightedestforp}
+				& s(s+2)\int_{\mathbb{R}^{n}}\frac{|\Bu\cdot(x-y)|^{2}\zeta}{|x-y|^{s+4}} dx -s\int_{\mathbb{R}^{n}}\frac{|\Bu|^{2}\zeta}{|x-y|^{s+2}} dx +s(s+2-n) \int_{\mathbb{R}^{n}}\frac{p\zeta}{|x-y|^{s+2}}dx  \nonumber \\
+				&=-\int_{\mathbb{R}^{n}}p\Delta\zeta|x-y|^{-s} dx -2\int_{\mathbb{R}^{n}}p\nabla\zeta\cdot\nabla(|x-y|^{-s})dx -\int_{\mathbb{R}^{n}}\Bf \cdot\nabla(\zeta|x-y|^{-s})dx  \nonumber \\
+				&\quad -2\int_{\mathbb{R}^{n}}u_{j}u_{i}\partial_{i}(|x-y|^{-s})\partial_{j}\zeta dx -\int_{\mathbb{R}^{n}}u_{j}u_{i}|x-y|^{-s}\partial_{ij}\zeta dx =:\text{RHS}
+			\end{align}
+			Since  $\textnormal{supp}(\nabla\zeta)\subset B_{2R_{0}}(y)\setminus B_{R_0}(y)\subset B_4\setminus B_{\frac14},$ and  $\Bu, p, \Bf$ are homogeneous,  we have
+			\begin{align*}
+				|\text{RHS}| & \leq C \left( \int_{B_{2R_{0}}(y)\setminus B_{R_0}(y)}|p|dx  + \int_{B_{2R_{0}}(y)\setminus B_{R_0}(y)}|\Bu|^{2}dx+\|\Bf\|_{L^{\infty}(B_{2R_{0}}(y))}\right) \\
+				&\leq C\left(\|p\|_{L^{\frac{n-1}{n-3}}(S^{n-1}) }+\|\Bu\|_{L^2(S^{n-1}) }^2+\|\Bf\|_{L^{\infty}(S^{n-1})}\right) 
+			\end{align*}
+			By Lemmas \ref{Lemmapressure}, \ref{Riesz} and the Sobolev embedding inequality,
+			\begin{equation*}
+				\|p\|_{L^{\frac{n-1}{n-3}}(S^{n-1})} \leq C \|\Bu\|_{L^{\frac{2(n-1)}{n-3}}(S^{n-1})}^2 \leq C \|\nabla \Bu\|_{L^2(S^{n-1})}^2. 
+			\end{equation*}
+			Hence, we get that 
+			\begin{align*}
+				|\text{RHS}| \leq  C \left( \|\nabla \Bu\|_{L^2(S^{n-1}) }^2+\|\Bf\|_{L^{\infty}(S^{n-1})} \right).
+			\end{align*}          
+			The left-hand side of \eqref{eq:weightedestforp} can be written as
+			\begin{equation*}
+				s(s+2)\int_{\mathbb{R}^{n}}\frac{|\Bu\cdot(x-y)|^{2}\zeta}{|x-y|^{s+4}} dx +s(s+2-n)\int_{\mathbb{R}^{n}}\frac{H\zeta}{|x-y|^{s+2}} dx -\frac{s(s+4-n)}{2}\int_{\mathbb{R}^{n}}\frac{|\Bu|^{2}\zeta}{|x-y|^{s+2}} dx .
+			\end{equation*}
+			Since $s(s+2-n)<0$ and $\frac{s(s+4-n)}{2}<0$, there exists a positive constant $C(s)$ depending only on $s$ and $n$, such that
+			\begin{equation}\label{weightedestimate}
+				\begin{aligned}
+					&\frac{1}{C(s)}\left(\int_{\mathbb{R}^{n}}\frac{|\Bu\cdot(x-y)|^{2}\zeta}{|x-y|^{s+4}} dx +\int_{\mathbb{R}^{n}}\frac{|\Bu|^{2}\zeta}{|x-y|^{s+2}} dx \right)  -\int_{\mathbb{R}^{n}}\frac{H\zeta}{|x-y|^{s+2}}dx
+					\\
+					\leq &	C\left(\|\nabla \Bu\|_{L^2(S^{n-1})}^2 + \|\Bf\|_{L^\infty(S^{n-1})}\right).
+				\end{aligned}
+			\end{equation}
+			Replacing $H$ by $2H_{+}-|H|$ in \eqref{weightedestimate}, we have
+			\begin{align*}
+				&\int_{\mathbb{R}^{n}}\frac{|\Bu\cdot(x-y)|^{2}\zeta}{|x-y|^{s+4}} dx +\int_{\mathbb{R}^{n}}\frac{|\Bu|^{2}\zeta}{|x-y|^{s+2}}dx +\int_{\mathbb{R}^{n}}\frac{|H|\zeta}{|x-y|^{s+2}}dx  \\
+				& \leq C \int_{\mathbb{R}^n } \frac{H_{+} \zeta}{|x-y|^{s+2} } dx + C \left( \|\nabla \Bu\|_{L^2(S^{n-1}) }^2+\|\Bf\|_{L^{\infty}(S^{n-1})} \right)\\
+				&\leq C\left(\|H_{+}\|_{L^{\theta}(S^{n-1}) }+ \|\nabla \Bu\|_{L^2(S^{n-1}) }^2+\|\Bf\|_{L^{\infty}(S^{n-1})} \right),               \end{align*}
+			where we used the facts $\frac{(s+2)n}{n-2}<n$ and $\theta>\frac{n}{2}$ for the last inequality.
+			% Now let $\{B_{\frac{1}{4}}(y_i)\}_{i=1}^{m}, ~ y_i \in S^{n-1}$ be a finite collection of balls covers $S^{n-1}$.
+			%Summing \eqref{eq:kkey2} over $\{B_{\frac{1}{4}}(y_i)\}$, using the self-similarity of $\Bu$, we have
+			%\begin{align*}
+			%		&\int_{\mathbb{R}^{n}}\frac{|\Bu\cdot(x-y)|^{2}\zeta}{|x-y|^{s+4}}+\int_{\mathbb{R}^{n}}\frac{|\Bu|^{2}\zeta}{|x-y|^{s+2}}+\int_{\mathbb{R}^{n}}\frac{|H|\zeta}{|x-y|^{s+2}} \\
+			%		&\leq C\left(\|H_{+}\|_{L^{\theta}(S^{n-1})}+	 +\|\Bu\|_{L^{\frac{2n}{n-2}}(S^{n-1})}^2+\|\Bf\|_{L^{\infty}(S^{n-1})}\right).
+			%	\end{align*}
+		As $p=H-\frac{|\Bu|^{2}}{2},$ it holds that
+		\begin{align*}
+			\int_{\mathbb{R}^{n}}\frac{|p|\zeta}{|x-y|^{s+2}} dx &\le\int_{\mathbb{R}^{n}}\frac{|H|\zeta}{|x-y|^{s+2}} dx +\frac{1}{2}\int_{\mathbb{R}^{n}}\frac{|\Bu|^{2}\zeta}{|x-y|^{s+2}}dx  \\
+			&\le C\left(\|H_{+}\|_{L^{\theta}(S^{n-1})}+	 \|\nabla \Bu\|_{L^{2}(S^{n-1})}^2+\|\Bf\|_{L^{\infty}(S^{n-1})}\right),
+		\end{align*}
+		which implies \eqref{weightedestiforpressure-0} and then  the proof of Lemma \ref{lem:weighedestiforpressure} is completed.
+	\end{proof}
+	\begin{lemma}\label{highintegralofu}
+		Assume $n\geq 5$. Let $\Bu$ be a self-similar solution to \eqref{NS} such that $\Bu \in C^2(\mathbb{R}^n \setminus\{0\}).$ Then for any $1<\beta <4$,  we have
+		\begin{align}\label{highintegralofu-0}
+			\|\Bu\|_{L^\beta(S^{n-1})}
+			&\leq C\left(\|H_{+}\|_{L^{\theta}(S^{n-1})}^{\frac{1}{2}} + \|\nabla \Bu\|_{L^2(S^{n-1})} + \|\Bf\|_{\textnormal{Lip}(S^{n-1}) }^{\frac12} \right).
+		\end{align}
+		where $C=C(n,\beta)>0$ depends only on $n$ and  $\beta$.
+	\end{lemma}
+	
+	\begin{proof}  
+		In the proof, we use $C$ to denote a constant that may depend on $n$ and $\beta$. For any fixed $y\in S^{n-1}$, let $R_0= \frac{1}{16}$, and $\zeta(x)$ be the  cut-off function  satisfying
+		$$ \zeta=1 \text{ in } B_{\frac{R_0}{2}}(y); \quad \zeta=0 \text{ in } B_{R_{0}}^{c}(y); \quad |\nabla\zeta|+|\nabla^{2}\zeta|\le 100. $$
+		For any $\frac{2n}{n-2}< \beta < 4$,  we define
+		$$ \varphi(x):=\frac{1}{(2-n)n\omega_n}\int_{\mathbb{R}^{n}}\frac{1}{|x-z|^{n-2}}|p(z)|^{\frac{\beta-2}{2}}sgn(p(z))\zeta(z)dz, \quad x\in\mathbb{R}^{n}. $$
+		Here $\omega_n$ is the volume of the unit ball in $\mathbb{R}^n$ and $sgn$ is the sign function. Clearly, one has
+		\begin{equation}\label{laplacianofpressure}
+			-\Delta\varphi=|p|^{\frac{\beta-2}{2}}sgn(p)\zeta. 
+		\end{equation}
+		
+		Let 
+		\begin{equation*}
+			s:= n- \frac{2\beta}{\beta-2} + \epsilon \frac{4-\beta}{\beta-2},
+		\end{equation*}
+		where $\epsilon>0$ is sufficiently small such that $0<s<n-4$ and 
+		\begin{equation}\label{eq:compo-n}
+			\frac{2}{4-\beta}\cdot\left[-n+2+\frac{(s+2)(\beta-2)}{2}\right] = -n+\epsilon >-n.
+		\end{equation}
+		For every $x\in B_{R_0}(y)$, with the aid of  H\"older inequality, it holds that 
+		\begin{align*}
+			|\varphi(x)| & \leq C\int_{\mathbb{R}^{n}}\left(\frac{|p(z)|\zeta(z)}{|x-z|^{s+2}}  \right)^{\frac{\beta-2}{2}}|x-z|^{-n+2+\frac{(s+2)(\beta-2)}{2}}\zeta(z)^{\frac{4-\beta}{2}}dz \\
+			&\le C \left(\int_{\mathbb{R}^{n}}\frac{|p(z)|\zeta(z)}{|x-z|^{s+2}} dz \right)^{\frac{\beta-2}{2}}\left(\int_{\mathbb{R}^{n}}|x-z|^{\frac{2}{4-\beta}\cdot[-n+2+\frac{(s+2)(\beta-2)}{2}]}\zeta (z) dz\right)^{\frac{4-\beta}{2}} \\
+			&\le C\left(\int_{B_{2R_0}(x)}\frac{|p(z)|}{|x-z|^{s+2}}dz\right)^{\frac{\beta-2}{2}},
+		\end{align*}
+		where we  used  \eqref{eq:compo-n} in the last inequality. This, together with Lemma \ref{lem:weighedestiforpressure},  yields
+		\begin{equation}\label{Linfinityoftestfunction}
+			\|\varphi\|_{L^{\infty}(B_{R_{0}}(y))}\leq C\left(\|H_{+}\|_{L^{\theta}(S^{n-1})}+	 \|\nabla \Bu\|_{L^{2}(S^{n-1})}^2+\|\Bf\|_{L^\infty(S^{n-1})}\right)^{\frac{\beta-2}{2}}.
+		\end{equation}
+		Multiplying \eqref{eq:pressure} by $\varphi\zeta$ and integrating over $\mathbb{R}^n$ give
+		\begin{equation*}
+			\int_{\mathbb{R}^{n}}p\Delta\varphi\zeta dx +2\int_{\mathbb{R}^{n}}\varphi\nabla p\cdot\nabla\zeta dx +\int_{\mathbb{R}^{n}}p\varphi\Delta\zeta dx =\int_{B_{R_0}(y)}(\partial_{i}u_{j}\partial_{j}u_{i}-\text{div}~\Bf)\varphi\zeta dx.         	    
+		\end{equation*}	
+		By virtue of \eqref{laplacianofpressure} and the H\"older inequality, 
+		\begin{equation}\label{newestimateforpressure}
+			\begin{aligned}
+				&\int_{B_{R_0}(y)}|p|^{\frac{\beta}{2}}\zeta^{2} dx \\ =&\int_{B_{R_0}(y)}(\partial_{i}u_{j}\partial_{j}u_{i}-\text{div}~\Bf)\varphi\zeta dx -2\int_{B_{R_0}(y)}\varphi\nabla p\cdot\nabla\zeta dx -\int_{B_{R_0}(y)}p\varphi\Delta\zeta dx   \\
+				\le& C\|\varphi\|_{L^{\infty}(B_{R_0}(y))}\left(\|\nabla \Bu\|_{L^{2}(S^{n-1} ) }^{2}+\|\Bf\|_{\textnormal{Lip}(S^{n-1}) } + \|\nabla p\|_{L^1(S^{n-1})} + \|p\|_{L^1(S^{n-1})} \right). 
+			\end{aligned}
+		\end{equation}		
+		It follows from  the Sobolev embedding inequality that one has 
+		\begin{equation}\label{gradientofp}
+			\begin{aligned}
+				\|\nabla p\|_{L^{1}(S^{n-1})} 	&\leq 	\|\nabla p\|_{L^{\frac{n-1}{n-2}}(S^{n-1})}\\ 
+				&\leq C(n) \|\Bu\cdot \nabla \Bu\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} + C(n) \| \Bf\|_{L^{\frac{n-1}{n-2}}(S^{n-1})}\\
+				&\leq C(n)\|\Bu\|_{L^{\frac{2(n-1)}{n-3}}(S^{n-1})}\| \nabla \Bu\|_{L^{2}(S^{n-1})} + C(n) \| \Bf\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} \\
+				&\leq C(n)\| \nabla \Bu\|_{L^{2}(S^{n-1})}^2+ C(n) \| \Bf\|_{L^{\frac{n-1}{n-2}}(S^{n-1})}.
+			\end{aligned}
+		\end{equation}
+		This, together with \eqref{newestimateforpressure}, gives
+		\begin{equation}\label{estimatep1}
+			\int_{B_{R_0}(y)}|p|^{\frac{\beta}{2}}\zeta^{2} dx
+			\le C \|\varphi\|_{L^{\infty}(B_{R_0}(y))}\left(\|\nabla \Bu\|_{L^{2}(S^{n-1} ) }^{2}+\|\Bf\|_{\textnormal{Lip}(S^{n-1})} \right).
+		\end{equation}	
+		Taking \eqref{Linfinityoftestfunction} into \eqref{estimatep1}, by Young's inequality, we have 
+		\begin{equation}\label{newestimateforpressure1}
+			\int_{B_{\frac12 R_0}(y)} |p|^{\frac{\beta}{2}} dx \leq C \left(\|H_{+}\|_{L^\theta(S^{n-1})}^{\frac{\beta}{2}} + \|\nabla \Bu\|_{L^2(S^{n-1})}^{\beta} + \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{\frac{\beta}{2}} \right). 
+		\end{equation}	
+		As  $|\Bu|^{2}\le 2|p|+2H_{+}$, owing to \eqref{newestimateforpressure1} and \eqref{eq:secestforH}, it holds that 
+		\begin{equation}\label{eq:kkey2}
+			\begin{aligned}
+				\int_{B_{\frac12 R_0}(y)}|\Bu|^{\beta} dx &\leq C\left(\int_{B_{\frac12 R_0}(y)}|p|^{\frac{\beta}{2}} dx +\int_{B_{\frac12 R_0}(y)}H_{+}^{\frac{\beta}{2}} dx \right) \\
+				&\leq C \left( \|H_{+}\|_{L^{\theta}(S^{n-1})}^\frac{\beta}{2} + 
+				\|\nabla \Bu\|_{L^2(S^{n-1})}^{\beta} + \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{\frac{\beta}{2}}\right).
+			\end{aligned}          
+		\end{equation}
+		
+		
+		Now let $\left\{B_{\frac{1}{32}}(y_i): \, y_i 
+		\in S^{n-1}\right\}_{i=1}^{m}, $ be a finite collection of balls which covers $S^{n-1}$. Summing \eqref{eq:kkey2} over $\left\{B_{\frac{1}{32}}(y_i)\right\}$, we get \eqref{highintegralofu-0} if $\frac{2n}{n-2}< \beta< 4$. This, together with H\"older inequality, gives \eqref{highintegralofu-0} in the case $\beta \in(1,  \frac{2n}{n-2}]$. Hence the proof of Lemma \ref{highintegralofu} is completed.
+	\end{proof}
+	
+	
+	
+	
+	
+	We are in a position to get the major energy estimates.     
+	\begin{pro}
+		[Energy estimates ]\label{Energy estimates2}
+		Assume $5\leq n\leq 16$. Let
+		$\Bu$ be a  self-similar solution to \eqref{NS} such that $\Bu \in C^2(\mathbb{R}^n \setminus\{0\})$. Then there exists a constant $C$ depending only on the dimension $n$ such that
+		\begin{equation}\label{eq:energyes3}
+			\begin{aligned}
+				\int_{S^{n-1}} |\nabla \Bu|^2 +(n-4)|\Bu|^2  d \sigma &\leq C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^2 + C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{8},
+			\end{aligned}
+		\end{equation}
+		and
+		\begin{equation}\label{eq:energyes4}
+			\begin{aligned}
+				\| p\|_{L^{\frac{n-1}{n-3}}(S^{n-1})} + \|\nabla p\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} 
+				&\leq C \|\Bf\|_{\textnormal{Lip}(S^{n-1})} + C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^8.
+			\end{aligned}
+		\end{equation}
+	\end{pro}
+	\begin{proof}
+		Choose $\beta=q=\frac{(n-2)(n-1)}{4n-10}$ so that $1< q < 4$, as $5\leq n \leq 16$. It follows from Lemma \ref{highintegralofu} that we have
+		\begin{equation}\label{eq:kkey1}
+			\begin{aligned}
+				\|\Bu\|_{L^q(S^{n-1})}&\leq 
+				C\left(\|H_{+}\|_{L^{\theta}(S^{n-1})}^{\frac12} +	 \|\nabla \Bu\|_{L^2(S^{n-1})} + \|\Bf\|_{L^{\infty}(S^{n-1})}\right). 
+			\end{aligned}
+		\end{equation}
+		It follows from  \eqref{eq:keydec-2} and the H\"older inequality that 
+		\begin{equation}\label{eq:kkey1-1}
+			\|\nabla \Bu\|_{L^2(S^{n-1})}^2 \leq C \|\Bf\|_{L^2(S^{n-1})}^2 + C \int_{S^{n-1}} H_{+} u^r_{-}dx. 
+		\end{equation}
+		Taking \eqref{eq:kkey1-1} into \eqref{eq:kkey1}, we have 
+		\begin{equation}
+			\begin{aligned}
+				\|\Bu\|_{L^q(S^{n-1})}  &\leq C \left( 
+				\|H_{+}\|_{L^\theta(S^{n-1})}^{\frac12} + \|H_{+}\|_{L^\theta(S^{n-1})}^{\frac12} \|u^r\|_{L^{\theta'}(S^{n-1})}^{\frac12} + \|\Bf\|_{L^\infty(S^{n-1})} \right)\\
+				& \leq C \left( 
+				\|H_{+}\|_{L^\theta(S^{n-1})}^{\frac12} + \|H_{+}\|_{L^\theta(S^{n-1})}^{\frac12} \|u^r\|_{L^{2}(S^{n-1})}^{\frac12} + \|\Bf\|_{L^\infty(S^{n-1})} \right),
+			\end{aligned}
+		\end{equation}
+		where we used the fact that  $\theta > \frac{n}{2}$ and $\theta'< 2$.  This, together with Lemmas \ref{lem:H+control} and \ref{lem:urestim}, gives
+		\begin{equation*}
+			\begin{aligned}
+				&  \|\Bu\|_{L^q(S^{n-1})} \\
+				\leq & C\left( \|\Bf\cdot \Bu\|_{L^q(S^{n-1})}^\frac12 + \|\div \Bf\|_{L^q(S^{n-1})}^\frac12\right)\cdot \left( 1+ \|u^r\|_{L^2(S^{n-1})}^{\frac12}\right) + C \|\Bf\|_{L^\infty(S^{n-1})}  \\ 
+				\leq  & C \left(\|\Bf\cdot \Bu\|_{L^q(S^{n-1})}^{\frac12} +  \| \Bf\|_{\textnormal{Lip}(S^{n-1})}^\frac12 \right)\cdot \left(1+  \|\Bf\cdot \Bu\|_{L^q(S^{n-1})}^{\frac14} +  \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^\frac14\right)\\
+				& + C \|\Bf\|_{L^\infty(S^{n-1})}\\
+				\leq & C \left(\|\Bf\cdot \Bu\|_{L^q(S^{n-1})}^{\frac12}+ \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{\frac12} +\|\Bf\cdot \Bu\|_{L^q(S^{n-1})}^{\frac34}+ \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{\frac34} \right)+ C \|\Bf\|_{L^\infty(S^{n-1})}.
+			\end{aligned}
+		\end{equation*}
+		Applying Young's inequality yields 
+		\begin{equation}\label{highintegralofu-3}
+			\begin{aligned}       
+				\|\Bu\|_{L^q(S^{n-1})} \leq 
+				C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{\frac12}+ C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^3. 
+			\end{aligned}
+		\end{equation}
+		Taking \eqref{highintegralofu-3} into Lemma \ref{lem:H+control} gives
+		\begin{equation}\label{integralofH}
+			\|H_{+}\|_{L^\theta(S^{n-1})} \leq C \|\Bf\|_{\textnormal{Lip}(S^{n-1})} + C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{4}. 
+		\end{equation}
+		It follows from \eqref{integralofH}, Lemma \ref{halfenergyestimate} and the H\"older inequality that we obtain
+		\begin{equation}\label{energyestimatefinal}
+			\begin{aligned}
+				\|\nabla \Bu\|_{L^2(S^{n-1})}^2 + \|\Bu\|_{L^2(S^{n-1})}^2 
+				&\leq C \|\Bf\|_{L^2(S^{n-1})}^2 + \|H_{+}\|_{L^\theta(S^{n-1})}^2 \\
+				& \leq C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^2 + C \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{8}.
+			\end{aligned}
+		\end{equation}
+		Moreover, by \eqref{gradientofp}, it holds that
+		\begin{equation*}
+			\begin{aligned}
+				\|\nabla p\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} 
+				% &\leq C \|\Bu\cdot \nabla \Bu\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} + C \| \Bf\|_{L^{\frac{n-1}{n-2}}(S^{n-1})}\\
+				%&\leq C\|\Bu\|_{L^{\frac{2(n-1)}{n-3}}(S^{n-1})}\| \nabla \Bu\|_{L^{2}(S^{n-1})} + C\| \Bf\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} \\
+				\leq C \| \nabla \Bu\|_{L^{2}(S^{n-1})}^2+ C \| \Bf\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} \leq C \|\Bf\|_{\textnormal{Lip}(S^{n-1})} + C\|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{8}.            
+			\end{aligned}
+		\end{equation*}
+		Then \eqref{eq:energyes4} follows from the Sobolev embedding inequality. The proof of Proposition \ref{Energy estimates2} is completed.
+	\end{proof}
+	
+	
+	
+}
+
+
+In the course of proving Proposition \ref{Energy estimates2}, we have already obtained the following proposition.
+
+\begin{pro}[Higher integrability of $H_+$] \label{higherint2} 
+	% Assume that $5\leq n\leq 10$. Let $\kappa=\frac{2(n-1)(n-2)}{13n-n^2-26}$. Recall $\theta = \frac{(n-2)(n-1)}{2(n-3)}>\frac{n}{2}$.
+	Assume $5\leq n \leq 16$. Let $\Bu$ is a self-simialr solution of \eqref{NS} such that $\Bu \in C^2(\mathbb{R}^n \setminus\{0\})$. Then 
+	it holds that
+	\begin{equation*}
+		\|H_{+}\|_{L^\theta(S^{n-1})} \leq C \left(\|\Bf\|_{\textnormal{Lip}(S^{n-1})} + \|\Bf\|_{\textnormal{Lip}(S^{n-1})}^{4}\right),
+	\end{equation*}
+	for some constant $C$ depending only on $n$.   
+\end{pro}
+% \begin{proof}
+	%   It follows from  \eqref{eq:secestforH} that
+	% \begin{equation*}
+		% 	\begin{aligned}
+			% 	\|H_+\|_{L^{\theta}(S^{n-1})} &\leq
+			% C\left( \|\Bf\cdot \Bu\|_{L^q(S^{n-1})} + \|\div \Bf\|_{L^q(S^{n-1})} \right)\\
+			%   % &\leq C\|\Bf\|_{\textnormal{Lip}(S^{n-1})}\| \Bu\|_{L^{\frac{2(n-1)}{n-3}}(S^{n-1})}
+			% 		% + C \|\div \Bf\|_{\textnormal{Lip}(S^{n-1})} \\
+			%   & \leq C \|\Bf\|_{\textnormal{Lip}(S^{n-1})} (\| \Bu\|_{L^q(S^{n-1})} + 1)
+			%   \\
+			% 		&	\leq C \|\Bf\|_{\textnormal{Lip}(S^{n-1})} 	\left( \|H_{+}\|_{L^{\theta}(S^{n-1})}^{\frac{1}{2}} + \|\nabla \Bu\|_{L^2(S^{n-1})} + \|\Bf\|_{\textnormal{Lip}(S^{n-1}) }^{\frac12} + 1\right) \\
+			%   & \leq C \left( \|\Bf \|_{\textnormal{Lip}(S^{n-1})}^4 + \|\Bf \|_{\textnormal{Lip}(S^{n-1})}^{\frac74} + \|\div \Bf\|_{L^q(S^{n-1})}\right).
+			% 	\end{aligned}
+		% \end{equation*}  
+	%    This finishes the proof of the proposition.
+	% \end{proof}
+
+
+\section{Proof of the main theorem} \label{sec:proof of main}
+In this section, we prove  Theorem \ref{thm:main}.
+We first recall the following well-known regularity criteria of the weak solution in the literature, where $H_+\in L_{loc}^{\gamma}$ for some $\gamma>\frac{n}{2}$.
+\begin{pro}[\hspace{-0.02cm}{\cite[Proposition 2.3]{LiYang22}}]\label{lem:keylemma}
+	For $n\geq 2$, $\gamma >\frac{n}{2}$, and $\Bf\in L^{\infty}(B_1)$, let $(\Bv, p)$ be a weak solution to the steady Navier–Stokes equations
+	\begin{align} \label{NS1}
+		-\Delta \Bv + (\Bv\cdot \nabla )\Bv + \nabla p=\boldsymbol {f}, \quad \div \Bv=0 \textrm{ in } B_1\subset \mathbb{R}^n.
+	\end{align}
+	Assume
+	\begin{equation*}
+		\|\Bv\|_{H^1(B_1)} +\|p\|_{W^{1,\frac{n}{n-1}}(B_1)} + \|\Bf\|_{L^{\infty}(B_1)} + \|H_+\|_{L^{\gamma}(B_1)} \leq C_0.
+	\end{equation*}
+	Then there exists a constant $C>0$ depending on $n$, $C_0$, and  $\gamma -\frac{ n}{2}$ such that
+	\begin{equation*}
+		\|\Bv\|_{L^{\infty}(B_{\frac{1}{2}})} + 	\|\nabla\Bv\|_{L^{\infty}(B_{\frac{1}{2}})} \leq C.
+	\end{equation*}
+\end{pro}
+
+Now we can establish the following a priori estimate, which is the main estimate that enables us to apply the Leray-Schauder theory to obtain a regular self-similar solution.
+
+\begin{pro}\label{thm:mainest}
+	Let  $\Bf$ be a  $(-3)$-homogeneous external force that   such that  $\Bf$ is locally Lipschitz on $\mathbb{R}^n \setminus\{0\}$, $n\geq 5$.
+	If $\Bu\in C^2(\mathbb{R}^n \setminus\{0\})$ is a self-similar solution to the steady Navier–Stokes equations \eqref{NS}, 
+	then for any $\alpha \in (0,1),$ it holds that
+	\begin{equation}\label{eq:C2estimates}
+		\|\Bu\|_{C(S^{n-1})} + \|\nabla \Bu\|_{C(S^{n-1})} + \|\nabla^2 \Bu\|_{C^{\alpha}(S^{n-1})}\leq C,
+	\end{equation}
+	where $C > 0$ depends only on $\alpha$, $n$ and $\|\Bf\|_{\textnormal{Lip}(S^{n-1})}$.
+	% If $\Bf|_{S^{n-1}}\in C^1(S^{n-1})$, then we also have
+	%      \begin{equation}
+		% 			\|\Bu\|_{L^{\infty}(S^{n-1})} + \|\nabla \Bu\|_{L^{\infty}(S^{n-1})} \leq C,
+		% 		\end{equation}
+	% 		where $C > 0$ depends only on $n$ and $\|\Bf\|_{\textrm{Lip}(S^{n-1})}$.   
+\end{pro}
+\begin{proof}
+	By virtue of Lemma \ref{Lemmapressure}, there is a $(-2)$-homogeneous function $p$, such that $(\Bu, p)$ is  a solution to \eqref{NS} in $\mathbb{R}^n \setminus \{0\}$. Let $\{x_k: x_k \in S^{n-1}\}_{k=1}^m$ be a finite collection of points on $S^{n-1}$ such that $\left\{B_{\frac{1}{10}} (x_k)\subset \mathbb{R}^n:\ x_k \in S^{n-1}\right\}_{k=1}^m $  covers $S^{n-1}$.  Applying Propositions 
+	%\ref{Energy estimates} and  \ref{higherint}, 
+	\ref{Energy estimates2} and \ref{higherint2}, 
+	% or Proposition \ref{pro:n=11,12} when $n=11,12$, or Proposition \ref{pro:ngeq13} when $n\geq 13$
+	and using the homogeneity of $\Bu$ and $p$, we have 
+	\begin{equation*}
+		\|\Bu\|_{H^1\left(B_{\frac12}(x_k)\right)} +\|p\|_{W^{1,\frac{n}{n-1}}\left(B_{\frac12}(x_k)\right)} + \|\Bf\|_{\textnormal{Lip}\left(B_{\frac12}(x_k)\right)} + \|H_+\|_{L^{\theta}\left(B_{\frac12}(x_k)\right)} \leq C_0,
+	\end{equation*}
+	for some $C_0$ depending only on $\|\Bf\|_{\textnormal{Lip}(S^{n-1})}$ and $n$. 
+	Then  Proposition \ref{lem:keylemma}   implies
+	\begin{equation*}
+		\|\Bu\|_{L^{\infty}\left(B_{\frac14}(x_k)\right)} + 	\|\nabla\Bu\|_{L^{\infty}\left(B_{\frac14}(x_k)\right)}  \leq C
+	\end{equation*}
+	for some $C$ depending only on $\|\Bf\|_{\textnormal{Lip}(S^{n-1})}$ and $n$.
+	This gives
+	\[\|\Bu \cdot \nabla \Bu\|_{L^{\infty}\left(B_{\frac14}(x_k)\right)} \leq C.\]
+	Now, it follows from the regularity estimates for the Stokes equations (see \cite[Lemma 2.12]{Tsai18}) that we have for any $p>1$
+	\begin{equation*}
+		\|\Bu\|_{W^{2,p}\left(B_{\frac15}(x_k)\right)}\leq C.
+	\end{equation*}
+	And by Morrey's embedding theorem (see \cite[Theorem 7.26]{GilbargTrudinger}), it holds that
+	\begin{equation*}
+		\|\Bu\|_{C^{1,\alpha}\left(B_{\frac16}(x_k)\right)}\leq C \textrm{ for any } \alpha \in (0,1).
+	\end{equation*} 
+	Then for any $\alpha\in (0,1)$, we have
+	\[\|\Bu \cdot \nabla \Bu\|_{C^{\alpha}\left(B_{\frac{1}{8}}(x_k)\right)}\leq C.\]
+	It follows from the regularity estimates for the Stokes equations again that \begin{equation*}
+		\|\Bu\|_{C\left(B_{\frac{1}{10}}(x_k)\right)} + \|\nabla \Bu\|_{C\left(B_{\frac{1}{10}}(x_k)\right)} + \|\nabla^2 \Bu\|_{C^{\alpha}\left(B_{\frac{1}{10}}(x_k)\right)}\leq C.
+	\end{equation*}
+	
+	Since the collection $\left\{B_{\frac{1}{10}} (x_k):x_k \in S^{n-1}\right\}_{k=1}^m $ covers $S^{n-1}$, we finish the proof of Proposition \ref{thm:mainest}.
+\end{proof}
+
+
+We are now ready to  apply the Leray–Schauder theorem to solve \eqref{NS}.
+For the reader's convenience, we recall the following well-known Leray–Schauder theorem, which follows from the homotopy property of the Leray–Schauder degree (see \cite[Theorem 7.12]{Tsai18}).
+\begin{theorem}
+	[Leray-Schauder]\label{lem:Leray-Schauder}
+	Let $X$ be a Banach space and $T$ be a compact mapping from $ [0, 1]\times X $ into $X$. If
+	$T (0,x) = x$ has exactly one solution and there exists a constant $M>$  0 such that for all possible $(\lambda, x) \in 
+	[0,1] \times  X$ satisfying $T ( \lambda, x) = x$, it holds that 
+	$\|x\|_{X}\leq M$, then $T ( 1,\cdot)$, as a mapping from $X$ into
+	itself, has at least one fixed point.   
+\end{theorem}
+%  We now consider the following fixed-point problem. 
+%  We  define the space
+% \begin{equation*}
+	%     X = \{\Bu^{t}: \div \Bu^{t} =0, \Bu^{t} \textrm{ is self-similar }, \Bu^{t}|_{S^{n-1}} \in L^{n}(S^{n-1}) \}
+	% \end{equation*}
+% equipped with the norm $\|\cdot\|_X=\|\cdot\|_{L^{n}(S^{n-1})}$.
+% \textcolor{blue}{This space is a Banach space, and the divergence-free condition is understood in the weak sense in $\mathbb{R}^n\setminus \{0\}$.}
+% For any $(\lambda, \Bu^{t} ) \in   [0, 1] \times X$, and $\Bf$ be (-3)-homogeneous such that $\Bf|_{S^{n-1}} \in L^{p}(S^{n-1})\cap  L^{\frac{n}{3}}(S^{n-1})$,
+% consider the problem
+% \begin{equation}\label{eq:fixprobl}
+	%    -\Delta \Bu  + \nabla p=\lambda \boldsymbol {f}- (\Bu^{t}\cdot \nabla )\Bu^{t} = \lambda \boldsymbol {f} -  \div (\Bu^{t}\otimes \Bu^{t}), \quad \div \Bu=0.
+	%  \end{equation}
+% Let 
+%    $$F: [0,1]\times X \to X, \quad (\lambda,\Bu^{t}) \to \Bu$$ be the solution map defined by solving the above linear Stokes problem via the Green tensor. Precisely, let $G_{ij}$ be the Green tensor to the Stokes equation 
+%    \begin{equation}\label{eq:Greentensor}
+	% 			G_{ij}(x)= \frac{1}{2n\omega_n} \left[\frac{\delta_{ij}}{(n-2)|x|^{n-2}} +\frac{ x_i x_j}{|x|^n}\right],
+	% 		\end{equation}
+%  where $\omega_n$ is the volume of the unit ball in $\mathbb{R}^n$.
+%  It holds that 
+%  \begin{equation}
+	%      |G_{ij}(x)|\leq \frac{C}{|x|^{n-2}},  ~ |\nabla G_{ij}(x)|\leq \frac{C}{|x|^{n-1}}, ~ ~ |\nabla^2 G_{ij}(x)|\leq \frac{C}{|x|^{n}}.
+	%  \end{equation}
+%   The solution $\Bu$ to \eqref{eq:fixprobl} can be expressed as 
+%    \begin{equation}\label{eq:soluformu}
+	%        u_i(x)=G_{ij}*( -\lambda \partial_k(v_k v_j)+ \lambda f_j) = - \partial_k G_{ij} * (v_k v_j) + \lambda G_{ij}*f_j,
+	%    \end{equation}
+%    where $1\leq i,j,k \leq n$  and the Einstein summation convention is used.
+%     Using the  Green tensor, it can be directly checked that $\Bu$ is self-similar if $\Bu^{t}$ is self-similar and 
+%   $\Bf$ is (-3)-homogeneous.
+
+% To show $F(\lambda,\cdot)$ is a self map from $X$ to $X$, we are left to show $\Bu \in L^{n}(S^{n-1}) $.
+% We will need the following lemma (see \cite[Lemma 2.1]{Shi18}). 
+% \begin{lemma}
+	% Assume $n \geq 2$. If $f$ is homogeneous of degree $-k$ in $\mathbb{R}^n$ with $0  \leq k\leq n$, then $f$
+	% belongs to the Lorentz space $L^{\frac{n}{k},\infty}(\mathbb{R}^n)$ if and only if its restriction to the sphere $f|_{S^{n-1}}$ lies in
+	% $L^{\frac{n}{k}}(S^{n-1})$.
+	% Moreover,
+	% \begin{equation*}
+		%     \|f\|_{L^{\frac{n}{k},\infty}(\mathbb{R}^n)}  =  c(n,k)\|f|_{S^{n-1}}\|_{L^{\frac{n}{k}}(S^{n-1})}. 
+		% \end{equation*}
+	% \end{lemma}
+% We also recall the Young's inequality in Lorentz space.
+% \begin{equation}
+	%      \|f*g\|_{L^{a,\infty}} \leq \|f\|_{L^{a_1,\infty}} \|g\|_{L^{a_2,\infty}},
+	% \end{equation}
+% where $\frac{1}{a_1} + \frac{1}{a_2} =1+\frac{1}{a}$, $1\leq a,a_1,a_2\leq +\infty$.
+
+%  Now, applying the above  inequality for Lorentz spaces, we have
+%  $$\|G_{ij}*f_j\|_{ L^{n,\infty}(\mathbb{R}^n)} \leq \|G\|_{L^{\frac{n}{n-2},\infty}(\mathbb{R}^n)} \|\Bf\|_{L^{\frac{n}{3},\infty}(\mathbb{R}^n)} \leq C \|\Bf\|_{ L^{\frac{n}{3}}(S^{n-1})}.$$
+% And that 
+% $$  \|\partial_k G_{ij} * (v_k v_j)\|_{L^{n,\infty}}(\mathbb{R}^n) \leq \|\nabla G\|_{L^{\frac{n}{n-1},\infty}(\mathbb{R}^n)} \||\Bu^{t}|^2\|_{L^{\frac{n}{2},\infty}(\mathbb{R}^n)} \leq C\|\Bu^{t}\|^2_{L^{n,\infty}(\mathbb{R}^n)} .$$
+% It then follows that the solution $\Bu$ to \eqref{eq:fixprobl} satisfies that $\Bu \in L^{n}(S^{n-1}) $ provided $\Bf \in  L^{\frac{n}{3}}(S^{n-1})$ and $\Bu^{t} \in L^{n}(S^{n-1})$. In particular, this shows that $F(\lambda,\cdot)$ is a self-map from $X$ to $X$.
+
+% % This follows from the classical regularity theory of the Stokes problem, indeed it holds that $\Bu \in W^{1,\frac{n-1
+		% % }{n-3}}(S^{n-1})$ since $\Bu^{t}\otimes \Bu^{t} \in L^{\frac{n-1}{n-3}}(S^{n-1})$ and $\Bf \in L^{\frac{3n-1}{n^2-4n+1}}(S^{n-1})\subset W^{-1, \frac{n-1
+		% % }{n-3}}$.
+% Now we are ready to prove the existence by applying the Leray-Schauder principle.
+% \begin{proof}[Proof of Theorem \ref{thm:main}]
+	% We aim to find a fixed point for the map $F(1,\cdot): X\to X$.   Since $\Bf$ is bounded on $S^{n-1}$, it follows that $\Bf|_{S^{n-1}} \in L^{p}(S^{n-1})\cap  L^{\frac{n}{3}}(S^{n-1})$. Then the map $F$ is well-defined as shown above.
+	% First of all, $F(0,\Bu)=\Bu$ has exactly one solution which is $0$,
+	% since the problem 
+	% \begin{equation*}
+		%     -\Delta \Bu  + \Bu \cdot \nabla \Bu+ \nabla p= 0, \quad \div \Bu=0
+		% \end{equation*}
+	% only has zero solution in $X$, due to the result in \cite{Sverak11}.
+	
+	
+	% We then show the compactness of the map $F$. This follows from the higher regularity of the solution. We have
+	% \begin{equation}
+		%        \nabla u_i(x)= - \nabla \partial_k G_{ij} * (v_k v_j) + \lambda \nabla  G_{ij}*f_j,
+		%    \end{equation}
+	%     Applying the Young's inequality in Lorentz space, we have
+	%     $$\|\nabla G_{ij}*f_j\|_{ L^{\frac{n}{2},\infty}(\mathbb{R}^n)} \leq \|\nabla G\|_{L^{\frac{n}{n-1},\infty}(\mathbb{R}^n)} \|\Bf\|_{L^{\frac{n}{3},\infty}(\mathbb{R}^n)} \leq C \|\Bf\|_{ L^{\frac{n}{3}}(S^{n-1})}.$$
+	% Note $\nabla \partial_k G_{ij}$  defines a singular integral on $\mathbb{R}^n$ whose Fourier multiplier is zero homogeneous and smooth on $S^n$.   Then by  the boundedness of Calder\'on–Zygmund operators on $L^{p,\infty}$, $1<p<+\infty$ (cf. \cite{Wei23}), we have 
+	% $$  \|\nabla \partial_k G_{ij} * (v_k v_j)\|_{L^{\frac{n}{2},\infty}}(\mathbb{R}^n) \leq C \||\Bu^{t}|^2\|_{L^{\frac{n}{2},\infty}(\mathbb{R}^n)} \leq C \|\Bu^{t}\|^2_{L^{n,\infty}(\mathbb{R}^n)} .$$
+	% This tells that $\nabla \Bu \in L^{\frac{n}{2},\infty}(\mathbb{R}^n)$ and since $\nabla \Bu$ is (-2)-homogeneous, we know that this is the same to say $\nabla \Bu \in L^{\frac{n}{2}}(S^{n-1})$. In summary, we have $\Bu|_{S^{n-1}}\in W^{1,\frac{n}{2}}(S^{n-1})$. By properties of Sobolev embedding on $S^{n-1}$, we have $ W^{1,\frac{n}{2}}(S^{n-1})$ is compactly embedded into   $L^{a}(S^{n-1})$ for $1<a<\frac{n(n-1)}{n-2}$. For $5\leq n\leq 10$, it is obviously that $1<n<\frac{n(n-1)}{n-2}$, hence,  $W^{1,\frac{n}{2}}(S^{n-1})$ is compactly embedded into   $L^{n}(S^{n-1})$.  This will show that $F: [0,1]\times X \to X$ is a compact mapping.
+	
+	% Finally, all the possible fixed points of $F(\lambda, \Bu)=\Bu$ in $X$ is the solution to the problem
+	% \begin{equation*}
+		%     -\Delta \Bu  + \Bu \cdot \nabla \Bu+ \nabla p= \lambda \Bf, \quad \div \Bu=0.
+		% \end{equation*}
+	% If we can show that there exists some $M>0$ such that all these $\Bu$ satisfy
+	% $\|\Bu\|_{X} \leq M$, then we are free to apply the Leray-Schauder principle to find a fixed point of $F(1,\cdot): X\to X$. It suffices to show $\|\Bu\|_{L^{\infty}(S^{n-1})} \leq M$.
+	% This has been done in Theorem \ref{thm:mainest}. Hence, we find a solution in $X$ with additional regularity estimates stated in Theorem \ref{thm:mainest}. This finishes the proof.
+	% \end{proof}
+
+
+
+%\newpage
+Define the function space 
+\begin{equation}\label{eq:defofX}
+	X=\{ \Bv:\ \div \Bv=0, \  \Bv \textrm{ is (-1)-homogeneous,} \ \Bv\in C^{1}(\mathbb{R}^n\setminus\{0\})\},
+\end{equation}
+equipped with the norm 
+\begin{equation*}
+	\|\Bv\|_{X}= \|\Bv\|_{C(S^{n-1})} + \|\nabla \Bv\|_{C(S^{n-1})}. 
+	%+ \|\nabla^2 \Bv\|_{C(S^{n-1})}. 
+\end{equation*}
+The function space $X$ is a Banach space. 
+
+Assume that $\Bf$ is $(-3)$-homogeneous and $\Bf$ is locally Lipschitz on $\mathbb{R}^n \setminus \{0\}$. For every $(\lambda, \Bv) \in [0, 1]\times X$, consider the problem 
+\begin{equation}\label{mainproof-3}
+	-\Delta \Bu + \nabla p = \lambda \Bf - (\Bv \cdot \nabla)\Bv = \lambda \Bf  - \div (\Bv \otimes \Bv), \ \ \ \div \Bu =0, \ \ \ \textrm{ in } \mathbb{R}^n \setminus \{0\}. 
+\end{equation}
+Let $G_{ij}$ be the Green tensor to the Stokes equation 
+\begin{equation}\label{eq:Greentensor1}
+	G_{ij}(x)= \frac{1}{2n\omega_n} \left[\frac{\delta_{ij}}{(n-2)|x|^{n-2}} +\frac{ x_i x_j}{|x|^n}\right],
+\end{equation}
+where $\omega_n$ is the volume of the unit ball in $\mathbb{R}^n$. 
+The solution $\Bu$ to \eqref{mainproof-3} can be expressed as 
+\begin{equation}\label{eq:soluformu1}
+	u_i(x)=G_{ij}*( - \partial_k(v_k v_j)+ \lambda f_j) =  \partial_k G_{ij} * (v_k v_j) + \lambda G_{ij}*f_j,
+\end{equation}
+where $1\leq i,j,k \leq n$  and the Einstein summation convention is used. It can be directly checked that $\Bu$ is $(-1)$-homogeneous, since $\Bv$ is $(-1)$-homogeneous and  $\Bf$ is $(-3)$-homogeneous. Moreover, according to Lemma \ref{Riesz}, 
+\begin{equation}\label{mainproof-6}
+	\begin{aligned}
+		& \|\nabla \Bu\|_{L^\beta(S^{n-1})} + \|\nabla^2 \Bu \|_{L^\beta(S^{n-1})} \\
+		\leq&   C (n, \beta) \left( \|\Bv\|_{L^\infty(S^{n-1})}^2 + \|\nabla \Bv\|_{L^\infty(S^{n-1})}^2  +
+		\|\Bf\|_{L^\infty(S^{n-1})} + \|\nabla \Bf\|_{L^\infty(S^{n-1})} \right), \ \ \ 1<\beta<\infty. 
+	\end{aligned}
+\end{equation}
+Choosing some $\beta>n$ and by Morrey's embedding, we can conclude that $\Bu \in X$. 
+
+
+
+Let $T$ be the solution map of the problem \eqref{mainproof-3}, i.e., $\Bu = T(\lambda, \Bv)$. As we discussed above, $T(\lambda, \cdot)$ is a map from $X$ to $X$ for every $0\leq \lambda \leq 1$. 
+
+% Now we are ready to prove the existence by applying Lemma \ref{lem:Leray-Schauder} . 
+
+\begin{proof}[{\bf Proof of Theorem \ref{thm:main}}]  
+	\    {\bf {(i) Existence.}} We aim to find a fixed point of the map $T(1, \cdot): X \to X$. First of all, $T(0,\Bu)=\Bu$ has exactly one solution, which is 0. Indeed, it is clear that $\Bu=0$ is a solution of 
+	\begin{equation}\label{eq:NS0}
+		-\Delta \Bu + (\Bu \cdot \nabla )\Bu +\nabla p =0, \ \ \ \div \Bu =0, 
+	\end{equation}
+	%Indeed, $\Bu=0$ is a solution.
+	%and by the uniqueness in Theorem \ref{thm:main} to be proved below, it is the unique
+	%and by the result in \cite{BangGuiLiuWangXie23} or
+	Furthermore, it follows from \cite{Tsai98, Sverak11} (see also \cite{bang2023rigidity}) that for $n\geq 4$  all the self-similar solutions of \eqref{eq:NS0} must be trivial.
+	%is the unique solution in $X$ if $\Bf=0$.
+	
+	On the other hand, by virtue of \eqref{mainproof-6} and the Sobolev embedding theory on $S^{n-1}$, we can conclude that $T$ is a compact mapping from $ [0, 1]\times X$ into $X$.
+	{
+		Indeed, let $\{\Bu^{(k)}\}_{k=1}^{\infty}$
+		be a bounded sequence in $X$. Then the homogeneity of $\Bu^{(k)}$ and \eqref{mainproof-6} imply that for any fixed $j=1,\cdots,n$, the sequence $\{T(\Bu^{(k)})\cdot \Be_j \}_{k=1}^\infty $ is a bounded sequence of scalar functions in $W^{2,\beta }(S^{n-1}), 1<\beta<\infty$. Hence using the Sobolev embedding on $S^{n-1}$, one can find its subsequence that is convergent in $C^1(S^{n-1})$. Iterating  this process for each $j=1,\cdots,n$, one can in fact find a subsequence of $\{T(\Bu^{(k)})\}_{k=1}^{\infty}$ that is convergent in $X$. This indeed proves the compactness of $T.$
+	}
+	
+	Finally, assume that $\Bu$ is the fixed point of $T(\lambda, \cdot)$ in $X$, i.e., $\Bu$ is the self-similar solution to the problem 
+	\begin{equation*}
+		-\Delta \Bu  + \Bu \cdot \nabla \Bu+ \nabla p= \lambda \Bf, \quad \div \Bu=0.
+	\end{equation*}
+	{By the regularity estimates for the Stokes equations, $\Bu$ in fact belongs to $C^2(\mathbb{R}^n \setminus \{0\})$.} According to Proposition \ref{thm:mainest}, we have a uniform bound for $\|\Bu \|_{C(S^{n-1})}$ and $\|\nabla \Bu\|_{C(S^{n-1})}$, which is independent of $\lambda$. 
+	Now applying Theorem \ref{lem:Leray-Schauder}, we finish the proof for the existence part of Theorem \ref{thm:main}. 
+	
+	{\bf (ii) Regularity. }\ The regularity of the solution follows from the classical regularity theory for the Navier-Stokes equations as in the proof of Proposition \ref{thm:mainest}. In particular, estimates \eqref{eq:C2est} holds. Furthermore, it can be proved similarly that the solution is smooth on $\mathbb{R}^n\setminus\{0\}$ if the external force $\Bf$ is smooth on $\mathbb{R}^n\setminus\{0\}$.
+	
+	{\bf (iii) Uniqueness.}
+	To show the  uniqueness result in Theorem \ref{thm:main}, we note that it follows from  \cite[Theorem 1.2]{Kaneko19} that there is only one self-similar solution to \eqref{NS} satisfying  
+	\begin{equation}\label{eq:smallness}
+		|\Bu(x)| \leq \frac{\epsilon_0}{|x|}
+	\end{equation}
+	for some universal constant $\epsilon_0$ depending only on $n$.
+	We are left to verify that all the self-similar solutions to \eqref{NS} satisfy \eqref{eq:smallness} if $\| \Bf \|_{\textnormal{Lip}(S^{n-1})} \leq \epsilon$ for some $\epsilon$ small enough, which depends only on $n$.
+	Write  \eqref{NS} as
+	\begin{equation*}
+		-\Delta \Bu + \nabla p=  \Bf-\Bu \cdot \nabla \Bu, \quad \div \Bu=0.
+	\end{equation*}
+	Using Propositions \ref{Energy estimates2} and \ref{thm:mainest}, we have
+	$$|\Bu \cdot \nabla \Bu|\leq C |\nabla \Bu|, \textrm{ and } \|\nabla \Bu\|_{L^2(S^{n-1})}\leq C(n, \|\Bf\|_{\textnormal{Lip}(S^{n-1})}),$$ where $C(n, \|\Bf\|_{\textnormal{Lip}(S^{n-1})})\to 0$ as long as $\|\Bf\|_{\textnormal{Lip}(S^{n-1})}\to 0$. Now, it follows from the regularity estimates for the Stokes equations (see \cite[Lemma 2.12]{Tsai18}) and the self-similarity of the solution that we have
+	\begin{equation*}
+		\|\Bu\|_{W^{2,2}(S^{n-1})}\leq C(n,\|\Bf\|_{\textnormal{Lip}(S^{n-1})})= C(n,\epsilon),
+	\end{equation*}
+	and  $C(n,\epsilon)\to0$ as $\epsilon\to 0$.
+	Hence, by a bootstrap argument, it holds that for any $p>1$
+	\begin{equation*}
+		\|\Bu\|_{W^{2,p}(S^{n-1})}\leq C(n, p, \epsilon).
+	\end{equation*}
+	with  $C(n, p, \epsilon)\to 0$ as $\epsilon \to 0$. This implies \eqref{eq:smallness} as long as $\epsilon$ is small enough.
+\end{proof}
+
+\section{The case that the forces have only nonnegative radial components}\label{Section4}
+If the tangential part of $\Bf$ vanishes, i.e., $ \Bf = r^{-3}f^r\Be_r$, and $f^r$ is non-negative, we can remove the dimension restriction  in Theorem \ref{thm:main}. The advantage here is that the term $\Bf\cdot \Bu$ becomes $f^ru^r$ and is controlled by $f^ru^r_+$. Then we can use the relation \eqref{NSnorm2} between $H$ and $u^r$   to get  control of $u^r_+$ in terms of $\Bf$ only (see \eqref{leq:energyes-2} below), which eventually leads to energy estimates for all dimensions.
+%we have better estimates.  And we can improve the dimension restriction from $5\leq n \leq 10$ to  $5\leq n\leq 12$ in this case.
+%In the following, we give the a priori estimates when $ \Bf = r^{-3}f^r\Be_r$.
+%we can relax the dimension restriction in Theorem \ref{thm:main}. 
+\begin{theorem}
+	\label{thm:main2}
+	Let $\Bf=r^{-3}f^r \Be_{r}$ be a $(-3)$-homogeneous force  such that $\Bf$ is locally Lipschitz on $\mathbb{R}^n\setminus \{0\}$ and $f^r \geq 0$.  Then we have the following results. 
+	\begin{itemize}
+		\item[(i)]  For $n\geq 4$, 
+		there exists at least one  self-similar solution $\Bu$  to the steady Navier–Stokes equations \eqref{NS}, such that 
+		\begin{equation*}
+			\|\Bu\|_{C(S^{n-1})} + 	 	\|\nabla \Bu\|_{C(S^{n-1})} + \|\nabla^2 \Bu\|_{C^{\alpha}(S^{n-1})} \leq C,
+		\end{equation*}
+		where the constant $\alpha\in(0,1)$ and  $C > 0$ depends only on $\alpha$, $n$ and  $\|\Bf\|_{\textnormal{Lip}(S^{n-1})}$.
+		\item[(ii)] If in addition, the external force $\Bf$ is smooth on $\mathbb{R}^n \setminus \{0\}$, then 
+		the self-similar solution $(\Bu, p)$  we obtained is also smooth on  $\mathbb{R}^n \setminus \{0\}$. 
+		\item[(iii)]
+		There exists a universal constant $\epsilon>0$ depending only on the dimension $n$ such that if  $\|\Bf\|_ {\textnormal{Lip}(S^{n-1})}\leq \epsilon$, then the self-similar solution is unique in $C^{2}(\mathbb{R}^n \setminus \{0\})$.
+	\end{itemize}
+	
+\end{theorem}
+To show Theorem \ref{thm:main2}, we apply the Leray-Schauder theorem as  in the proof of Theorem \ref{thm:main}. It remains to establish the a priori estimates. We have the following  proposition.
+\begin{pro}\label{pro:ngeq13}
+	Assume that $n\geq 5$,  the $(-3)$-homogeneous force  $\Bf=r^{-3} f^r \Be_{r}$ is locally Lipschitz on $\mathbb{R}^n \setminus \{0\}$,  and that $f^r\geq 0$.  Let $\Bu \in C^2(\mathbb{R}^n \setminus\{0\})$ be a  self-similar solution to \eqref{NS}. Then there exists a constant $C$ depending only on the dimension $n$ such that
+	\begin{equation}\label{eq:energyes2}
+		\int_{S^{n-1}} |\nabla \Bu|^2 +(n-4)|\Bu|^2  d \sigma \leq 
+		C \left( \|f^r\|_{L^\infty (S^{n-1})}^{3}  + \|f^r\|_{L^\infty (S^{n-1})}^{\frac32}  + \|\div \Bf\|_{L^q(S^{n-1})}^{\frac32}\right). 
+	\end{equation}
+	Moreover, we have
+	\begin{equation}
+		\begin{aligned}
+			\| p\|_{L^{\frac{n-1}{n-3}}(S^{n-1})} + \|\nabla p\|_{L^{\frac{n-1}{n-2}}(S^{n-1})} 
+			\leq C \left( \|f^r\|_{L^\infty (S^{n-1})}^{3}  + \|f^r\|_{L^\infty (S^{n-1})}  + \|\div \Bf\|_{L^q(S^{n-1})}^{\frac32} \right), 
+		\end{aligned}
+	\end{equation}
+	and 
+	\begin{equation}
+		\begin{aligned}\label{estimateforH}
+			\|H_+\|_{L^{\theta}(S^{n-1})} 
+			&\leq  C \left( \|f^r\|_{L^\infty (S^{n-1})}^{2}  + \|f^r\|_{L^\infty (S^{n-1})}^{\frac32}  + \|\div \Bf\|_{L^q(S^{n-1})}\right),
+		\end{aligned}
+	\end{equation}  
+	where $q$ and $\theta$ are defined in \eqref{eq:theta}. 
+\end{pro}
+\begin{proof}
+	If $\Bf=f^r \Be_{r}$ and $f^r\geq 0$,  following the same proof of Lemma \ref{lem:H+control}, we can derive that    
+	\begin{equation}\label{eq:energyes-1}
+		\|H_+\|_{L^{\theta}(S^{n-1})}
+		\leq C \|f^ru^r_+\|_{L^q(S^{n-1})}+C\|\div \Bf\|_{L^q(S^{n-1})} .
+	\end{equation}  
+	Let $\beta = 2\theta -2$. Multiplying \eqref{NSnorm2} by $(u^r_{+})^\beta$ and integrating on $S^{n-1}$, after performing integration by parts, we have 
+	\begin{equation*}
+		\begin{aligned}
+			&  \frac{4\beta}{(\beta+1)^2} \int_{S^{n-1}} \left| \nabla^{S^{n-1}} (u_{+}^r)^{\frac{\beta +1}{2}}\right|^2 \, d\sigma + (n-2) \int_{S^{n-1}} \frac{(u^r_{+})^{\beta +2}}{\beta +1} d\sigma + \int_{S^{n-1}}2H_{-}(u_{+}^r)^\beta d\sigma \\
+			=& \int_{S^{n-1}} (2 H_{+} + f^r ) (u^r_{+})^\beta \, d\sigma. 
+		\end{aligned}
+	\end{equation*}
+	Hence,  by virtue of \eqref{eq:energyes-1}, 
+	\begin{equation*}
+		\begin{aligned}
+			& \frac{n-2}{\beta+1} \|u^r_+\|_{L^{\beta+2}(S^{n-1})}^{\beta+2} 
+			\leq  \int_{S^{n-1}} (2H_+ + f^r) (u^r_+)^{\beta} d\sigma  \\
+			\leq &
+			2\|H_+\|_{L^{\theta}(S^{n-1})}\|u^r_+\|_{L^{\theta'\beta}(S^{n-1})}^{\beta} + \|f^r\|_{L^{\infty}(S^{n-1})}\|u^r_+\|_{L^{\beta}(S^{n-1})}^{\beta} \\
+			\leq & C\left(\|f^ru^r_+\|_{L^q(S^{n-1})}+\|\div \Bf\|_{L^q(S^{n-1})} \right
+			)\|u^r_+\|_{L^{\beta +2 }(S^{n-1})}^{\beta} + \|f^r\|_{L^{\infty}(S^{n-1})}\|u^r_+\|_{L^{\beta}(S^{n-1})}^{\beta}\\
+			\leq & C\|f^r\|_{L^{\infty}(S^{n-1})} \|u^r_+\|_{L^{q}(S^{n-1})}\|u^r_+\|_{L^{\beta+2}(S^{n-1})}^{\beta} +C \|\div \Bf\|_{L^q(S^{n-1})}
+			\|u^r_+\|_{L^{\beta+2}(S^{n-1})}^{\beta}\\
+			& + C\|f^r\|_{L^{\infty}(S^{n-1})}\|u^r_+\|_{L^{\beta+2}(S^{n-1})}^{\beta}\\
+			\leq &  C\|f^r\|_{L^{\infty}(S^{n-1})} \|u^r_+\|_{L^{\beta+2}(S^{n-1})}^{\beta+1} + C(\|\div \Bf\|_{L^q(S^{n-1})}+\|f^r\|_{L^{\infty}(S^{n-1})})\|u^r_+\|_{L^{\beta+2}(S^{n-1})}^{\beta}, 
+		\end{aligned}
+	\end{equation*}
+	where for the third inequality we used the fact $\theta' \beta = \beta +2$ and for the last inequality we used the fact $q<2\theta =\beta+2$. 
+	Then by Young's inequality, it holds that  
+	\begin{equation}\label{leq:energyes-2}
+		\|u^r_+\|_{L^{2\theta}(S^{n-1})} 
+		\leq C\left(\|f^r\|_{L^{\infty}(S^{n-1})}+ \|f^r\|_{L^{\infty}(S^{n-1})}^{\frac{1}{2}}  + \|\div \Bf\|_{L^q(S^{n-1})}^{\frac{1}{2}}\right).
+	\end{equation}
+	Taking \eqref{leq:energyes-2} into \eqref{eq:energyes-1}, we have
+	\begin{equation}
+		\begin{aligned}
+			\|H_+\|_{L^{\theta}(S^{n-1})}  &  \leq C\|f^r\|_{L^{\infty}(S^{n-1})}\|u^r_+\|_{L^{\beta+2}(S^{n-1})} + C \|\div \Bf\|_{L^q(S^{n-1})} \\
+			&\leq C \left( \|f^r\|_{L^{\infty}(S^{n-1})}^2 + \|f^r\|_{L^{\infty}(S^{n-1})}^{\frac{3}{2}}+  \|\div \Bf\|_{L^q(S^{n-1})} \right),
+		\end{aligned}
+	\end{equation}  
+	which is exactly the desired estimate \eqref{estimateforH}. 
+	It follows from \eqref{eq:ridalest} that one has
+	\begin{equation}\label{estimateforur}
+		\begin{aligned}
+			&\quad (n-2)\|u^r\|_{L^2(S^{n-1})}^2 + 2\|H_-\|_{L^1(S^{n-1})} \\
+			& \leq C 	\|H_+\|_{L^{\theta}(S^{n-1})} +  \|f^r\|_{L^1(S^{n-1})} \\
+			&\leq C\left( \|f^r\|_{L^{\infty}(S^{n-1})}^2 + \|f^r\|_{L^{\infty}(S^{n-1})}+ 
+			\|\div \Bf\|_{L^q(S^{n-1})} \right) .
+		\end{aligned}
+	\end{equation}
+	Noting $\theta'=\frac{\theta}{\theta-1}<2$, it holds that 
+	\begin{equation}\label{eq:estiofH+u}
+		\begin{aligned}
+			\int_{S^{n-1}}	\left|	H_+u^r\right|  d\sigma &\leq \|H_+\|_{L^{\theta}(S^{n-1})}\|u^r\|_{L^{\theta'}(S^{n-1})}\\
+			& \le C
+			\|H_+\|_{L^{\theta}(S^{n-1})}\|u^r\|_{L^{2}(S^{n-1})}
+			\\ & \leq C \left( \|f^r\|_{L^{\infty}(S^{n-1})}^3 + \|f^r\|_{L^{\infty}(S^{n-1})}^2+ 
+			\|\div \Bf\|_{L^q(S^{n-1})}^{\frac32} \right) .
+		\end{aligned}
+	\end{equation}
+	We also have
+	\begin{equation}\label{eq:estfu}
+		\begin{aligned}
+			\int_{S^{n-1}} \Bf\cdot \Bu d\sigma  =\int_{S^{n-1}} f^ru^r d\sigma &\leq C\|f^r\|_{L^{\infty}(S^{n-1})} \|u^r\|_{L^2(S^{n-1})}. 
+		\end{aligned}
+	\end{equation}
+	Finally, putting  estimates \eqref{estimateforur}-\eqref{eq:estfu} into \eqref{eq:keydec-2} and a simple application of Young's inequality yield the following energy estimates
+	\begin{equation}
+		\begin{aligned}
+			\int_{S^{n-1}} |\nabla \Bu|^2 +(n-4)|\Bu|^2 d\sigma
+			& \leq 	\int_{S^{n-1}} \Bf\cdot \Bu + (n-4)H_{+} u^r_{-}\,  d\sigma + \frac{n-4}{2} \int_{S^{n-1}} f^r u^r_{+}\, d\sigma \\
+			& \leq  C\left( \|f^r\|_{L^{\infty}(S^{n-1})}^3 + \|f^r\|_{L^{\infty}(S^{n-1})}^2+ 
+			\|\div \Bf\|_{L^q(S^{n-1})}^{\frac32} \right) .
+		\end{aligned}
+	\end{equation}
+	The estimates for the pressure $p$ follow the same proof of Proposition \ref{Energy estimates2}.
+\end{proof}
+
+%After Propositions \ref{pro:n=11,12} and
+Once Proposition
+\ref{pro:ngeq13} is proved, the remaining part of the proof for Theorem \ref{thm:main2} is the same as that for Theorem \ref{thm:main}. We omit the details. 
+
+% \begin{proof}[Proof of Theorem \ref{thm:main2}]
+	%   We first define the same functional space $X$ as in \eqref{eq:defofX}. Following the same lines as in the proof of Theorem \ref{thm:main},
+	%   using the a priori estimates in Propositions \ref{pro:n=11,12} and \ref{pro:ngeq13}, one can finish the proof.
+	%\end{proof}
+	
+	
+	
+	\appendix
+	\section{Two technical issues}\label{app:singularinteg}
+	In this appendix, we prove two technical issues used in the paper. First, we give a  useful lemma for estimates of singular integrals on homogeneous functions, which might be also useful for other related problems. 
+	Second, we use the weak formulation of the equation of total head pressure and prove the validity of the energy estimate \eqref{eq:energyest775} when pressure belongs to $C^1(\mathbb{R}^n\setminus\{0\})$.
+	%   The first one is a characterization of the homogeneous function in weak space by its value on $S^{n-1}$
+	%   (cf. \cite[Lemma 2.1]{Shi18}). 
+	%  \begin{lemma}
+		% Assume $n \geq 2$. If $f$ is homogeneous of degree $-k$ in $\mathbb{R}^n$ with $0  \leq k\leq n$, then $f$
+		% belongs to the Lorentz space $L^{\frac{n}{k},\infty}(\mathbb{R}^n)$ if and only if its restriction to the sphere $f|_{S^{n-1}}$ lies in
+		% $L^{\frac{n}{k}}(S^{n-1})$.
+		% Moreover,
+		% \begin{equation*}
+			%     \|f\|_{L^{\frac{n}{k},\infty}(\mathbb{R}^n)}  =  c(n,k)\|f|_{S^{n-1}}\|_{L^{\frac{n}{k}}(S^{n-1})}. 
+			% \end{equation*}
+		% \end{lemma}
+	
+	
+	\begin{lemma}\label{Riesz}
+		Let $g$ be a $(-2)$-homogeneous (or $(-3)$-homogeneous) function and $g|_{S^{n-1}} \in L^\beta (S^{n-1})$, $1<\beta< \infty$. Assume that $T$ is the Riesz transform. Then $Tg$ is also $(-2)$-homogeneous (or $(-3)$-homogeneous respectively). Moreover, there exists a constant $C(n, \beta)$ depending on $n$ and $\beta$, such that 
+		\begin{equation}\label{eq:SIOesti}
+			\|Tg\|_{L^\beta(S^{n-1})} \leq C (n, \beta ) \|g\|_{L^\beta(S^{n-1})}. 
+		\end{equation}
+	\end{lemma}
+	% \begin{proof}
+		% When $T$ is the Riesz operator, it is easy to check that the corresponding homogeneity of $Tg$ by definition. 
+		%  By  the boundedness of Calder\'on–Zygmund operators on $L^{p,\infty}(\mathbb{R}^n)$, $1<p<+\infty$ (cf. \cite{Wei23}), we have 
+		% $$  \|Tg\|_{L^{a,\infty}(\mathbb{R}^n)} \leq C(n,a) 
+		% \|g\|_{L^{a,\infty}(\mathbb{R}^n)}.$$
+		%  This tells that $\nabla \Bu \in L^{\frac{n}{2},\infty}(\mathbb{R}^n)$ and since $\nabla \Bu$ is (-2)-homogeneous, we know that this is the same to say $\nabla \Bu \in L^{\frac{n}{2}}(S^{n-1})$. 
+		% \end{proof}
+	
+	
+	
+	
+	
+	%  We give the following estimate for $p$ in terms of $\Bu$ and the external force $\Bf$ on the sphere under the self-similarity assumptions. It roughly says that $p$ can be controlled by $|\Bu|^2$ just like the whole space case.
+	% 			\begin{lemma}
+		% 			 Let $(\Bu,p)$ be a self-similar solution to \eqref{NS}.
+		% 			 For any $a>1$, 	it holds that
+		% 				\begin{equation}\label{eq:CZest}
+			% 					\|p\|_{L^{a}(S^{n-1})}\lesssim_{n,a} \||\Bu\|^2_{L^{2a}(S^{n-1})} + \|\Bf\|_{L^{a}(S^{n-1})}.
+			% 				\end{equation}
+		% 			\end{lemma}
+	% 			\begin{proof}
+		%    We have
+		%    \begin{equation*}
+			%        \Delta p = -\div(\Bu\cdot \nabla \Bu)+\div \Bf
+			%    \end{equation*}
+		% 				Using  the definition of the Riesz transforms which we denote by $R_i$, we can write
+		% 				\begin{equation*}
+			% 					p=R_iR_j(u_iu_j) + \Delta^{-1} \div \Bf:=p_1+p_2.
+			% 				\end{equation*}
+		% 				Since $u_iu_j$ is (-2)-homogeneous, $u_iu_j$ dose not belong to $L^\beta(\mathbb{R}^n)$ for any $a>1$. However, for any $a>1$, 
+		% 				$u_iu_j$  belongs to weighted space $L^\beta_w(\mathbb{R}^n)$ for some weight $w(x)>0$ we specify later, where 
+		% 				 $L^\beta_w(\mathbb{R}^n)$ is the weighted $L^\beta$ space whose norm is defined by 
+		% 				 \begin{equation*}
+			% 			 	\|g\|_{L^\beta_w(\mathbb{R}^n)} = \left(\int_{\mathbb{R}^n}|g(x)|^\betaw(x)dx\right)^{\frac{1}{a}}.
+			% 				 \end{equation*}
+		% 				 When $a<\frac{n}{2}$,
+		% 				 we  choose $w(x)=(1+|x|)^{-n-1+2a}$. When $a>\frac{n}{2}$,
+		% 				 we  choose $w(x)=\frac{|x|^{2a}}{(1+|x|)^{2a}}$.
+		% When $a=\frac{n}{2}$, we  choose $w(x)=|x|(1+|x|)^{-2}$.
+		% 				 Then 	$u_iu_j$  belongs to  $L^\beta_w(\mathbb{R}^n)$. 
+		% 				When $a\leq \frac{n}{2}$, it can be verified that $w$ is an $A_a$ weight on $\mathbb{R}^n$ directly. When $a> \frac{n}{2}$, noting the fact $-n<2a<n(a-1)$, it can also be verified that $|x|^{2a}(1+|x|)^{-n-1}$ is an $A_a$ weight on $\mathbb{R}^n$. Hence, the weighted Calderon-Zygmund theorems imply that 
+		% 				 \begin{equation}\label{eq:CZ}
+			% 				 	 \|p\|_{L^\beta_w(\mathbb{R}^n)} \lesssim \|u_iu_j\|_{L^\beta_w(\mathbb{R}^n)}.
+			% 				 \end{equation}		
+		% 				 Moreover, using the fact that $p_1$ and $p_2$ are both (-2)-homogeneous, we have for $a=\frac{n}{2}$ that
+		% 				 \begin{equation*}
+			% 				 	\begin{aligned}
+				% 				 	\|p_1\|_{L^\beta_w(\mathbb{R}^n)}^\beta &= \int_{\mathbb{R}^n}|p_1(x)|^\beta|x|(1+|x|)^{-2} dx\\
+				% 				 	&=\int_{\mathbb{R}^n}|p_1(x)|^\beta|x|(1+|x|)^{-2} dx\\
+				% 				 	&=\int_{0}^{\infty}\int_{S^{n-1}} |p_1(r\sigma)|^\beta|r|(1+|r|)^{-2}  r^{n-1}d\sigma dr\\
+				% 				 	&=\int_{0}^{\infty}\int_{S^{n-1}} r^{-2a}|p_1(\sigma)|^\beta r(1+r)^{-2}  r^{n-1}d\sigma dr\\
+				% 				 	&=\int_{S^{n-1}} |p_1(\sigma)|^\beta d\sigma = \|p_1\|_{L^{a}(S^{n-1})}^\beta.
+				% 				 	\end{aligned}
+			% 				 \end{equation*}
+		% 				 Similarly, we have 
+		% 				 		\begin{equation*}
+			% 				 			\begin{aligned}
+				% 				 				\|u_iu_j\|_{L^\beta_w(\mathbb{R}^n)}^\beta &= \|u_iu_j\|_{L^{a}(S^{n-1})}^\beta. 
+				% 				 			\end{aligned}
+			% 				 		\end{equation*}
+		% 				 		It then follows that for $a=\frac{n}{2}$
+		% 				 		\begin{equation*}
+			% 				 		\|p_1\|_{L^{a}(S^{n-1})} \lesssim \|u_iu_j\|_{L^{a}(S^{n-1})}\lesssim \|\Bu\|^2_{L^{2a}(S^{n-1})}.
+			% 				 		\end{equation*}
+		% 				 		For the case $1<a<\frac{n}{2}$ and $a>\frac{n}{2}$, using \eqref{eq:CZ} and the homogeneity of $p$ and $u_i$,  we can derive similarly. This finishes the proof.
+		% 			\end{proof}
+	
+	
+	
+	
+	% %\newpage
+	% \begin{lemma}\label{Riesz}
+		%     Let $g$ be a $(-2)$-homogeneous (or $(-3)$-homogeneous) function and $g|_{S^{n-1}} \in L^\beta (S^{n-1})$, $1<a< \infty$. Assume that $T$ is a Riesz operator. Then $Tg$ is also $(-2)$-homogeneous (or $(-3)$-homogeneous respectively). Moreover, there exists a constant $C(n, a)$ depending on $n$ and $a$, such that 
+		%     \begin{equation*}
+			%         \|Tg\|_{L^\beta(S^{n-1})} \leq C (n, a ) \|g\|_{L^\beta(S^{n-1})}. 
+			%     \end{equation*}
+		% \end{lemma}
+	%  \begin{proof}
+		% When $T$ is the Riesz operator, it is easy to check that the corresponding homogeneity of $Tg$ by definition. 
+		%  By  the boundedness of Calder\'on–Zygmund operators on $L^{p,\infty}(\mathbb{R}^n)$, $1<p<+\infty$ (cf. \cite{Wei23}), we have 
+		% $$  \|Tg\|_{L^{a,\infty}(\mathbb{R}^n)} \leq C(n,a) 
+		% \|g\|_{L^{a,\infty}(\mathbb{R}^n)}.$$
+		%  This tells that $\nabla \Bu \in L^{\frac{n}{2},\infty}(\mathbb{R}^n)$ and since $\nabla \Bu$ is (-2)-homogeneous, we know that this is the same to say $\nabla \Bu \in L^{\frac{n}{2}}(S^{n-1})$. 
+		% \end{proof}
+	\begin{proof}
+		Since $g$ is a $(-2)$-homogeneous function, it's easy to check the homogeneity of $Tg$ by definition. 
+		Let \begin{equation*}
+			a(x) =a(|x|) = \frac{|x|^{2\beta -n +1}}{(1 + |x|)^2}. 
+		\end{equation*}
+		Define $ L_{a}^\beta (\mathbb{R}^n)$ to be
+		\begin{equation*}
+			L_{a}^\beta (\mathbb{R}^n):=\left\{g:\|g\|_{L_{a}^\beta (\mathbb{R}^n)} =\left( \int_{\mathbb{R}^n} |g(x)|^\beta a(x) \, dx  \right)^{\frac{1}{\beta}<+\infty}\right\}
+		\end{equation*}
+		%  is the weighted space with the norm defined as 
+		% \begin{equation*}
+			%     \|g\|_{L_{w}^\beta (\mathbb{R}^n)} = \left( \int_{\mathbb{R}^n} |g(x)|^\beta w(x) \, dx  \right)^{\frac{1}{\beta}}. 
+			% \end{equation*}
+		We claim that $ g\in L_a^\beta(\mathbb{R}^n)$.
+		\begin{equation}\label{Riesz-3}
+			\begin{aligned}
+				\|g\|_{L_a^\beta(\mathbb{R}^n)}^\beta   &= \int_{\mathbb{R}^n } |g(x)|^\beta a(x) \, dx  =
+				\int_0^\infty \int_{S^{n-1}} |g(\sigma r)|^\beta a(r) \, r^{n-1}dr\, d\sigma  \\
+				% & = \int_0^\infty \int_{S^{n-1}} |g(Ry)|^\beta w(R) R^{n-1} \, d\sigma dR\\
+				& = \int_0^\infty  \int_{S^{n-1}} r^{-2\beta}|g(\sigma)|^\beta a(r) r^{n-1} dr\, d\sigma  \\
+				& = \int_0^\infty \frac{1}{(1+r)^2} dr \cdot \int_{S^{n-1}} |g(\sigma)|^\beta \, d\sigma \\
+				& = \|g\|_{L^\beta(S^{n-1})}^\beta, 
+			\end{aligned}
+		\end{equation}
+		which implies that $g\in L_{a}^\beta (\mathbb{R}^n)$ if   $g|_{S^{n-1}} \in L^\beta (S^{n-1})$. 
+		Moreover, since $Tg$ is also $(-2)$-homogeneous, similarly we have that 
+		\begin{equation}\label{eq:normequa}
+			\begin{aligned}
+				\|Tg\|_{L_a^\beta(\mathbb{R}^n)}^\beta =
+				%& = \int_{\mathbb{R}^n}  |Tg(x)|^\beta \cdot \frac{|x|^{2a-n+1}}{(1+ |x|)^2}\, dx \\
+				%& = \int_0^\infty \int_{S^{n-1}} |Tg(y)|^\beta r^{-2a} \cdot \frac{r^{2a-n+1}}{(1+r)^2} \cdot r^{n-1} \, d\sigma dr\\
+				% & = \int_{S^{n-1}} |Tg|^\beta \, d\sigma \int_0^\infty \frac{1}{(1+r)^2} \, dr \\
+				% & = 
+				\|Tg\|_{L^\beta(S^{n-1})}^\beta. 
+			\end{aligned} 
+		\end{equation}
+		
+		We claim that $a(x)$ is an $A_\beta$ weight on $\mathbb{R}^n$.
+		By then, using the Calderon-Zygmund theorem for $L_{a}^\beta (\mathbb{R}^n)$ (see \cite[Chapter V]{Stein93}), we have
+		\begin{equation*}
+			\|Tg\|_{L_a^\beta(\mathbb{R}^n)} \leq C (n, \beta) \|g\|_{L_a^\beta(\mathbb{R}^n )}.  
+		\end{equation*}
+		Noting \eqref{Riesz-3} and \eqref{eq:normequa}, 
+		we finish the proof for Lemma \ref{Riesz} when $g$ is (-2)-homogeneous.
+		
+		Now we prove $a(x)$ is an $A_\beta$ weight on $\mathbb{R}^n$.
+		It suffices to prove that  for every $ x_0\in \mathbb{R}^n, \ 0<R<\infty$, we have
+		\begin{equation}\label{Riesz-4}
+			\left( \frac{1}{|B_R(x_0)|} \int_{B_R(x_0)} a(x)\, dx  \right) \left( \frac{1}{|B_R(x_0)|} \int_{B_R(x_0)} a(x)^{-\frac{1}{\beta-1}} \, dx\right)^{\beta-1} \leq M,  
+		\end{equation}
+		for some universal constant $M$ depending only on $n$ and $\beta$. If $x_0=0$ and $0<R<2$, 
+		\begin{equation}\label{Riesz-5}
+			\begin{aligned}
+				\frac{|B_1|}{|B_R|} \int_{B_R(0)} a(x)\, dx & =
+				\frac{|B_1|}{|B_R|} \int_0^R \frac{r^{2\beta-n+1}}{(1+r)^2} r^{n-1} n \, dr   \\
+				& = \frac{n}{R^n } \int_0^R \frac{r^{2\beta}}{(1+r)^2} \, dr \\
+				& \leq \frac{n}{2\beta+1} R^{2\beta+1 -n}. 
+			\end{aligned}
+		\end{equation}
+		On the other hand, 
+		\begin{equation}\label{Riesz-6}
+			\begin{aligned}
+				\left(  \frac{1}{|B_R| } \int_{B_R(0)} a(x)^{-\frac{1}{\beta-1}} \, dx \right)^{\beta-1} & = \left(  \frac{|B_1|}{|B_R| } 
+				\int_0^R  \left[ \frac{r^{2\beta-n+1}}{(1+r)^2} \right]^{-\frac{1}{\beta-1}} r^{n-1}  n \, dr  \right)^{\beta-1}\\
+				& \leq C(\beta) \left( \frac{n}{R^n} \int_0^R r^{\frac{2\beta-n+1}{1-\beta}} r^{n-1}\, dr \right)^{\beta-1} \\
+				& \leq C(\beta)\left(\frac{n(\beta-1)}{(n-2) \beta - 1 } \right)^{\beta-1} R^{n+1 -2\beta}.
+			\end{aligned}
+		\end{equation}
+		Combining \eqref{Riesz-5} and \eqref{Riesz-6} yields \eqref{Riesz-4} for $x_0= 0$ and $0<R<2$. 
+		
+		If $x_0=0 $ and $R\geq 2$, we have
+		\begin{equation}\label{Riesz-7}
+			\begin{aligned}
+				\frac{1}{|B_R|} \int_{B_R(0)} a(x)\, dx  = \frac{n}{R^n } \int_0^R \frac{r^{2\beta}}{(1+r)^2} \, dr  \leq \frac{n}{2\beta-1} R^{2\beta-1-n}. 
+			\end{aligned} 
+		\end{equation}
+		On the other hand, it holds that
+		\begin{equation}\label{Riesz-8}
+			\begin{aligned}
+				\left(  \frac{1}{|B_R| } \int_{B_R(0)} a(x)^{-\frac{1}{\beta-1}} \, dx \right)^{\beta-1} & = \left(\frac{n}{R^n} \int_0^R   \left[ \frac{r^{2\beta-n+1}}{(1+r)^2} \right]^{-\frac{1}{\beta-1}} r^{n-1} \, dr  \right)^{\beta-1} \\
+				& \leq \left(\frac{n}{R^n} \int_0^R r^{\frac{(n-3)\beta}{\beta-1}} \cdot (1+r)^{\frac{2}{\beta-1}} \, dr  \right)^{\beta-1} \\
+				& = \left[\frac{n}{R^n}\left(\int_0^1 + \int_1^R\right) r^{\frac{(n-3)\beta}{\beta-1}} \cdot (1+r)^{\frac{2}{\beta-1}}  \, dr \right]^{\beta-1} \\
+				& \leq \left[\frac{2n}{R^n} \int_0^R  r^{\frac{(n-3)\beta}{\beta-1}} \cdot (2r)^{\frac{2}{\beta-1}}  \, dr \right]^{\beta-1}\\
+				& \leq  4\left( \frac{2n (\beta-1)}{ (n-2)\beta +1  } \right)^{\beta-1} R^{n-2\beta +1}. 
+			\end{aligned}
+		\end{equation}
+		Combining \eqref{Riesz-7} and \eqref{Riesz-8}, we derive \eqref{Riesz-4} for $x_0= 0$ and $R\geq 2$. 
+		
+		If $x_0\neq 0$ and $R> \frac12 |x_0|$, 
+		$B_R(x_0) \subset B_{3R}(0)$ and then
+		\begin{equation*}\label{Riesz-9}
+			\begin{aligned}      
+				& \left( \frac{1}{|B_R(x_0)|} \int_{B_R(x_0)} a(x)\, dx  \right) \left( \frac{1}{|B_R(x_0)|} \int_{B_R(x_0)} a(x)^{-\frac{1}{\beta-1}} \, dx\right)^{\beta-1}   \\
+				\leq   & \left( \frac{1}{|B_R|} \int_{B_{3R}(0)} a(x)\, dx  \right) \left( \frac{1}{|B_R|} \int_{B_{3R}(0)} a(x)^{-\frac{1}{\beta-1}} \, dx\right)^{\beta-1}\\
+				=   & \left( 3^n\frac{1}{|B_{3R}|} \int_{B_{3R}(0)} a(x)\, dx  \right) \left( 3^n \frac{1}{|B_{3R}|} \int_{B_{3R}(0)} a(x)^{-\frac{1}{\beta-1}} \, dx\right)^{\beta-1}. 
+			\end{aligned}
+		\end{equation*}
+		Combining the above estimates for the case $x_0=0$, we prove \eqref{Riesz-4} for $x_0 \neq 0$ and $R>\frac12 |x_0|$. 
+		
+		At last, we consider the case $x_0\neq 0$ and $0< R\leq  \frac12 |x_0|$. If $|x_0|\geq 2$, $2\beta-n+1 \geq 0$, for any $x \in B_R(x_0)$, 
+		\begin{equation*}\label{Riesz-11}
+			\left(\frac12 |x_0|\right)^{2\beta-n+1} \cdot (2|x_0|)^{-2} \leq a(x) \leq \left( \frac32 |x_0| \right)^{2\beta-n+1} |x_0|^{-2}. 
+		\end{equation*}
+		If $|x_0|\geq 2$ and $2\beta-n+1 < 0$, for any $x \in B_R(x_0)$, 
+		\begin{equation*}\label{Riesz-12}
+			\left(\frac32 |x_0|\right)^{2\beta-n+1} \cdot (2|x_0|)^{-2} \leq a(x) \leq \left( \frac12 |x_0| \right)^{2\beta-n+1} |x_0|^{-2}.
+		\end{equation*}
+		If $0< |x_0| < 2$, $2\beta-n+1 \geq 0$,  for any $x \in B_R(x_0)$, 
+		\begin{equation*}\label{Riesz-15}
+			\left(\frac12 |x_0|\right)^{2\beta-n+1} \cdot 4^{-2} \leq a(x) \leq \left( \frac32 |x_0| \right)^{2\beta-n+1}.
+		\end{equation*}
+		If $0< |x_0| < 2$, $2\beta-n+1 < 0$,  for any $x \in B_R(x_0)$, 
+		\begin{equation*}\label{Riesz-12new}
+			\left(\frac32 |x_0|\right)^{2\beta-n+1} \cdot 4^{-2} \leq a(x) \leq \left( \frac12 |x_0| \right)^{2\beta-n+1}.
+		\end{equation*}
+		Then it is straightforward to verify that \eqref{Riesz-4} holds when $x_0\neq 0$ and $0< R \leq \frac12 |x_0|$. 
+		
+		The argument for the proof of \eqref{eq:SIOesti} for $(-3)$-homogeneous function is almost the same, so we omit the details. Hence the proof of the lemma is completed.
+	\end{proof}
+	
+	
+	
+	Let us now prove the validity of \eqref{eq:energyest775} for the rest of this appendix.
+	\begin{proof}[Proof for the validity of \eqref{eq:energyest775}]
+		Note that $H\in C^1(\mathbb{R}^n \setminus \{0\})$ satisfies a weak formulation of \eqref{eq:headpre2}:
+		\begin{align}
+			\label{weak_for}
+			\int_{\mathbb{R}^n} \nabla\, H \cdot \nabla \phi\, dx
+			=
+			\int_{\mathbb{R}^n}
+			\left(
+			-\Bu \cdot \nabla H - \frac12 |\partial_i u_j - \partial_j u_i|^2 + \Bf \cdot \Bu - \div \Bf 
+			\right) \, \phi \, dx
+		\end{align}
+		for all $\phi\in H^1_0(\mathbb{R}^n\setminus \{0\})$.
+		Let $\xi\in C_c^\infty (0,\infty)$.
+		Substituting $\phi(x)= H_+^{\alpha}(x) \, \xi(r) \in H^1_0(\mathbb{R}^n\setminus \{0\}), \alpha=\frac{n-4}{2}$ in \eqref{weak_for} yields
+		\begin{align}
+			\label{eq1808}
+			\int_{\mathbb{R}^n} 
+			\nabla H_+ \cdot \nabla (H^\alpha_+ )\, \xi \, dx
+			=
+			\int_{\mathbb{R}^n} 
+			\left(-\Bu \cdot \nabla H -\frac{1}{2} |\partial_i u_j - \partial_j u_i |^2 +\Bf\cdot \Bu -\div \Bf 
+			\right)
+			\, H_+^\alpha \, \xi \, dx.
+		\end{align}
+		Here we have used that for $h(x):=H^\alpha_+\, \partial_r \, H_+  $, which is $(1-n)$-homogeneous, one can get
+		\begin{align*}
+			\int_{\mathbb{R}^n}
+			\nabla H_+ \cdot H_+^\alpha \, \nabla \xi \, dx
+			&=
+			\int_{\mathbb{R}^n} 
+			h(x) \, \partial_r  \xi(r) \, dx
+			\\
+			&=
+			\int_0^\infty \int _{S^{n-1}} h(x) \, r^{n-1} \, \partial_r \xi (r) \, d\sigma \, dr
+			\\
+			&=
+			\int_0^\infty \int _{S^{n-1}} h\left( \frac{x}{|x|} \right) \, \partial_r \xi (r) \, d\sigma \, dr
+			\\
+			&=\int_0^\infty \partial_r \xi (r) \, dr
+			\int _{S^{n-1}} h\left( \frac{x}{|x|} \right) \, d\sigma=0.
+		\end{align*}
+		
+		Lastly, one can choose a sequence $\{\xi_k(r)\}_{k=1}^\infty$ of test functions in the interval $(0,\infty)$ such that $\xi_k(r) \to \chi_{B_R \setminus B_1}(x)$ in $L^1$ as $k\to\infty$. Then using $\xi_k$ in \eqref{eq1808} and sending $k\to\infty$  proves \eqref{eq:energyest775}.
+	\end{proof}   
+	
+	
+	
+	
+	
+	
+	
+	{\bf Acknowledgement.}
+	The research of Gui is supported by University of Macau research grants   CPG2023-00037-FST, CPG2024-00016-FST, SRG2023-00011-FST,  MYRG-GRG2023-00139-FST-UMDF,  UMDF Professorial Fellowship of Mathematics, and Macao SAR FDCT 0003/2023/RIA1 and 0024/2023/RIB1.  The research of Wang is partially supported by NSFC grants 12171349 and the Natural Science Foundation of Jiangsu Province (Grant No. BK20240147). The research of  Xie is partially supported by  NSFC grants 12250710674, 12571238, and 12426203,  and Program of Shanghai Academic Research Leader 22XD1421400. 
+	%	
+	%	\begin{thebibliography}{10}
+		%		
+		%		\bibitem{CKN}
+		%		Luis Caffarelli, Robert Kohn, and Louis Nirenberg.
+		%		\newblock Partial regularity of suitable weak solutions of the Navier-Stokes equations. \newblock{\em 
+			%			Comm. Pure Appl. Math.}, 35: 771--831, 1982.
+		%		
+		%		\bibitem{FrehseRuzicka94}
+		%		Jens Frehse and Michael R{\r u}\v{z}i\v{c}ka.
+		%		\newblock Regularity for the steady {N}avier-{S}tokes equations in bounded
+		%		domains.
+		%		\newblock {\em Arch. Rational Mech. Anal.}, 128(4):361--380, 1994.
+		%		
+		%		\bibitem{FrehseRuzicka96}
+		%		Jens Frehse and Michael R{\r u}\v{z}i\v{c}ka.
+		%		\newblock Existence of regular solutions to the steady {N}avier-{S}tokes
+		%		equations in bounded six-dimensional domains.
+		%		\newblock {\em Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4)}, 23(4):701--719
+		%		(1997), 1996.
+		%		
+		%		\bibitem{FrehseRuzicka98}
+		%		Jens Frehse and Michael R{\r u}{\v{z}}i{\v{c}}ka.
+		%		\newblock A new regularity criterion for steady {N}avier-{S}tokes equations.
+		%		\newblock {\em Differential Integral Equations}, 11(2):361--368, 1998.
+		%		
+		%		\bibitem{Galdi11}
+		%		Giovanni~P. Galdi.
+		%		\newblock {\em An introduction to the mathematical theory of the
+			%			{N}avier-{S}tokes equations}.
+		%		\newblock Springer Monographs in Mathematics. Springer, New York, second
+		%		edition, 2011.
+		%		
+		%		
+		%		
+		%		\bibitem{GuillodWittwer15SIMA}
+		%		Julien Guillod and Peter Wittwer.
+		%		\newblock {Generalized scale-invariant solutions to the two-dimensional steady Navier-Stokes equations}.
+		%		\newblock{\em SIAM J. Math. Anal.}, 47:  955--968, 2015.
+		%		
+		%		\bibitem{GuillodWittwer15}
+		%		Julien Guillod and Peter Wittwer.
+		%		\newblock Asymptotic behaviour of solutions to the steady {N}avier-{S}tokes
+		%		equations in two-dimensional exterior domains with zero velocity at infinity.
+		%		\newblock {\em Math. Models Methods Appl. Sci.}, 25(2):229--253, 2015.
+		%		
+		%		\bibitem{JiaSverak17}
+		%		Hao Jia and Vladim{\'{\i}}r {\v{S}}ver{\'{a}}k.
+		%		\newblock Asymptotics of steady {N}avier-{S}tokes equations in higher
+		%		dimensions.
+		%		\newblock {\em Acta Mathematica Sinica, English Series}, 34(4):598--611,
+		%		2017.
+		%		
+		%		\bibitem{KimKozono06}
+		%		Hyunseok Kim and Hideo Kozono.
+		%		\newblock A removable isolated singularity theorem for the steady
+		%		{N}avier-{S}tokes equations.
+		%		\newblock {\em J. Differential Equations}, 220(1):68--84, 2006.
+		%		
+		%		\bibitem{KPR20JMFM}
+		%		Mikhail~V. Korobkov, Konstantin Pileckas, and Remigio Russo.
+		%		\newblock A simple proof of regularity of steady-state distributional solutions
+		%		to the {N}avier-{S}tokes equations.
+		%		\newblock {\em J. Math. Fluid Mech.}, 22(4):Paper No. 55, 8, 2020.
+		%		
+		%		\bibitem{KorolevSverak11}
+		%		Alexander Korolev and Vladim\'{\i}r \v{S}ver\'{a}k.
+		%		\newblock On the large-distance asymptotics of steady state solutions of the
+		%		{N}avier-{S}tokes equations in 3{D} exterior domains.
+		%		\newblock {\em Ann. Inst. H. Poincar\'{e} C Anal. Non Lin\'{e}aire},
+		%		28(2):303--313, 2011.
+		%		
+		%		\bibitem{Landau}
+		%		L.~D. Landau and E.~M. Lifshitz.
+		%		\newblock {\em Fluid mechanics}.
+		%		\newblock Pergamon Press, Oxford, second edition, 1987.
+		%		
+		%		
+		%		\bibitem{LiYang22}
+		%		YanYan Li and Zhuolun Yang.
+		%		\newblock Regular solutions of the steady {N}avier-{S}tokes equations on
+		%		high dimensional {E}uclidean space.
+		%		\newblock {\em Comm. Math. Phys.}, 394(2):711--734, 2022.
+		%		
+		%		\bibitem{Lin}
+		%		Fanghua Lin. \newblock A new proof of the Caffarelli-Kohn-Nirenberg theorem.
+		%		\newblock{\em 
+			%			Comm. Pure Appl. Math.}, 51: 241--257, 1998.
+		%		
+		%		\bibitem{MiuraTsai12}
+		%		Hideyuki Miura and Tai-Peng Tsai.
+		%		\newblock Point singularities of 3{D} steady {N}avier-{S}tokes flows.
+		%		\newblock {\em J. Math. Fluid Mech.}, 14(1):33--41, 2012.
+		%		
+		%		\bibitem{PileckasRusso17}
+		%		Konstantin Pileckas and Remigio Russo. 
+		%		\newblock Asymptotics of solutions with vanishing at infinity velocity of the steady-state {N}avier-{S}tokes equations in the dimension four.
+		%		\newblock {\em J. Math. Fluid Mech.}, 19(4):725--737, 2017.
+		%		
+		%		
+		%		\bibitem{Shi18}
+		%		Zuoshunhua Shi.
+		%		\newblock Self-similar solutions of steady {N}avier-{S}tokes equations.
+		%		\newblock {\em J. Differential Equations}, 264(3):1550--1580, 2018.
+		%		
+		%		\bibitem{Struwe95}
+		%		Michael Struwe.
+		%		\newblock Regular solutions of the steady {N}avier-{S}tokes equations on
+		%		{$\bold R^5$}.
+		%		\newblock {\em Math. Ann.}, 302(4):719--741, 1995.
+		%		
+		%		
+		%		\bibitem{Sverak11}
+		%		Vladim\'{\i}r \v{S}ver\'{a}k.
+		%		\newblock On {L}andau's solutions of the {N}avier-{S}tokes equations.
+		%		\newblock volume 179, pages 208--228. 2011.
+		%		\newblock Problems in mathematical analysis. No. 61.
+		%		
+		%		\bibitem{SverakTsai00}
+		%		Vladim\'{\i}r \v{S}ver\'{a}k and Tai-Peng Tsai.
+		%		\newblock On the spatial decay of 3-{D} steady-state {N}avier-{S}tokes flows.
+		%		\newblock {\em Comm. Partial Differential Equations}, 25(11-12):2107--2117,
+		%		2000.
+		%		
+		%		\bibitem{Tian98}
+		%		Gang Tian and Zhouping Xin.
+		%		\newblock One-point singular solutions to the {N}avier-{S}tokes equations.
+		%		\newblock {\em Topol. Methods Nonlinear Anal.}, 11(1):135--145, 1998.
+		%		
+		%		\bibitem{TianXin99}
+		%		Gang Tian and Zhouping Xin.
+		%		\newblock Gradient estimation on {N}avier-{S}tokes equations.
+		%		\newblock {\em Comm. Anal. Geom.}, 7(2):221--257, 1999.
+		%		
+		%		\bibitem{Tsai98b}
+		%		Tai-Peng Tsai.
+		%		\newblock {\em On problems arising in the regularity theory for the
+			%			{N}avier-{S}tokes equations}.
+		%		\newblock ProQuest LLC, Ann Arbor, MI, 1998.
+		%		\newblock Thesis (Ph.D.)--University of Minnesota.
+		%		
+		%		\bibitem{Tsai18}
+		%		Tai-Peng Tsai.
+		%		\newblock {\em Lectures on {N}avier-{S}tokes equations}, volume 192 of {\em
+			%			Graduate Studies in Mathematics}.
+		%		\newblock American Mathematical Society, Providence, RI, 2018.
+		%		
+		%		
+		%	\end{thebibliography}
+\begin{thebibliography}{10}
+	
+	\bibitem{Amick}
+	C.~J. Amick and L.~E. Fraenkel.
+	\newblock Steady solutions of the {N}avier-{S}tokes equations representing
+	plane flow in channels of various types.
+	\newblock {\em Acta Math.}, 144(1-2):83--151, 1980.
+	
+	\bibitem{Aubin76}
+	T.~Aubin.
+	\newblock Probl\`emes isop\'erim\'etriques et espaces de {S}obolev.
+	\newblock {\em J. Differential Geometry}, 11(4):573--598, 1976.
+	
+	\bibitem{bang2023rigidity}
+	J.~Bang, C.~Gui, H.~Liu, Y.~Wang, and C.~Xie.
+	\newblock Rigidity of steady solutions to the {N}avier-{S}tokes equations in
+	high dimensions and its applications.
+	\newblock {\em To appear in J. Eur. Math. Soc., arXiv:2306.05184}, 2023.
+	
+	\bibitem{EvansG}
+	L.~C. Evans and R.~F. Gariepy.
+	\newblock {\em Measure theory and fine properties of functions}.
+	\newblock Textbooks in Mathematics. CRC Press, Boca Raton, FL, revised edition,
+	2015.
+	
+	\bibitem{FrehseRuzicka94}
+	J.~Frehse and M.~R{\r u}\v{z}i\v{c}ka.
+	\newblock Regularity for the stationary {N}avier-{S}tokes equations in bounded
+	domains.
+	\newblock {\em Arch. Ration. Mech. Anal.}, 128(4):361--380, 1994.
+	
+	\bibitem{FrehseRuzicka96}
+	J.~Frehse and M.~R{\r u}\v{z}i\v{c}ka.
+	\newblock Existence of regular solutions to the steady {N}avier-{S}tokes
+	equations in bounded six-dimensional domains.
+	\newblock {\em Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4)}, 23(4):701--719, 1996.
+	
+	\bibitem{Frehse94}
+	J.~Frehse and M.~R{\r u}{\v{z}}i{\v{c}}ka.
+	\newblock On the regularity of the stationary {N}avier-{S}tokes equations.
+	\newblock {\em Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4)}, 21(1):63--95, 1994.
+	
+	\bibitem{Galdi11}
+	G.~P. Galdi.
+	\newblock {\em An introduction to the mathematical theory of the
+		{N}avier-{S}tokes equations}.
+	\newblock Springer Monographs in Mathematics. Springer, New York, second
+	edition, 2011.
+	
+	\bibitem{Gerhardt79}
+	C.~Gerhardt.
+	\newblock Stationary solutions to the {N}avier-{S}tokes equations in dimension
+	four.
+	\newblock {\em Math. Z.}, 165(2):193--197, 1979.
+	
+	\bibitem{GilbargTrudinger}
+	D.~Gilbarg and N.~S. Trudinger.
+	\newblock {\em Elliptic partial differential equations of second order}, volume
+	Vol. 224 of {\em Grundlehren der Mathematischen Wissenschaften}.
+	\newblock Springer-Verlag, Berlin-New York, 1977.
+	
+	\bibitem{GilbargWeinberger78}
+	D.~Gilbarg and H.~F. Weinberger.
+	\newblock Asymptotic properties of steady plane solutions of the
+	{N}avier-{S}tokes equations with bounded {D}irichlet integral.
+	\newblock {\em Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4)}, 5(2):381--404, 1978.
+	
+	\bibitem{jia1409}
+	H.~Jia.
+	\newblock Uniqueness of solutions to {N}avier {S}tokes equation with small
+	initial data in {$L^{3,\infty}$}.
+	\newblock {\em arXiv preprint}, arXiv:1409.8382, 2014.
+	
+	\bibitem{Jia14}
+	H.~Jia and V.~\v{S}ver\'{a}k.
+	\newblock Local-in-space estimates near initial time for weak solutions of the
+	{N}avier-{S}tokes equations and forward self-similar solutions.
+	\newblock {\em Invent. Math.}, 196(1):233--265, 2014.
+	
+	\bibitem{Kaneko19}
+	K.~Kaneko, H.~Kozono, and S.~Shimizu.
+	\newblock Stationary solution to the {N}avier-{S}tokes equations in the scaling
+	invariant {B}esov space and its regularity.
+	\newblock {\em Indiana Univ. Math. J.}, 68(3):857--880, 2019.
+	
+	\bibitem{Kozono95}
+	H.~Kozono and M.~Yamazaki.
+	\newblock The stability of small stationary solutions in {M}orrey spaces of the
+	{N}avier-{S}tokes equation.
+	\newblock {\em Indiana Univ. Math. J.}, 44(4):1307--1336, 1995.
+	
+	\bibitem{leray1933etude}
+	J.~Leray.
+	\newblock {\'E}tude de diverses {\'e}quations int{\'e}grales non lin{\'e}aires
+	et de quelques probl{\`e}mes que pose l'hydrodynamique.
+	\newblock {\em J. Math. Pures Appl.}, 12:1--82, 1933.
+	
+	\bibitem{LiYang22}
+	Y.~Li and Z.~Yang.
+	\newblock Regular solutions of the stationary {N}avier-{S}tokes equations on
+	high dimensional {E}uclidean space.
+	\newblock {\em Comm. Math. Phys.}, 394(2):711--734, 2022.
+	
+	\bibitem{Phan13}
+	T.~V. Phan and N.~C. Phuc.
+	\newblock Stationary {N}avier-{S}tokes equations with critically singular
+	external forces: existence and stability results.
+	\newblock {\em Adv. Math.}, 241:137--161, 2013.
+	
+	\bibitem{Serrin}
+	J.~Serrin.
+	\newblock {\em Mathematical principles of classical fluid mechanics}, volume
+	Bd. 8/1, Str\"omungsmecha of {\em Handbuch der Physik [Encyclopedia of
+		Physics]}.
+	\newblock Springer-Verlag, Berlin-G\"ottingen-Heidelberg, 1959.
+	
+	\bibitem{Shi18}
+	Z.~Shi.
+	\newblock Self-similar solutions of stationary {N}avier-{S}tokes equations.
+	\newblock {\em J. Differential Equations}, 264(3):1550--1580, 2018.
+	
+	\bibitem{Stein93}
+	E.~M. Stein.
+	\newblock {\em Harmonic analysis: real-variable methods, orthogonality, and
+		oscillatory integrals}, volume~43 of {\em Princeton Mathematical Series}.
+	\newblock Princeton University Press, Princeton, NJ, 1993.
+	
+	\bibitem{Struwe95}
+	M.~Struwe.
+	\newblock Regular solutions of the stationary {N}avier-{S}tokes equations on
+	{$\bold R^5$}.
+	\newblock {\em Math. Ann.}, 302(4):719--741, 1995.
+	
+	\bibitem{Sverak11}
+	V.~{\v{S}}ver\'{a}k.
+	\newblock On {L}andau's solutions of the {N}avier-{S}tokes equations.
+	\newblock {\em J. Math. Sci. (N.Y.)}, 179(1):208--228, 2011.
+	
+	\bibitem{Tsai98}
+	T.-P. Tsai.
+	\newblock On {L}eray's self-similar solutions of the {N}avier-{S}tokes
+	equations satisfying local energy estimates.
+	\newblock {\em Arch. Ration. Mech. Anal.}, 143(1):29--51, 1998.
+	
+	\bibitem{Tsai18}
+	T.-P. Tsai.
+	\newblock {\em Lectures on {N}avier-{S}tokes equations}, volume 192 of {\em
+		Graduate Studies in Mathematics}.
+	\newblock American Mathematical Society, Providence, RI, 2018.
+	
+	\bibitem{Tsurumi19}
+	H.~Tsurumi.
+	\newblock Well-posedness and ill-posedness problems of the stationary
+	{N}avier-{S}tokes equations in scaling invariant {B}esov spaces.
+	\newblock {\em Arch. Ration. Mech. Anal.}, 234(2):911--923, 2019.
+	
+\end{thebibliography}
+
+\end{document}
